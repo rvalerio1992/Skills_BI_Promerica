@@ -1,0 +1,27 @@
+{
+  // Extensiones recomendadas para el equipo de BI - Banco Promerica
+  "recommendations": [
+
+    // --- Agentes IA ---
+    "github.copilot-chat",                   // GitHub Copilot (extensión unificada)
+    "openai.chatgpt",                        // Codex – OpenAI
+
+    // --- Power BI / Fabric ---
+    "GerhardBrueckl.powerbi-vscode",         // Power BI Studio (REST API tenant mgmt)
+    "analysis-services.TMDL",                // Syntax highlighting para TMDL
+    "ms-vscode.powerquery-sdk",              // Power Query M
+
+    // --- JSON / Schema ---
+    "redhat.vscode-yaml",                    // YAML (frontmatter de skills)
+    "ZainChen.json",                         // JSON con mejor highlighting
+
+    // --- Git & Colaboración ---
+    "eamodio.gitlens",                       // GitLens
+    "mhutchie.git-graph",                    // Grafo visual de ramas
+
+    // --- Utilidades ---
+    "streetsidesoftware.code-spell-checker", // Corrector ortográfico
+    "christian-kohler.path-intellisense",    // Autocompletado de rutas
+    "yzhang.markdown-all-in-one"             // Edición de SKILL.md y README
+  ]
+}
