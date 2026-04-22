@@ -44,12 +44,21 @@ Todos los agentes deben operar en uno de dos modos:
 5. **Outputs reproducibles:** mismos inputs → mismos outputs.
 6. **Validaciones idempotentes:** correr la auditoría 10 veces da el mismo resultado.
 
+## Ubicación del proyecto Power BI
+
+📁 **El proyecto PBIP siempre vive en `powerbi-project/`** en la raíz del repo.
+
+Todos los agentes buscan archivos `.tmdl`, `.pbip` y JSON de PBIR en esa carpeta por defecto.
+Si el usuario no especifica ruta, asumí `powerbi-project/`.
+
+Si la carpeta está vacía, pedile al usuario que copie el proyecto ahí antes de ejecutar cualquier análisis.
+
 ## Estructura de outputs (cuando apliquen)
 
 ```
 outputs/
-├── audit/         ← Reportes de auditoría (.md + .json)
-├── ccu/           ← Catálogo de fuentes (CSV + JSON + MD)
+├── audit/            ← Reportes de auditoría semántica (.md + .json)
+├── ccu/              ← Catálogo de fuentes / lineage (CSV + JSON + MD)
 └── recommendations/  ← Propuestas de visualizaciones
 ```
 

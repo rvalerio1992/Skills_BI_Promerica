@@ -1,0 +1,33 @@
+# ── Power BI caches y datos ──────────────────────────────────
+*.cache
+*.pbix
+powerbi-project/**/cache.abf
+powerbi-project/**/CacheStorage/
+powerbi-project/**/.pbi/
+powerbi-project/**/data/
+
+# ── Outputs generados (opcional — quitar si querés versionarlos) ─
+# outputs/
+
+# ── VS Code (permitir solo settings y extensions compartidos) ─
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# ── Python ────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# ── SO ────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Credenciales (NUNCA commitear) ────────────────────────────
+.env.local
+*.key
+*.pem
+credentials.json

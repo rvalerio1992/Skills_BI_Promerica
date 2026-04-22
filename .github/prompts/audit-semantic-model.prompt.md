@@ -9,7 +9,8 @@ Realizá una auditoría completa del modelo semántico del proyecto PBIP actual.
 
 ## Pasos
 
-1. Identificá todos los archivos `.tmdl` en `Modelo.SemanticModel/definition/tables/`
+1. Verificá que haya un proyecto en `powerbi-project/`. Si está vacío, detené y avisá al usuario.
+2. Identificá todos los archivos `.tmdl` en `powerbi-project/**/SemanticModel/definition/tables/`
 2. Para cada tabla, revisá:
    - Naming conventions (`FACT_`, `DIM_`, etc.)
    - `description` presente y útil

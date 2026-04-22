@@ -8,9 +8,10 @@ Enfocado en **PBIP + TMDL + DAX + Microsoft Fabric**.
 Este repo contiene:
 - **Instructions** — reglas que los agentes de IA siguen automáticamente
 - **Prompts** — workflows one-shot que invocás con `/`
-- **Agents** — roles especializados (auditor, reviewer)
+- **Agents** — roles especializados (auditor, reviewer, lineage)
 - **Skills** — capacidades reutilizables
-- **VS Code config** — settings y extensiones recomendadas
+- **powerbi-project/** — carpeta donde colocás tu `.pbip` a analizar
+- **outputs/** — reportes generados por los agentes
 
 ---
 
@@ -18,12 +19,18 @@ Este repo contiene:
 
 ```bash
 git clone https://github.com/rvalerio1992/Skills_BI_Promerica.git
-code Skills_BI_Promerica
+cd Skills_BI_Promerica
+
+# Copiá tu proyecto Power BI aquí:
+cp -r /ruta/a/MiReporte.pbip powerbi-project/
+cp -r /ruta/a/MiReporte.SemanticModel/ powerbi-project/
+cp -r /ruta/a/MiReporte.Report/ powerbi-project/
+
+code .
 ```
 
-Al abrir, VS Code preguntará si instalar las extensiones recomendadas → **Sí**.
-
-Las skills quedan disponibles automáticamente en el chat de Copilot.
+Al abrir en VS Code, instalá las extensiones recomendadas cuando te pregunte.
+Las skills y agents quedan disponibles automáticamente en el chat de Copilot.
 
 ---
 
@@ -38,20 +45,31 @@ Las skills quedan disponibles automáticamente en el chat de Copilot.
 │   └── pbir.instructions.md                 ← Reglas PBIR (reportes)
 ├── prompts/
 │   ├── audit-semantic-model.prompt.md       ← /audit-semantic-model
+│   ├── audit-sources.prompt.md              ← /audit-sources
 │   ├── generate-measure.prompt.md           ← /generate-measure
 │   └── review-tmdl.prompt.md                ← /review-tmdl
 ├── agents/
-│   ├── semantic-model-auditor.agent.md      ← Auditor (read-only)
-│   └── dax-reviewer.agent.md                ← Reviewer (read-write + confirm)
+│   ├── semantic-model-auditor.agent.md      ← Auditor modelo (read-only)
+│   ├── source-lineage-auditor.agent.md      ← Auditor fuentes (read-only) ⭐ NEW
+│   └── dax-reviewer.agent.md                ← Reviewer DAX (read-write)
 └── skills/
     ├── dax-patterns/                        ← Patrones DAX seguros
     ├── tmdl-authoring/                      ← Autoría de TMDL
     ├── pbir-format/                         ← Esquema PBIR
-    └── naming-conventions/                  ← Estándares institucionales
+    ├── naming-conventions/                  ← Estándares institucionales
+    └── m-query-parser/                      ← Parser de Power Query ⭐ NEW
+
+powerbi-project/                             ← ⭐ Acá va el PBIP a analizar
+└── README.md
+
+outputs/                                     ← Reportes generados
+├── audit/
+├── ccu/
+└── recommendations/
 
 .vscode/
-├── settings.json                            ← Config VS Code
-└── extensions.json                          ← Extensiones recomendadas
+├── settings.json
+└── extensions.json
 
 README.md
 ```
@@ -60,41 +78,77 @@ README.md
 
 ## 🎯 Casos de uso principales
 
-### Auditar un modelo semántico
+### 1. Auditar fuentes de datos (lineage completo) ⭐
 
-1. Abrí el chat de Copilot (`Ctrl+Alt+I`)
-2. Seleccioná el agente **Semantic Model Auditor**
-3. Escribí: *"Auditá el modelo en `Ventas.SemanticModel/`"*
+```
+Usuario en chat: /audit-sources
+```
 
-El agente genera `outputs/audit/semantic_model_audit.md` con hallazgos priorizados.
+Genera un inventario CCU con estas columnas:
 
-### Generar una medida DAX
+| Nombre Reporte | Nombre Tabla | Tipo Tabla | Modo | Fuente | Clasificación | Servidor | Base de Datos | Esquema | Tabla | Query SQL |
+|---|---|---|---|---|---|---|---|---|---|---|
+| HERAUT65 | 03 PA_MONEDA | desconocido | Import | sql_database | 🟠 NONGOLD | ms-sqldwh-01 | STAGE_TCG | PA | MONEDA | SELECT ... |
+| HERAUT65 | 01 DC_SM_EVENTOS | desconocido | Import | csv_document | 🔵 LOCAL | Archivo Plano | Archivo Plano | Archivo Plano | //ms-files-01/... | — |
 
-1. En el chat, escribí `/generate-measure`
-2. El prompt te preguntará nombre, categoría, contexto de negocio, etc.
-3. Recibís el bloque TMDL completo listo para pegar
+Outputs:
+- `outputs/ccu/source_inventory.csv`
+- `outputs/ccu/source_inventory.json`
+- `outputs/ccu/source_inventory.md`
 
-### Refactor de medidas con problemas
+### 2. Auditar modelo semántico
 
-1. Seleccioná el agente **DAX Reviewer**
-2. Pasale el archivo TMDL con problemas
-3. Va a proponer cada cambio y esperar tu confirmación antes de aplicarlo
+```
+Chat → agente "Semantic Model Auditor" → "Auditá el modelo"
+```
+
+Revisa DAX, naming, relaciones, format strings.
+
+### 3. Generar medida DAX estándar
+
+```
+Usuario en chat: /generate-measure
+```
+
+El prompt te guía con preguntas y entrega el bloque TMDL listo.
+
+### 4. Refactor de medidas DAX con confirmación
+
+```
+Chat → agente "DAX Reviewer" → pasale un TMDL con problemas
+```
+
+Propone cada cambio → espera tu OK → aplica solo lo aprobado.
+
+---
+
+## 🏷️ Clasificación Medallion
+
+El Source Lineage Auditor clasifica cada tabla según su origen:
+
+| Clasificación | Criterio |
+|---|---|
+| 🟡 **GOLD** | Servidor/esquema con `gold`, `mart`, `dwh-gold` o ruta `/Gold/` |
+| 🟠 **NONGOLD** | SQL/Synapse/Lakehouse que NO es Gold (incluye Bronze/Silver/Stage) |
+| 🔵 **LOCAL** | CSV, Excel, SharePoint, archivos de red |
+| ⚪ **Calculada** | Tablas creadas con `Table.FromRows` o expresiones DAX puras |
+| ❓ **Desconocido** | No pudo clasificarse automáticamente |
 
 ---
 
 ## 🗺️ Roadmap
 
 ### ✅ Fase 1 — MVP (actual)
-- 2 agentes: auditor + reviewer
-- 3 prompts operativos
-- 4 skills core
+- 3 agentes: semantic-model-auditor, source-lineage-auditor, dax-reviewer
+- 4 prompts operativos
+- 5 skills core
 - 3 archivos de instructions
+- Carpeta `powerbi-project/` como ubicación estándar
 
 ### 🔜 Fase 2 — Expansión (próximos 3 meses)
-- Agente **Source Lineage Auditor** — audita fuentes (SQL, Power Query)
 - Agente **PBIR Report Orchestrator** — batch edits sobre reportes
 - Skill **bpa-rules** — Best Practice Analyzer rules
-- Skill **fabric-git-sync** — patrones para sync con Fabric Workspace
+- Skill **sql-optimizer** — revisar queries extraídas por source-lineage-auditor
 
 ### 🔮 Fase 3 — Avanzado (2026)
 - Agente **Visual Recommender** — propone visualizaciones y genera Deneb/Vega-Lite specs
@@ -132,17 +186,8 @@ Todos los agentes operan bajo estas reglas:
 - [Power BI Project (PBIP) format](https://learn.microsoft.com/power-bi/developer/projects/projects-overview)
 - [TMDL documentation](https://learn.microsoft.com/analysis-services/tmdl/tmdl-overview)
 - [DAX Patterns by SQLBI](https://www.daxpatterns.com/)
-- [data-goblin/power-bi-agentic-development](https://github.com/data-goblin/power-bi-agentic-development) — fuente de inspiración para skills
+- [data-goblin/power-bi-agentic-development](https://github.com/data-goblin/power-bi-agentic-development)
 - [VS Code Agent Skills docs](https://code.visualstudio.com/docs/copilot/customization/agent-skills)
-
----
-
-## 🤝 Cómo contribuir
-
-1. Crear una rama: `feature/nombre-skill`
-2. Agregar la skill en `.github/skills/<nombre>/SKILL.md`
-3. Probar localmente (el `/skill-name` debe aparecer en el chat)
-4. Pull request con descripción del caso de uso
 
 ---
 
