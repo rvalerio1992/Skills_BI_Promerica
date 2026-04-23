@@ -1,0 +1,203 @@
+{
+  "audit_date": "2026-04-23",
+  "project": "RPAUT084",
+  "context_source": "outputs/context/RPAUT084_context.json",
+  "score": 60,
+  "summary": {
+    "tables_with_m": 12,
+    "total_findings": 18,
+    "by_severity": {
+      "mejora": 11,
+      "observación": 7
+    },
+    "by_rule": {
+      "M-EXCESSIVE-STEPS": 3,
+      "M-NO-DATA-STEWARD": 3,
+      "M-STEP-DEFAULT-ES": 8,
+      "M-TYPE-IN-SQL": 2,
+      "M-NO-COMMENTS": 2
+    }
+  },
+  "findings": [
+    {
+      "id": "MC-001",
+      "severity": "mejora",
+      "location": "tables/DimCalendario.tmdl",
+      "rule": "M-EXCESSIVE-STEPS",
+      "table": "DimCalendario",
+      "description": "Expresión M con 18 steps en un solo let",
+      "recommendation": "Considerar refactorizar con sub-lets o funciones auxiliares para mejorar legibilidad",
+      "code_snippet": ""
+    },
+    {
+      "id": "MC-002",
+      "severity": "observación",
+      "location": "tables/DimCalendario.tmdl",
+      "rule": "M-NO-DATA-STEWARD",
+      "table": "DimCalendario",
+      "description": "Expresión M sin anotación `// Data Steward:` (convención Promerica)",
+      "recommendation": "Agregar al inicio del `let`: `// Data Steward: <nombre>`",
+      "code_snippet": ""
+    },
+    {
+      "id": "MC-001",
+      "severity": "mejora",
+      "location": "tables/DimMetas.tmdl",
+      "rule": "M-STEP-DEFAULT-ES",
+      "table": "DimMetas",
+      "description": "Step `#\"Tipo cambiado\"` tiene nombre default generado por Power BI Desktop (español)",
+      "recommendation": "Renombrar a algo descriptivo que indique el propósito del paso",
+      "code_snippet": "#\"Tipo cambiado\" = ..."
+    },
+    {
+      "id": "MC-002",
+      "severity": "mejora",
+      "location": "tables/DimMetas.tmdl",
+      "rule": "M-EXCESSIVE-STEPS",
+      "table": "DimMetas",
+      "description": "Expresión M con 34 steps en un solo let",
+      "recommendation": "Considerar refactorizar con sub-lets o funciones auxiliares para mejorar legibilidad",
+      "code_snippet": ""
+    },
+    {
+      "id": "MC-003",
+      "severity": "observación",
+      "location": "tables/DimMetas.tmdl",
+      "rule": "M-NO-DATA-STEWARD",
+      "table": "DimMetas",
+      "description": "Expresión M sin anotación `// Data Steward:` (convención Promerica)",
+      "recommendation": "Agregar al inicio del `let`: `// Data Steward: <nombre>`",
+      "code_snippet": ""
+    },
+    {
+      "id": "MC-001",
+      "severity": "mejora",
+      "location": "tables/DimProducto.tmdl",
+      "rule": "M-STEP-DEFAULT-ES",
+      "table": "DimProducto",
+      "description": "Step `#\"Tipo cambiado\"` tiene nombre default generado por Power BI Desktop (español)",
+      "recommendation": "Renombrar a algo descriptivo que indique el propósito del paso",
+      "code_snippet": "#\"Tipo cambiado\" = ..."
+    },
+    {
+      "id": "MC-002",
+      "severity": "observación",
+      "location": "tables/DimProducto.tmdl",
+      "rule": "M-TYPE-IN-SQL",
+      "table": "DimProducto",
+      "description": "Conversión de tipos (Table.TransformColumnTypes) después de Sql.Database",
+      "recommendation": "Preferir conversión de tipos en el SQL origen (CAST/CONVERT) para mejor query folding",
+      "code_snippet": ""
+    },
+    {
+      "id": "MC-001",
+      "severity": "mejora",
+      "location": "tables/DimPromotor.tmdl",
+      "rule": "M-STEP-DEFAULT-ES",
+      "table": "DimPromotor",
+      "description": "Step `#\"Texto recortado\"` tiene nombre default generado por Power BI Desktop (español)",
+      "recommendation": "Renombrar a algo descriptivo que indique el propósito del paso",
+      "code_snippet": "#\"Texto recortado\" = ..."
+    },
+    {
+      "id": "MC-002",
+      "severity": "mejora",
+      "location": "tables/DimPromotor.tmdl",
+      "rule": "M-STEP-DEFAULT-ES",
+      "table": "DimPromotor",
+      "description": "Step `#\"Duplicados quitados\"` tiene nombre default generado por Power BI Desktop (español)",
+      "recommendation": "Renombrar a algo descriptivo que indique el propósito del paso",
+      "code_snippet": "#\"Duplicados quitados\" = ..."
+    },
+    {
+      "id": "MC-003",
+      "severity": "mejora",
+      "location": "tables/DimPromotor.tmdl",
+      "rule": "M-STEP-DEFAULT-ES",
+      "table": "DimPromotor",
+      "description": "Step `#\"Valor reemplazado\"` tiene nombre default generado por Power BI Desktop (español)",
+      "recommendation": "Renombrar a algo descriptivo que indique el propósito del paso",
+      "code_snippet": "#\"Valor reemplazado\" = ..."
+    },
+    {
+      "id": "MC-001",
+      "severity": "mejora",
+      "location": "tables/DimTipoProducto.tmdl",
+      "rule": "M-EXCESSIVE-STEPS",
+      "table": "DimTipoProducto",
+      "description": "Expresión M con 22 steps en un solo let",
+      "recommendation": "Considerar refactorizar con sub-lets o funciones auxiliares para mejorar legibilidad",
+      "code_snippet": ""
+    },
+    {
+      "id": "MC-002",
+      "severity": "observación",
+      "location": "tables/DimTipoProducto.tmdl",
+      "rule": "M-NO-COMMENTS",
+      "table": "DimTipoProducto",
+      "description": "Expresión M con 22 steps y solo 1 comentarios",
+      "recommendation": "Agregar `//` antes de cada sección clave para explicar el propósito",
+      "code_snippet": ""
+    },
+    {
+      "id": "MC-001",
+      "severity": "mejora",
+      "location": "tables/FctProductos.tmdl",
+      "rule": "M-STEP-DEFAULT-ES",
+      "table": "FctProductos",
+      "description": "Step `#\"Tipo cambiado\"` tiene nombre default generado por Power BI Desktop (español)",
+      "recommendation": "Renombrar a algo descriptivo que indique el propósito del paso",
+      "code_snippet": "#\"Tipo cambiado\" = ..."
+    },
+    {
+      "id": "MC-002",
+      "severity": "mejora",
+      "location": "tables/FctProductos.tmdl",
+      "rule": "M-STEP-DEFAULT-ES",
+      "table": "FctProductos",
+      "description": "Step `#\"Texto recortado\"` tiene nombre default generado por Power BI Desktop (español)",
+      "recommendation": "Renombrar a algo descriptivo que indique el propósito del paso",
+      "code_snippet": "#\"Texto recortado\" = ..."
+    },
+    {
+      "id": "MC-003",
+      "severity": "mejora",
+      "location": "tables/FctProductos.tmdl",
+      "rule": "M-STEP-DEFAULT-ES",
+      "table": "FctProductos",
+      "description": "Step `#\"Valor reemplazado\"` tiene nombre default generado por Power BI Desktop (español)",
+      "recommendation": "Renombrar a algo descriptivo que indique el propósito del paso",
+      "code_snippet": "#\"Valor reemplazado\" = ..."
+    },
+    {
+      "id": "MC-004",
+      "severity": "observación",
+      "location": "tables/FctProductos.tmdl",
+      "rule": "M-TYPE-IN-SQL",
+      "table": "FctProductos",
+      "description": "Conversión de tipos (Table.TransformColumnTypes) después de Sql.Database",
+      "recommendation": "Preferir conversión de tipos en el SQL origen (CAST/CONVERT) para mejor query folding",
+      "code_snippet": ""
+    },
+    {
+      "id": "MC-001",
+      "severity": "observación",
+      "location": "tables/Metricas.tmdl",
+      "rule": "M-NO-COMMENTS",
+      "table": "Metricas",
+      "description": "Expresión M con 7 steps y solo 0 comentarios",
+      "recommendation": "Agregar `//` antes de cada sección clave para explicar el propósito",
+      "code_snippet": ""
+    },
+    {
+      "id": "MC-002",
+      "severity": "observación",
+      "location": "tables/Metricas.tmdl",
+      "rule": "M-NO-DATA-STEWARD",
+      "table": "Metricas",
+      "description": "Expresión M sin anotación `// Data Steward:` (convención Promerica)",
+      "recommendation": "Agregar al inicio del `let`: `// Data Steward: <nombre>`",
+      "code_snippet": ""
+    }
+  ]
+}
