@@ -1,7 +1,28 @@
-# Skills_BI_Promerica
+# AI-Agents-BI
 
-Customizations de VS Code para el equipo de **Business Intelligence** del Banco Promerica.
-Enfocado en **PBIP + TMDL + DAX + Microsoft Fabric**.
+> Sistema de agentes de IA para **Business Intelligence** — Banco Promerica CR
+> Enfocado en **PBIP + TMDL + DAX + Microsoft Fabric**.
+
+Parte del ecosistema de agentes de IA de Banco Promerica, siguiendo el patrón
+arquitectónico de **4 capas** (Observación → Auditoría → Enriquecimiento → Producción).
+
+## 🔗 Ecosistema
+
+| Repo | Dominio | Estado |
+|---|---|---|
+| **AI-Agents-BI** (este) | Power BI y reportes | 🟢 Fase 2 en curso |
+| [AI-Agents-DataScience](https://github.com/rvalerio1992/AI-Agents-DataScience) | Ciencia de datos | 🟡 MVP estructural |
+| [AI-Agents-DataEngineering](https://github.com/rvalerio1992/AI-Agents-DataEngineering) | Pipelines y warehouse | 🟡 MVP estructural |
+| [AI-Agents-CopilotStudio](https://github.com/rvalerio1992/AI-Agents-CopilotStudio) | Copilots conversacionales | 🟡 MVP estructural |
+
+Los 4 repos comparten:
+- Misma arquitectura de 4 capas
+- Mismo setup de VS Code + Copilot
+- Mismos guardrails de seguridad
+- Mismas convenciones de contribución
+
+Este repo (`AI-Agents-BI`) es el **más maduro** y sirve como referencia
+arquitectónica para los demás.
 
 ## ¿Qué hay acá?
 
@@ -18,8 +39,8 @@ Este repo contiene:
 ## 🚀 Instalación rápida
 
 ```bash
-git clone https://github.com/rvalerio1992/Skills_BI_Promerica.git
-cd Skills_BI_Promerica
+git clone https://github.com/rvalerio1992/AI-Agents-BI.git
+cd AI-Agents-BI
 
 # Copiá tu proyecto Power BI aquí:
 cp -r /ruta/a/MiReporte.pbip powerbi-project/
