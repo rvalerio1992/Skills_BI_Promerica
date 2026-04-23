@@ -1,0 +1,3142 @@
+{
+  "project": "RPAUT084",
+  "scan_date": "2026-04-23T02:35:12.079301",
+  "pbip_path": "powerbi-project/RPAUT084. Reporte de Gestión Proactiva - Saldos Pasivos.pbip",
+  "semantic_model_path": "powerbi-project/RPAUT084. Reporte de Gestión Proactiva - Saldos Pasivos.SemanticModel",
+  "report_path": "powerbi-project/RPAUT084. Reporte de Gestión Proactiva - Saldos Pasivos.Report",
+  "model": {
+    "culture": "es-ES",
+    "auto_datetime_enabled": true,
+    "query_groups": [
+      "Medidas",
+      "Dimensiones",
+      "Hechos"
+    ]
+  },
+  "tables": [
+    {
+      "name": "DateTableTemplate_5e88a427-25a5-4994-a4fe-ebf1ac5e88b3",
+      "file": "DateTableTemplate_5e88a427-25a5-4994-a4fe-ebf1ac5e88b3.tmdl",
+      "type_inferred": "dimension_auto",
+      "lineage_tag": "954dcbac-bae1-4398-b8cf-54849c363bd3",
+      "has_description": false,
+      "description": null,
+      "columns_count": 7,
+      "measures_count": 0,
+      "columns": [
+        {
+          "name": "Date",
+          "data_type": "dateTime",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "[Date]",
+          "is_hidden": true,
+          "is_calculated": false
+        },
+        {
+          "name": "Año",
+          "data_type": "int64",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": true,
+          "is_calculated": true
+        },
+        {
+          "name": "NroMes",
+          "data_type": "int64",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": true,
+          "is_calculated": true
+        },
+        {
+          "name": "Mes",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": true,
+          "is_calculated": true
+        },
+        {
+          "name": "NroTrimestre",
+          "data_type": "int64",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": true,
+          "is_calculated": true
+        },
+        {
+          "name": "Trimestre",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": true,
+          "is_calculated": true
+        },
+        {
+          "name": "Día",
+          "data_type": "int64",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": true,
+          "is_calculated": true
+        }
+      ],
+      "partition": {
+        "mode": "import",
+        "kind": "calculated",
+        "query_group": null,
+        "source_type": "tabla_calculada",
+        "server": null,
+        "database": null,
+        "schema": null,
+        "source_table": null,
+        "has_native_query": false,
+        "native_query": null,
+        "m_expression_length_lines": 0
+      }
+    },
+    {
+      "name": "DimCalendario",
+      "file": "DimCalendario.tmdl",
+      "type_inferred": "dimension",
+      "lineage_tag": "c22bd7ac-e75f-40c0-8834-85ed7e71297f",
+      "has_description": false,
+      "description": null,
+      "columns_count": 6,
+      "measures_count": 0,
+      "columns": [
+        {
+          "name": "Fecha",
+          "data_type": "dateTime",
+          "format_string": "Short Date",
+          "summarize_by": "none",
+          "source_column": "Fecha",
+          "is_hidden": true,
+          "is_calculated": false
+        },
+        {
+          "name": "Año",
+          "data_type": "int64",
+          "format_string": "0",
+          "summarize_by": "sum",
+          "source_column": "Año",
+          "is_hidden": true,
+          "is_calculated": false
+        },
+        {
+          "name": "Mes",
+          "data_type": "int64",
+          "format_string": "0",
+          "summarize_by": "sum",
+          "source_column": "Mes",
+          "is_hidden": true,
+          "is_calculated": false
+        },
+        {
+          "name": "Trimestre",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "Trimestre",
+          "is_hidden": true,
+          "is_calculated": false
+        },
+        {
+          "name": "Día",
+          "data_type": "int64",
+          "format_string": "0",
+          "summarize_by": "sum",
+          "source_column": "Día",
+          "is_hidden": true,
+          "is_calculated": false
+        },
+        {
+          "name": "Año-Mes",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "Año-Mes",
+          "is_hidden": true,
+          "is_calculated": false
+        }
+      ],
+      "partition": {
+        "mode": "import",
+        "kind": "m",
+        "query_group": "Dimensiones",
+        "source_type": "m_dinamica",
+        "server": null,
+        "database": null,
+        "schema": null,
+        "source_table": null,
+        "has_native_query": false,
+        "native_query": null,
+        "m_expression_length_lines": 35
+      }
+    },
+    {
+      "name": "DimCliente",
+      "file": "DimCliente.tmdl",
+      "type_inferred": "dimension",
+      "lineage_tag": "977da1a6-854b-45f1-a289-eff5a5ca7cf0",
+      "has_description": false,
+      "description": null,
+      "columns_count": 6,
+      "measures_count": 0,
+      "columns": [
+        {
+          "name": "COD_CLIENTE",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "COD_CLIENTE",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "NOMBRE",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "NOMBRE",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "TIPO_CLIENTE",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "TIPO_CLIENTE",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "SEGMENTACION_ESTRATEGICA",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "SEGMENTACION_ESTRATEGICA",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "SEGMENTACION_OPERATIVA",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "SEGMENTACION_OPERATIVA",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "GERENCIA",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "GERENCIA",
+          "is_hidden": false,
+          "is_calculated": false
+        }
+      ],
+      "partition": {
+        "mode": "import",
+        "kind": "m",
+        "query_group": "Dimensiones",
+        "source_type": "azure_synapse",
+        "server": "synw-modeling-prod-westus2-001-ondemand.sql.azuresynapse.net",
+        "database": "gold",
+        "schema": "dbo",
+        "source_table": "masteranalytics",
+        "has_native_query": true,
+        "native_query": "SELECT \n COD_CLIENTE, \n NOMBRE,\n TIPO_CLIENTE,\n SEGMENTACION_ESTRATEGICA,\n SEGMENTACION_OPERATIVA,\n GERENCIA\nFROM dbo.masteranalytics\nWHERE FEC_CORTE = (\n SELECT MAX(FEC_CORTE) \n FROM dbo.masteranalytics -- siempre trae la fecha más reciente\n)\n AND COD_CLIENTE <> 'SIN COD_CLIENTE';",
+        "m_expression_length_lines": 4
+      }
+    },
+    {
+      "name": "DimEstadoProducto",
+      "file": "DimEstadoProducto.tmdl",
+      "type_inferred": "dimension",
+      "lineage_tag": "8aa714f0-8602-4269-9506-3d760a889301",
+      "has_description": false,
+      "description": null,
+      "columns_count": 2,
+      "measures_count": 0,
+      "columns": [
+        {
+          "name": "COD_ESTADO",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "COD_ESTADO",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "ESTADO",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "ESTADO",
+          "is_hidden": false,
+          "is_calculated": false
+        }
+      ],
+      "partition": {
+        "mode": "import",
+        "kind": "m",
+        "query_group": "Dimensiones",
+        "source_type": "azure_synapse",
+        "server": "synw-modeling-prod-westus2-001-ondemand.sql.azuresynapse.net",
+        "database": "gold",
+        "schema": "dbo",
+        "source_table": "dimestadoproducto",
+        "has_native_query": true,
+        "native_query": "SELECT \n COD_ESTADO,\n ESTADO\nFROM \n dbo.dimestadoproducto",
+        "m_expression_length_lines": 4
+      }
+    },
+    {
+      "name": "DimMetas",
+      "file": "DimMetas.tmdl",
+      "type_inferred": "dimension",
+      "lineage_tag": "db701368-e06b-42fd-8689-2eb09641c670",
+      "has_description": false,
+      "description": null,
+      "columns_count": 2,
+      "measures_count": 0,
+      "columns": [
+        {
+          "name": "FEC_CORTE",
+          "data_type": "dateTime",
+          "format_string": "Short Date",
+          "summarize_by": "none",
+          "source_column": "FEC_CORTE",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "CRECIMIENTO_YTD_%",
+          "data_type": "double",
+          "format_string": "0.0000",
+          "summarize_by": "sum",
+          "source_column": "CRECIMIENTO_YTD_%",
+          "is_hidden": false,
+          "is_calculated": false
+        }
+      ],
+      "partition": {
+        "mode": "import",
+        "kind": "m",
+        "query_group": "Dimensiones",
+        "source_type": "tabla_calculada",
+        "server": null,
+        "database": null,
+        "schema": null,
+        "source_table": null,
+        "has_native_query": false,
+        "native_query": null,
+        "m_expression_length_lines": 145
+      }
+    },
+    {
+      "name": "DimMoneda",
+      "file": "DimMoneda.tmdl",
+      "type_inferred": "dimension",
+      "lineage_tag": "46cec6e7-57cf-456e-9ec5-87c2adc016c9",
+      "has_description": false,
+      "description": null,
+      "columns_count": 2,
+      "measures_count": 0,
+      "columns": [
+        {
+          "name": "COD_MONEDA",
+          "data_type": "int64",
+          "format_string": "0",
+          "summarize_by": "none",
+          "source_column": "COD_MONEDA",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "MONEDA",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "MONEDA",
+          "is_hidden": false,
+          "is_calculated": false
+        }
+      ],
+      "partition": {
+        "mode": "import",
+        "kind": "m",
+        "query_group": "Dimensiones",
+        "source_type": "azure_synapse",
+        "server": "synw-modeling-prod-westus2-001-ondemand.sql.azuresynapse.net",
+        "database": "gold",
+        "schema": "dbo",
+        "source_table": "DimMoneda",
+        "has_native_query": true,
+        "native_query": "SELECT \n COD_MONEDA,\n DESCRIPCION AS MONEDA\nFROM \n dbo.DimMoneda\nWHERE \n COD_MONEDA IN (1, 2)",
+        "m_expression_length_lines": 3
+      }
+    },
+    {
+      "name": "DimProducto",
+      "file": "DimProducto.tmdl",
+      "type_inferred": "dimension",
+      "lineage_tag": "e5b36224-05f6-424f-a6f3-158758dfc3dd",
+      "has_description": false,
+      "description": null,
+      "columns_count": 8,
+      "measures_count": 0,
+      "columns": [
+        {
+          "name": "COD_PRODUCTO",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "COD_PRODUCTO",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "FEC_APERTURA",
+          "data_type": "dateTime",
+          "format_string": "Short Date",
+          "summarize_by": "none",
+          "source_column": "FEC_APERTURA",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "FEC_VENCIMIENTO",
+          "data_type": "dateTime",
+          "format_string": "General Date",
+          "summarize_by": "none",
+          "source_column": "FEC_VENCIMIENTO",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "MONTO_INICIAL",
+          "data_type": "double",
+          "format_string": null,
+          "summarize_by": "sum",
+          "source_column": "MONTO_INICIAL",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "CUOTA_MENSUAL",
+          "data_type": "double",
+          "format_string": null,
+          "summarize_by": "sum",
+          "source_column": "CUOTA_MENSUAL",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "TASA_INICIAL",
+          "data_type": "double",
+          "format_string": null,
+          "summarize_by": "sum",
+          "source_column": "TASA_INICIAL",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "TIPO_TASA",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "TIPO_TASA",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "PLAZO_DIAS",
+          "data_type": "int64",
+          "format_string": "0",
+          "summarize_by": "sum",
+          "source_column": "PLAZO_DIAS",
+          "is_hidden": false,
+          "is_calculated": false
+        }
+      ],
+      "partition": {
+        "mode": "import",
+        "kind": "m",
+        "query_group": "Dimensiones",
+        "source_type": "azure_synapse",
+        "server": "synw-modeling-prod-westus2-001-ondemand.sql.azuresynapse.net",
+        "database": "gold",
+        "schema": "dbo",
+        "source_table": "dimproducto",
+        "has_native_query": true,
+        "native_query": "SELECT * FROM dbo.dimproducto",
+        "m_expression_length_lines": 8
+      }
+    },
+    {
+      "name": "DimPromotor",
+      "file": "DimPromotor.tmdl",
+      "type_inferred": "dimension",
+      "lineage_tag": "fa610a9f-4edb-4b7c-990f-38e0c7ad30c3",
+      "has_description": false,
+      "description": null,
+      "columns_count": 7,
+      "measures_count": 0,
+      "columns": [
+        {
+          "name": "COD_PROMOTOR",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "COD_PROMOTOR",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "DIRECCION",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "DIRECCION",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "GERENCIA",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "GERENCIA",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "UNIDAD",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "UNIDAD",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "AREA",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "AREA",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "PROMOTOR",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "PROMOTOR",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "CARTERA",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "CARTERA",
+          "is_hidden": false,
+          "is_calculated": false
+        }
+      ],
+      "partition": {
+        "mode": "import",
+        "kind": "m",
+        "query_group": "Dimensiones",
+        "source_type": "azure_synapse",
+        "server": "synw-modeling-prod-westus2-001-ondemand.sql.azuresynapse.net",
+        "database": "gold",
+        "schema": "dbo",
+        "source_table": "dimpromotor",
+        "has_native_query": true,
+        "native_query": "SELECT \n *\nFROM \n dbo.dimpromotor",
+        "m_expression_length_lines": 7
+      }
+    },
+    {
+      "name": "DimTipoProducto",
+      "file": "DimTipoProducto.tmdl",
+      "type_inferred": "dimension",
+      "lineage_tag": "6bf851f5-e3a4-48ab-8808-11980f9cf8c1",
+      "has_description": false,
+      "description": null,
+      "columns_count": 11,
+      "measures_count": 0,
+      "columns": [
+        {
+          "name": "COD_TIPO_PRODUCTO",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "COD_TIPO_PRODUCTO",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "NOM_PRODUCTO",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "NOM_PRODUCTO",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "DESC_PRODUCTO",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "DESC_PRODUCTO",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "TIPO_PRODUCTO",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "TIPO_PRODUCTO",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "TIPO_PRODUCTO_CORE",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "TIPO_PRODUCTO_CORE",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "TIPO_NECESIDAD",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "TIPO_NECESIDAD",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "PRODUCTO_CORE_FLAG",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "PRODUCTO_CORE_FLAG",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "VERDE_FLAG",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "VERDE_FLAG",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "TIPO_SALDO",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "TIPO_SALDO",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "SUBTIPO_PRODUCTO",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "SUBTIPO_PRODUCTO",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "ORDEN",
+          "data_type": "int64",
+          "format_string": "0",
+          "summarize_by": "none",
+          "source_column": "ORDEN",
+          "is_hidden": false,
+          "is_calculated": false
+        }
+      ],
+      "partition": {
+        "mode": "import",
+        "kind": "m",
+        "query_group": "Dimensiones",
+        "source_type": "azure_synapse",
+        "server": "synw-modeling-prod-westus2-001-ondemand.sql.azuresynapse.net",
+        "database": "gold",
+        "schema": "dbo",
+        "source_table": "dimtipoproducto",
+        "has_native_query": true,
+        "native_query": "WITH base AS ( \n\n SELECT \n\n COD_TIPO_PRODUCTO, \n\n NOM_PRODUCTO, \n\n CASE \n\n WHEN COD_TIPO_PRODUCTO IN ('CE_056','CE_057') THEN 'CUENTA ALTO RENDIMIENTO' \n\n ELSE DESC_PRODUCTO \n\n END AS DESC_PRODUCTO, \n\n TIPO_PRODUCTO AS TIPO_PRODUCTO_ORIG, \n\n TIPO_PRODUCTO_CORE, \n\n TIPO_NECESIDAD, \n\n PRODUCTO_CORE_FLAG, \n\n VERDE_FLAG, \n\n CASE \n\n WHEN LEFT(COD_TIPO_PRODUCTO, 3) IN ('CE_', 'CDI') THEN 'SALDO PASIVO' \n\n WHEN LEFT(COD_TIPO_PRODUCTO, 3) IN ('PR_', 'TC_', 'XF_') THEN 'SALDO ACTIVO' \n\n ELSE 'NO APLICA' ",
+        "m_expression_length_lines": 4
+      }
+    },
+    {
+      "name": "FctProductos",
+      "file": "FctProductos.tmdl",
+      "type_inferred": "hechos",
+      "lineage_tag": "e93a3a8c-322e-4fa1-aa9c-2eb7f9564140",
+      "has_description": false,
+      "description": null,
+      "columns_count": 18,
+      "measures_count": 0,
+      "columns": [
+        {
+          "name": "FEC_CORTE",
+          "data_type": "dateTime",
+          "format_string": "Short Date",
+          "summarize_by": "none",
+          "source_column": "FEC_CORTE",
+          "is_hidden": true,
+          "is_calculated": false
+        },
+        {
+          "name": "COD_CLIENTE",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "COD_CLIENTE",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "COD_PRODUCTO",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "COD_PRODUCTO",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "COD_TIPO_PRODUCTO",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "COD_TIPO_PRODUCTO",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "COD_MONEDA",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "COD_MONEDA",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "COD_PROMOTOR",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "COD_PROMOTOR",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "VALOR",
+          "data_type": "double",
+          "format_string": null,
+          "summarize_by": "sum",
+          "source_column": "VALOR",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "NIVEL_0",
+          "data_type": null,
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": false,
+          "is_calculated": true
+        },
+        {
+          "name": "NIVEL_1",
+          "data_type": null,
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": false,
+          "is_calculated": true
+        },
+        {
+          "name": "NIVEL_2",
+          "data_type": null,
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": false,
+          "is_calculated": true
+        },
+        {
+          "name": "COD_ESTADO_PRODUCTO",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "COD_ESTADO_PRODUCTO",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "NOMBRE",
+          "data_type": null,
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": false,
+          "is_calculated": true
+        },
+        {
+          "name": "PERIODO_FLAG",
+          "data_type": null,
+          "format_string": "0",
+          "summarize_by": "sum",
+          "source_column": null,
+          "is_hidden": false,
+          "is_calculated": true
+        },
+        {
+          "name": "TIPO_PRODUCTO",
+          "data_type": null,
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": false,
+          "is_calculated": true
+        },
+        {
+          "name": "SUBTIPO_PRODUCTO",
+          "data_type": null,
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": false,
+          "is_calculated": true
+        },
+        {
+          "name": "ORDEN",
+          "data_type": null,
+          "format_string": "0",
+          "summarize_by": "sum",
+          "source_column": null,
+          "is_hidden": false,
+          "is_calculated": true
+        },
+        {
+          "name": "TASA_INTERES",
+          "data_type": "double",
+          "format_string": null,
+          "summarize_by": "sum",
+          "source_column": "TASA_INTERES",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "NIVEL_TASA",
+          "data_type": null,
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": false,
+          "is_calculated": true
+        }
+      ],
+      "partition": {
+        "mode": "import",
+        "kind": "m",
+        "query_group": "Hechos",
+        "source_type": "azure_synapse",
+        "server": "synw-modeling-prod-westus2-001-ondemand.sql.azuresynapse.net",
+        "database": "gold",
+        "schema": "dbo",
+        "source_table": "fctproductos",
+        "has_native_query": true,
+        "native_query": "SELECT\n FEC_CORTE,\n COD_CLIENTE,\n COD_PRODUCTO,\n COD_TIPO_PRODUCTO,\n COD_MONEDA,\n COD_PROMOTOR,\n COD_ESTADO_PRODUCTO,\n SALDO_PRODUCTO AS VALOR,\n TASA_INTERES_PRODUCTO AS TASA_INTERES\nFROM \n dbo.fctproductos\nWHERE\n LEFT(COD_PRODUCTO, 3) IN ('CE_', 'CDI', 'PR_', 'TC_', 'XF_')\n AND YEAR(FEC_CORTE) >= YEAR(GETDATE()) - 1",
+        "m_expression_length_lines": 7
+      }
+    },
+    {
+      "name": "LocalDateTable_00444826-d1ae-48ed-9fe1-f6339b8a289a",
+      "file": "LocalDateTable_00444826-d1ae-48ed-9fe1-f6339b8a289a.tmdl",
+      "type_inferred": "dimension_auto",
+      "lineage_tag": "31f4e85a-0ff8-428b-9356-607fd8d7f632",
+      "has_description": false,
+      "description": null,
+      "columns_count": 7,
+      "measures_count": 0,
+      "columns": [
+        {
+          "name": "Date",
+          "data_type": "dateTime",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "[Date]",
+          "is_hidden": true,
+          "is_calculated": false
+        },
+        {
+          "name": "Año",
+          "data_type": "int64",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": true,
+          "is_calculated": true
+        },
+        {
+          "name": "NroMes",
+          "data_type": "int64",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": true,
+          "is_calculated": true
+        },
+        {
+          "name": "Mes",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": true,
+          "is_calculated": true
+        },
+        {
+          "name": "NroTrimestre",
+          "data_type": "int64",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": true,
+          "is_calculated": true
+        },
+        {
+          "name": "Trimestre",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": true,
+          "is_calculated": true
+        },
+        {
+          "name": "Día",
+          "data_type": "int64",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": true,
+          "is_calculated": true
+        }
+      ],
+      "partition": {
+        "mode": "import",
+        "kind": "calculated",
+        "query_group": null,
+        "source_type": "tabla_calculada",
+        "server": null,
+        "database": null,
+        "schema": null,
+        "source_table": null,
+        "has_native_query": false,
+        "native_query": null,
+        "m_expression_length_lines": 0
+      }
+    },
+    {
+      "name": "LocalDateTable_385a457a-20df-4be8-ac4f-190433881064",
+      "file": "LocalDateTable_385a457a-20df-4be8-ac4f-190433881064.tmdl",
+      "type_inferred": "dimension_auto",
+      "lineage_tag": "aa513518-0096-42b6-aa71-c62a8fed359f",
+      "has_description": false,
+      "description": null,
+      "columns_count": 7,
+      "measures_count": 0,
+      "columns": [
+        {
+          "name": "Date",
+          "data_type": "dateTime",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "[Date]",
+          "is_hidden": true,
+          "is_calculated": false
+        },
+        {
+          "name": "Año",
+          "data_type": "int64",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": true,
+          "is_calculated": true
+        },
+        {
+          "name": "NroMes",
+          "data_type": "int64",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": true,
+          "is_calculated": true
+        },
+        {
+          "name": "Mes",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": true,
+          "is_calculated": true
+        },
+        {
+          "name": "NroTrimestre",
+          "data_type": "int64",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": true,
+          "is_calculated": true
+        },
+        {
+          "name": "Trimestre",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": true,
+          "is_calculated": true
+        },
+        {
+          "name": "Día",
+          "data_type": "int64",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": true,
+          "is_calculated": true
+        }
+      ],
+      "partition": {
+        "mode": "import",
+        "kind": "calculated",
+        "query_group": null,
+        "source_type": "tabla_calculada",
+        "server": null,
+        "database": null,
+        "schema": null,
+        "source_table": null,
+        "has_native_query": false,
+        "native_query": null,
+        "m_expression_length_lines": 0
+      }
+    },
+    {
+      "name": "LocalDateTable_a0176f28-d511-490b-aa1c-fc4edc033051",
+      "file": "LocalDateTable_a0176f28-d511-490b-aa1c-fc4edc033051.tmdl",
+      "type_inferred": "dimension_auto",
+      "lineage_tag": "4ee5c773-d5c8-481b-a374-c3a313395a3e",
+      "has_description": false,
+      "description": null,
+      "columns_count": 7,
+      "measures_count": 0,
+      "columns": [
+        {
+          "name": "Date",
+          "data_type": "dateTime",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "[Date]",
+          "is_hidden": true,
+          "is_calculated": false
+        },
+        {
+          "name": "Año",
+          "data_type": "int64",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": true,
+          "is_calculated": true
+        },
+        {
+          "name": "NroMes",
+          "data_type": "int64",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": true,
+          "is_calculated": true
+        },
+        {
+          "name": "Mes",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": true,
+          "is_calculated": true
+        },
+        {
+          "name": "NroTrimestre",
+          "data_type": "int64",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": true,
+          "is_calculated": true
+        },
+        {
+          "name": "Trimestre",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": true,
+          "is_calculated": true
+        },
+        {
+          "name": "Día",
+          "data_type": "int64",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": true,
+          "is_calculated": true
+        }
+      ],
+      "partition": {
+        "mode": "import",
+        "kind": "calculated",
+        "query_group": null,
+        "source_type": "tabla_calculada",
+        "server": null,
+        "database": null,
+        "schema": null,
+        "source_table": null,
+        "has_native_query": false,
+        "native_query": null,
+        "m_expression_length_lines": 0
+      }
+    },
+    {
+      "name": "LocalDateTable_c38c851c-baf1-425a-b46b-6fc5b8e62172",
+      "file": "LocalDateTable_c38c851c-baf1-425a-b46b-6fc5b8e62172.tmdl",
+      "type_inferred": "dimension_auto",
+      "lineage_tag": "81a0c43d-419c-4ae0-832f-a1f0e310a047",
+      "has_description": false,
+      "description": null,
+      "columns_count": 7,
+      "measures_count": 0,
+      "columns": [
+        {
+          "name": "Date",
+          "data_type": "dateTime",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "[Date]",
+          "is_hidden": true,
+          "is_calculated": false
+        },
+        {
+          "name": "Año",
+          "data_type": "int64",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": true,
+          "is_calculated": true
+        },
+        {
+          "name": "NroMes",
+          "data_type": "int64",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": true,
+          "is_calculated": true
+        },
+        {
+          "name": "Mes",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": true,
+          "is_calculated": true
+        },
+        {
+          "name": "NroTrimestre",
+          "data_type": "int64",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": true,
+          "is_calculated": true
+        },
+        {
+          "name": "Trimestre",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": true,
+          "is_calculated": true
+        },
+        {
+          "name": "Día",
+          "data_type": "int64",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": null,
+          "is_hidden": true,
+          "is_calculated": true
+        }
+      ],
+      "partition": {
+        "mode": "import",
+        "kind": "calculated",
+        "query_group": null,
+        "source_type": "tabla_calculada",
+        "server": null,
+        "database": null,
+        "schema": null,
+        "source_table": null,
+        "has_native_query": false,
+        "native_query": null,
+        "m_expression_length_lines": 0
+      }
+    },
+    {
+      "name": "Medidas",
+      "file": "Medidas.tmdl",
+      "type_inferred": "medidas",
+      "lineage_tag": "4e7324a5-5886-43b1-ac02-28cadeb89b39",
+      "has_description": false,
+      "description": null,
+      "columns_count": 1,
+      "measures_count": 33,
+      "columns": [
+        {
+          "name": "Medidas",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "Medidas",
+          "is_hidden": false,
+          "is_calculated": false
+        }
+      ],
+      "partition": {
+        "mode": "import",
+        "kind": "m",
+        "query_group": "Medidas",
+        "source_type": "desconocido",
+        "server": null,
+        "database": null,
+        "schema": null,
+        "source_table": null,
+        "has_native_query": false,
+        "native_query": null,
+        "m_expression_length_lines": 3
+      }
+    },
+    {
+      "name": "Metricas",
+      "file": "Metricas.tmdl",
+      "type_inferred": "medidas",
+      "lineage_tag": "733e071a-a691-4971-9fae-bba2e2f702ad",
+      "has_description": false,
+      "description": null,
+      "columns_count": 2,
+      "measures_count": 0,
+      "columns": [
+        {
+          "name": "Metrica",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "Metrica",
+          "is_hidden": true,
+          "is_calculated": false
+        },
+        {
+          "name": "Orden",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "Orden",
+          "is_hidden": false,
+          "is_calculated": false
+        }
+      ],
+      "partition": {
+        "mode": "import",
+        "kind": "m",
+        "query_group": null,
+        "source_type": "tabla_calculada",
+        "server": null,
+        "database": null,
+        "schema": null,
+        "source_table": null,
+        "has_native_query": false,
+        "native_query": null,
+        "m_expression_length_lines": 5
+      }
+    },
+    {
+      "name": "Parámetros",
+      "file": "Parámetros.tmdl",
+      "type_inferred": "parametros",
+      "lineage_tag": "3c1d9b46-17f2-4c51-8530-46b2047d3912",
+      "has_description": false,
+      "description": null,
+      "columns_count": 1,
+      "measures_count": 15,
+      "columns": [
+        {
+          "name": "TituloParametro",
+          "data_type": "string",
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "TituloParametro",
+          "is_hidden": true,
+          "is_calculated": false
+        }
+      ],
+      "partition": {
+        "mode": "import",
+        "kind": "m",
+        "query_group": null,
+        "source_type": "desconocido",
+        "server": null,
+        "database": null,
+        "schema": null,
+        "source_table": null,
+        "has_native_query": false,
+        "native_query": null,
+        "m_expression_length_lines": 5
+      }
+    },
+    {
+      "name": "Tabla",
+      "file": "Tabla.tmdl",
+      "type_inferred": "desconocido",
+      "lineage_tag": "6e5197e3-aae3-4410-b59f-8b3afdc9e523",
+      "has_description": false,
+      "description": null,
+      "columns_count": 4,
+      "measures_count": 0,
+      "columns": [
+        {
+          "name": "SUBTIPO_PRODUCTO",
+          "data_type": null,
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "FctProductos[SUBTIPO_PRODUCTO]",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "MONTO",
+          "data_type": null,
+          "format_string": null,
+          "summarize_by": "sum",
+          "source_column": "[MONTO]",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "TIPO_SALDO",
+          "data_type": null,
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "DimTipoProducto[TIPO_SALDO]",
+          "is_hidden": false,
+          "is_calculated": false
+        },
+        {
+          "name": "TIPO_PRODUCTO",
+          "data_type": null,
+          "format_string": null,
+          "summarize_by": "none",
+          "source_column": "DimTipoProducto[TIPO_PRODUCTO]",
+          "is_hidden": false,
+          "is_calculated": false
+        }
+      ],
+      "partition": {
+        "mode": "import",
+        "kind": "calculated",
+        "query_group": null,
+        "source_type": "tabla_calculada",
+        "server": null,
+        "database": null,
+        "schema": null,
+        "source_table": null,
+        "has_native_query": false,
+        "native_query": null,
+        "m_expression_length_lines": 0
+      }
+    },
+    {
+      "name": "⚙ Medidas",
+      "file": "⚙ Medidas.tmdl",
+      "type_inferred": "medidas",
+      "lineage_tag": "011684f0-7858-42aa-9dbd-ac7ca809a52a",
+      "has_description": false,
+      "description": null,
+      "columns_count": 0,
+      "measures_count": 24,
+      "columns": [],
+      "partition": null
+    }
+  ],
+  "measures": [
+    {
+      "name": "1_Complete_%",
+      "table": "Medidas",
+      "dax": "1 + DIVIDE([1_Target_Delta], [Valor Meta], 0)",
+      "dax_truncated": false,
+      "format_string": "0.0\\ %;-0.0\\ %;0.0\\ %",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [
+        "Valor Meta"
+      ],
+      "dependencies_columns": []
+    },
+    {
+      "name": "1_Estado",
+      "table": "Medidas",
+      "dax": "1 + DIVIDE([1_Target_Delta], [Valor Meta], 0)",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [
+        "Valor Meta"
+      ],
+      "dependencies_columns": []
+    },
+    {
+      "name": "Espacio1",
+      "table": "Medidas",
+      "dax": "1",
+      "dax_truncated": false,
+      "format_string": "0",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [],
+      "dependencies_columns": []
+    },
+    {
+      "name": "Espacio2",
+      "table": "Medidas",
+      "dax": "1",
+      "dax_truncated": false,
+      "format_string": "0",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [],
+      "dependencies_columns": []
+    },
+    {
+      "name": "Espacio3",
+      "table": "Medidas",
+      "dax": "1",
+      "dax_truncated": false,
+      "format_string": "0",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [],
+      "dependencies_columns": []
+    },
+    {
+      "name": "Espacio4",
+      "table": "Medidas",
+      "dax": "1",
+      "dax_truncated": false,
+      "format_string": "0",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [],
+      "dependencies_columns": []
+    },
+    {
+      "name": "1_Target_%",
+      "table": "Medidas",
+      "dax": "DIVIDE([1_Target_Delta], [Valor Meta], 0)",
+      "dax_truncated": false,
+      "format_string": "0\\ %;-0\\ %;0\\ %",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [
+        "Valor Meta"
+      ],
+      "dependencies_columns": []
+    },
+    {
+      "name": "1_Target_Delta",
+      "table": "Medidas",
+      "dax": "[Valor Actual]-[Valor Meta]",
+      "dax_truncated": false,
+      "format_string": "$#,##0,, \"MM\"",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [
+        "Valor Actual",
+        "Valor Meta"
+      ],
+      "dependencies_columns": []
+    },
+    {
+      "name": "1_YoY_%",
+      "table": "Medidas",
+      "dax": "DIVIDE([Valor YoY], [Valor Interanual], 0)",
+      "dax_truncated": false,
+      "format_string": "0\\ %;-0\\ %;0\\ %",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": true,
+      "dependencies_measures": [
+        "Valor Interanual",
+        "Valor YoY"
+      ],
+      "dependencies_columns": []
+    },
+    {
+      "name": "1_YTD_%",
+      "table": "Medidas",
+      "dax": "DIVIDE([Valor YTD], [Valor Cierre Año Anterior], 0)",
+      "dax_truncated": false,
+      "format_string": "0\\ %;-0\\ %;0\\ %",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": true,
+      "dependencies_measures": [
+        "Valor Cierre Año Anterior",
+        "Valor YTD"
+      ],
+      "dependencies_columns": []
+    },
+    {
+      "name": "Fecha Actualización",
+      "table": "Medidas",
+      "dax": "CALCULATE(MAX('FctProductos'[FEC_CORTE]), ALL('FctProductos'))",
+      "dax_truncated": false,
+      "format_string": "Short Date",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ]
+      ]
+    },
+    {
+      "name": "Fecha MoM",
+      "table": "Medidas",
+      "dax": "EOMONTH(CALCULATE(MAX('FctProductos'[FEC_CORTE]), ALL('FctProductos')), -1)",
+      "dax_truncated": false,
+      "format_string": "Short Date",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ]
+      ]
+    },
+    {
+      "name": "Fecha YoY",
+      "table": "Medidas",
+      "dax": "EOMONTH(CALCULATE(MAX('FctProductos'[FEC_CORTE]), ALL('FctProductos')), -12)",
+      "dax_truncated": false,
+      "format_string": "Short Date",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ]
+      ]
+    },
+    {
+      "name": "Fecha YTD",
+      "table": "Medidas",
+      "dax": "DATE(YEAR(CALCULATE(MAX('FctProductos'[FEC_CORTE]), ALL('FctProductos'))) - 1, 12, 31)",
+      "dax_truncated": false,
+      "format_string": "Short Date",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ]
+      ]
+    },
+    {
+      "name": "1_Last_Valor (Eje)",
+      "table": "Medidas",
+      "dax": "[Valor Actual] * 1.01",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [
+        "Valor Actual"
+      ],
+      "dependencies_columns": []
+    },
+    {
+      "name": "1_Last_Valor (%)",
+      "table": "Medidas",
+      "dax": "\"(\" & \n\t\t\tFORMAT(\n\t\t\t    DIVIDE(\n\t\t\t        [Valor Actual],\n\t\t\t        CALCULATE(\n\t\t\t            [Valor Métrica Seleccionada],\n\t\t\t            FILTER(\n\t\t\t                ALL('FctProductos'),\n\t\t\t                'FctProductos'[FEC_CORTE] = CALCULATE(MAX('FctProductos'[FEC_CORTE]), ALL('FctProductos'))\n\t\t\t            )\n\t\t\t        )\n\t\t\t    ),\n\t\t\t    \"0%\"\n\t\t\t) \n\t\t\t& \")\"",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [
+        "Valor Actual",
+        "Valor Métrica Seleccionada"
+      ],
+      "dependencies_columns": [
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ],
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ]
+      ]
+    },
+    {
+      "name": "Porcentaje Target (Ayer)",
+      "table": "Medidas",
+      "dax": "VAR FechaMaxima =\n\t\t\t    CALCULATE(MAX(FctProductos[FEC_CORTE]), ALL(FctProductos))\n\t\t\t\n\t\t\tRETURN\n\t\t\tCALCULATE(\n\t\t\t    SUM(DimMetas[CRECIMIENTO_YTD_%]),\n\t\t\t    FILTER(\n\t\t\t        DimMetas,\n\t\t\t        DimMetas[FEC_CORTE] = FechaMaxima\n\t\t\t    )\n\t\t\t)",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ],
+        [
+          "DimMetas",
+          "CRECIMIENTO_YTD_%"
+        ],
+        [
+          "DimMetas",
+          "FEC_CORTE"
+        ]
+      ]
+    },
+    {
+      "name": "1_Target_Valor_FinMes",
+      "table": "Medidas",
+      "dax": "[Valor Cierre Año Anterior]*(1+[Porcentaje Target (Fin Mes Actual)])",
+      "dax_truncated": false,
+      "format_string": "\\$#,0.###############;(\\$#,0.###############);\\$#,0.###############",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [
+        "Valor Cierre Año Anterior",
+        "Porcentaje Target (Fin Mes Actual)"
+      ],
+      "dependencies_columns": []
+    },
+    {
+      "name": "Porcentaje Target (Fin Mes Actual)",
+      "table": "Medidas",
+      "dax": "VAR FechaMaxima =\n\t\t\t    CALCULATE(MAX(FctProductos[FEC_CORTE]), ALL(FctProductos))\n\t\t\t\n\t\t\tVAR FinMes =\n\t\t\t    EOMONTH(FechaMaxima, 0)\n\t\t\t\n\t\t\tRETURN\n\t\t\tCALCULATE(\n\t\t\t    SUM(DimMetas[CRECIMIENTO_YTD_%]),\n\t\t\t    FILTER(\n\t\t\t        DimMetas,\n\t\t\t        DimMetas[FEC_CORTE] = FinMes\n\t\t\t    )\n\t\t\t)",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ],
+        [
+          "DimMetas",
+          "CRECIMIENTO_YTD_%"
+        ],
+        [
+          "DimMetas",
+          "FEC_CORTE"
+        ]
+      ]
+    },
+    {
+      "name": "1_Target_Delta_FinMes",
+      "table": "Medidas",
+      "dax": "[Valor Actual]-[1_Target_Valor_FinMes]",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [
+        "Valor Actual"
+      ],
+      "dependencies_columns": []
+    },
+    {
+      "name": "1_Complete_%_FinMes",
+      "table": "Medidas",
+      "dax": "1 + DIVIDE([1_Target_Delta_FinMes], [1_Target_Valor_FinMes], 0)",
+      "dax_truncated": false,
+      "format_string": "0\\ %;-0\\ %;0\\ %",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [],
+      "dependencies_columns": []
+    },
+    {
+      "name": "Etiqueta Meta",
+      "table": "Medidas",
+      "dax": "\"Meta cierre \" & \n\t\t\t    UPPER(LEFT(FORMAT(CALCULATE(MAX('FctProductos'[FEC_CORTE]), ALL('FctProductos')), \"MMMM\"), 1)) &\n\t\t\t    MID(FORMAT(CALCULATE(MAX('FctProductos'[FEC_CORTE]), ALL('FctProductos')), \"MMMM\"), 2, LEN(FORMAT(CALCULATE(MAX('FctProductos'[FEC_CORTE]), ALL('FctProductos')), \"MMMM\")) - 1)",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ],
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ],
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ]
+      ]
+    },
+    {
+      "name": "AVG_Saldo_Last",
+      "table": "Medidas",
+      "dax": "CALCULATE(\n\t\t\t    AVERAGE('FctProductos'[VALOR]), \n\t\t\t    FILTER(\n\t\t\t        'FctProductos', \n\t\t\t        'FctProductos'[FEC_CORTE] =  CALCULATE(MAX('FctProductos'[FEC_CORTE]), ALL('FctProductos'))\n\t\t\t         )\n\t\t\t)",
+      "dax_truncated": false,
+      "format_string": "\\$#,0.###############;(\\$#,0.###############);\\$#,0.###############",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "FctProductos",
+          "VALOR"
+        ],
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ],
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ]
+      ]
+    },
+    {
+      "name": "Q_Clientes_Last",
+      "table": "Medidas",
+      "dax": "CALCULATE(\n\t\t\t    DISTINCTCOUNT(FctProductos[COD_CLIENTE]), \n\t\t\t    FILTER(\n\t\t\t        'FctProductos', \n\t\t\t        'FctProductos'[FEC_CORTE] =  CALCULATE(MAX('FctProductos'[FEC_CORTE]), ALL('FctProductos'))\n\t\t\t         )\n\t\t\t)",
+      "dax_truncated": false,
+      "format_string": "#,0",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "FctProductos",
+          "COD_CLIENTE"
+        ],
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ],
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ]
+      ]
+    },
+    {
+      "name": "Q_Cuentas_Last",
+      "table": "Medidas",
+      "dax": "CALCULATE(\n\t\t\t    DISTINCTCOUNT(FctProductos[COD_PRODUCTO]), \n\t\t\t    FILTER(\n\t\t\t        'FctProductos', \n\t\t\t        'FctProductos'[FEC_CORTE] =  CALCULATE(MAX('FctProductos'[FEC_CORTE]), ALL('FctProductos'))\n\t\t\t         )\n\t\t\t)",
+      "dax_truncated": false,
+      "format_string": "#,0",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "FctProductos",
+          "COD_PRODUCTO"
+        ],
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ],
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ]
+      ]
+    },
+    {
+      "name": "Top25Pct",
+      "table": "Medidas",
+      "dax": "VAR FechaMaxima =\n\t\t\t    CALCULATE(MAX(FctProductos[FEC_CORTE]), ALL(FctProductos))\n\t\t\t\n\t\t\tVAR Top25Clientes =\n\t\t\t    TOPN(\n\t\t\t        25,\n\t\t\t        SUMMARIZE(\n\t\t\t            FILTER(FctProductos, FctProductos[FEC_CORTE] = FechaMaxima),\n\t\t\t            FctProductos[COD_CLIENTE],\n\t\t\t            \"SaldoTotalCliente\", SUM(FctProductos[VALOR])\n\t\t\t        ),\n\t\t\t        [SaldoTotalCliente], DESC\n\t\t\t    )\n\t\t\t\n\t\t\tVAR SaldoTop25 =\n\t\t\t    CALCULATE(\n\t\t\t        SUM(FctProductos[VALOR]),\n\t\t\t        FILTER(\n\t\t",
+      "dax_truncated": true,
+      "format_string": "0.00\\ %;-0.00\\ %;0.00\\ %",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [
+        "SaldoTotalCliente"
+      ],
+      "dependencies_columns": [
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ],
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ],
+        [
+          "FctProductos",
+          "COD_CLIENTE"
+        ],
+        [
+          "FctProductos",
+          "VALOR"
+        ],
+        [
+          "FctProductos",
+          "VALOR"
+        ],
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ],
+        [
+          "FctProductos",
+          "COD_CLIENTE"
+        ],
+        [
+          "FctProductos",
+          "COD_CLIENTE"
+        ],
+        [
+          "FctProductos",
+          "VALOR"
+        ],
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ]
+      ]
+    },
+    {
+      "name": "1_Last_Valor_SinFormato",
+      "table": "Medidas",
+      "dax": "CALCULATE(\n\t\t\t    [Valor Métrica Seleccionada], \n\t\t\t    FILTER(\n\t\t\t        'FctProductos', \n\t\t\t        'FctProductos'[FEC_CORTE] =  CALCULATE(MAX('FctProductos'[FEC_CORTE]), ALL('FctProductos'))\n\t\t\t         )\n\t\t\t)*1000000",
+      "dax_truncated": false,
+      "format_string": "\\$#,0;(\\$#,0);\\$#,0",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [
+        "Valor Métrica Seleccionada"
+      ],
+      "dependencies_columns": [
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ],
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ]
+      ]
+    },
+    {
+      "name": "1_MoM_Delta_SinFormato",
+      "table": "Medidas",
+      "dax": "([Valor Actual]-[Valor Mes Anterior])*1000000",
+      "dax_truncated": false,
+      "format_string": "\\$#,0;(\\$#,0);\\$#,0",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [
+        "Valor Actual",
+        "Valor Mes Anterior"
+      ],
+      "dependencies_columns": []
+    },
+    {
+      "name": "1_YoY_Delta_SinFormato",
+      "table": "Medidas",
+      "dax": "([Valor Actual]-[Valor Interanual])*1000000",
+      "dax_truncated": false,
+      "format_string": "\\$#,0;(\\$#,0);\\$#,0",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [
+        "Valor Actual",
+        "Valor Interanual"
+      ],
+      "dependencies_columns": []
+    },
+    {
+      "name": "1_YTD_Delta_SinFormato",
+      "table": "Medidas",
+      "dax": "([Valor Actual]-[Valor Cierre Año Anterior])*1000000",
+      "dax_truncated": false,
+      "format_string": "\\$#,0;(\\$#,0);\\$#,0",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [
+        "Valor Actual",
+        "Valor Cierre Año Anterior"
+      ],
+      "dependencies_columns": []
+    },
+    {
+      "name": "TieneDatos",
+      "table": "Medidas",
+      "dax": "VAR _n =\n\t\t\t    CALCULATE (\n\t\t\t        COUNTROWS ( FctProductos )\n\t\t\t        -- asumiendo relación activa DimTipoProducto[COD_TIPO_PRODUCTO] -> FctProductos[COD_TIPO_PRODUCTO]\n\t\t\t    )\n\t\t\tRETURN IF ( _n > 0, 1, BLANK() )",
+      "dax_truncated": false,
+      "format_string": "0",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "DimTipoProducto",
+          "COD_TIPO_PRODUCTO"
+        ],
+        [
+          "FctProductos",
+          "COD_TIPO_PRODUCTO"
+        ]
+      ]
+    },
+    {
+      "name": "Medida",
+      "table": "Medidas",
+      "dax": "",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [],
+      "dependencies_columns": []
+    },
+    {
+      "name": "Tasa Ponderada",
+      "table": "Medidas",
+      "dax": "VAR TasaCalc =\n\t\t\t    CALCULATE(\n\t\t\t        DIVIDE(\n\t\t\t            SUMX(\n\t\t\t                FctProductos,\n\t\t\t                FctProductos[TASA] * FctProductos[VALOR]\n\t\t\t            ),\n\t\t\t            SUM(FctProductos[VALOR])\n\t\t\t        ),\n\t\t\t        FILTER(\n\t\t\t            ALL(FctProductos[FEC_CORTE]),\n\t\t\t            FctProductos[FEC_CORTE] =\n\t\t\t                MAXX(ALL(FctProductos[FEC_CORTE]), FctProductos[FEC_CORTE])\n\t\t\t        )\n\t\t\t    )\n\t\t\tRETURN\n\t\t\t    IF(ISBLANK(TasaCalc), 0, TasaCalc)",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "FctProductos",
+          "TASA"
+        ],
+        [
+          "FctProductos",
+          "VALOR"
+        ],
+        [
+          "FctProductos",
+          "VALOR"
+        ],
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ],
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ],
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ],
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ]
+      ]
+    },
+    {
+      "name": "Titulo Reporte (Panel)",
+      "table": "Parámetros",
+      "dax": "\"Reporte de Gestión Proactiva - Saldos Pasivos\"\n\t\t\t\n\t\t\t```\n\t\tisHidden",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": true,
+      "dependencies_measures": [],
+      "dependencies_columns": []
+    },
+    {
+      "name": "Titulo Medida",
+      "table": "Parámetros",
+      "dax": "SELECTEDVALUE('Parámetros'[TituloParametro], \"Título por defecto\")\n\t\tisHidden",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": true,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "Parámetros",
+          "TituloParametro"
+        ]
+      ]
+    },
+    {
+      "name": "Titulo Gráfico Top 25",
+      "table": "Parámetros",
+      "dax": "\"Top 25 Clientes - \" & \n\t\t\t    SELECTEDVALUE('Parámetros'[TituloParametro], \"Título por defecto\")\n\t\t\t```\n\t\tisHidden",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": true,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "Parámetros",
+          "TituloParametro"
+        ]
+      ]
+    },
+    {
+      "name": "Titulo Reporte (Exploración Profunda)",
+      "table": "Parámetros",
+      "dax": "\"Exploración Profunda - \" & \n\t\t\t    SELECTEDVALUE('Parámetros'[TituloParametro], \"Título por defecto\")\n\t\t\t```\n\t\tisHidden",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": true,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "Parámetros",
+          "TituloParametro"
+        ]
+      ]
+    },
+    {
+      "name": "Titulo Reporte (Exploración)",
+      "table": "Parámetros",
+      "dax": "\"Exploración - \" & \n\t\t\t    SELECTEDVALUE('Parámetros'[TituloParametro], \"Título por defecto\")\n\t\t\t```\n\t\tisHidden",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": true,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "Parámetros",
+          "TituloParametro"
+        ]
+      ]
+    },
+    {
+      "name": "Titulo Reporte (Top Variaciones)",
+      "table": "Parámetros",
+      "dax": "\"Principales Variaciones - \" & \n\t\t\t    SELECTEDVALUE('Parámetros'[TituloParametro], \"Título por defecto\")\n\t\t\t```\n\t\tisHidden",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": true,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "Parámetros",
+          "TituloParametro"
+        ]
+      ]
+    },
+    {
+      "name": "Titulo Gráfico (Tooltip)",
+      "table": "Parámetros",
+      "dax": "SELECTEDVALUE('Parámetros'[TituloParametro], \"Título por defecto\") & \" en Millones de Dólares\" \n\t\t\t```\n\t\tisHidden",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": true,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "Parámetros",
+          "TituloParametro"
+        ]
+      ]
+    },
+    {
+      "name": "Titulo Gráfico (Segmentación Estrategica)",
+      "table": "Parámetros",
+      "dax": "SELECTEDVALUE('Parámetros'[TituloParametro], \"Título por defecto\") & \" según Segmento Estrategico\"\n\t\tisHidden",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": true,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "Parámetros",
+          "TituloParametro"
+        ]
+      ]
+    },
+    {
+      "name": "Titulo Gráfico (Segmentación Operativa)",
+      "table": "Parámetros",
+      "dax": "SELECTEDVALUE('Parámetros'[TituloParametro], \"Título por defecto\") & \" según Segmento Operativo\"\n\t\tisHidden",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": true,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "Parámetros",
+          "TituloParametro"
+        ]
+      ]
+    },
+    {
+      "name": "Titulo Gráfico (Dirección)",
+      "table": "Parámetros",
+      "dax": "SELECTEDVALUE('Parámetros'[TituloParametro], \"Título por defecto\") & \" según Dirección\"\n\t\tisHidden",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": true,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "Parámetros",
+          "TituloParametro"
+        ]
+      ]
+    },
+    {
+      "name": "Titulo Gráfico (Rango Tasa)",
+      "table": "Parámetros",
+      "dax": "SELECTEDVALUE('Parámetros'[TituloParametro], \"Título por defecto\") & \" según Rango Tasa\"\n\t\tisHidden",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": true,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "Parámetros",
+          "TituloParametro"
+        ]
+      ]
+    },
+    {
+      "name": "Titulo Gráfico (Moneda)",
+      "table": "Parámetros",
+      "dax": "SELECTEDVALUE('Parámetros'[TituloParametro], \"Título por defecto\") & \" según Moneda\"\n\t\tisHidden",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": true,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "Parámetros",
+          "TituloParametro"
+        ]
+      ]
+    },
+    {
+      "name": "Titulo Gráfico (Tipo Cliente)",
+      "table": "Parámetros",
+      "dax": "SELECTEDVALUE('Parámetros'[TituloParametro], \"Título por defecto\") & \" según Tipo Cliente\"\n\t\tisHidden",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": true,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "Parámetros",
+          "TituloParametro"
+        ]
+      ]
+    },
+    {
+      "name": "Titulo Gráfico (Producto)",
+      "table": "Parámetros",
+      "dax": "SELECTEDVALUE('Parámetros'[TituloParametro], \"Título por defecto\") & \" según Producto\"\n\t\tisHidden",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": true,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "Parámetros",
+          "TituloParametro"
+        ]
+      ]
+    },
+    {
+      "name": "Titulo Reporte (Tendencia)",
+      "table": "Parámetros",
+      "dax": "\"Tendencia - \" & \n\t\t\t    SELECTEDVALUE('Parámetros'[TituloParametro], \"Título por defecto\")\n\t\t\t```\n\t\tisHidden",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": true,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "Parámetros",
+          "TituloParametro"
+        ]
+      ]
+    },
+    {
+      "name": "Saldo",
+      "table": "⚙ Medidas",
+      "dax": "SUM('FctProductos'[VALOR])",
+      "dax_truncated": false,
+      "format_string": "\\$#,0.###############;(\\$#,0.###############);\\$#,0.###############",
+      "display_folder": "Medidas Primarias",
+      "description": null,
+      "has_description": false,
+      "is_hidden": true,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "FctProductos",
+          "VALOR"
+        ]
+      ]
+    },
+    {
+      "name": "Valor Métrica Seleccionada",
+      "table": "⚙ Medidas",
+      "dax": "VAR sel = SELECTEDVALUE( Metricas[Metrica], \"Saldo\" )  -- valor por defecto\n\t\t\tRETURN\n\t\t\tSWITCH(\n\t\t\t    sel,\n\t\t\t    \"Saldo\",      ROUND([Saldo],0),\n\t\t\t    \"Q Clientes\", [Q Clientes],\n\t\t\t    \"Q Cuentas\", [Q Cuentas],\n\t\t\t    \"Tasa Ponderada\", [Tasa Interes Ponderada]\n\t\t\t)",
+      "dax_truncated": false,
+      "format_string": "#,0.00",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": true,
+      "dependencies_measures": [
+        "Q Cuentas",
+        "Tasa Interes Ponderada",
+        "Q Clientes",
+        "Saldo"
+      ],
+      "dependencies_columns": [
+        [
+          "Metricas",
+          "Metrica"
+        ]
+      ]
+    },
+    {
+      "name": "Q Clientes",
+      "table": "⚙ Medidas",
+      "dax": "DISTINCTCOUNT('FctProductos'[COD_CLIENTE])",
+      "dax_truncated": false,
+      "format_string": "0",
+      "display_folder": "Medidas Primarias",
+      "description": null,
+      "has_description": false,
+      "is_hidden": true,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "FctProductos",
+          "COD_CLIENTE"
+        ]
+      ]
+    },
+    {
+      "name": "Q Cuentas",
+      "table": "⚙ Medidas",
+      "dax": "DISTINCTCOUNT('FctProductos'[COD_PRODUCTO])",
+      "dax_truncated": false,
+      "format_string": "0",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "FctProductos",
+          "COD_PRODUCTO"
+        ]
+      ]
+    },
+    {
+      "name": "Tasa Interes Ponderada",
+      "table": "⚙ Medidas",
+      "dax": "VAR TasaCalc =\n\t\t\t    CALCULATE(\n\t\t\t        DIVIDE(\n\t\t\t            SUMX(\n\t\t\t                FctProductos,\n\t\t\t                FctProductos[TASA_INTERES] * FctProductos[VALOR]\n\t\t\t            ),\n\t\t\t            SUM(FctProductos[VALOR])\n\t\t\t        )\n\t\t\t    )\n\t\t\tRETURN\n\t\t\t    IF(ISBLANK(TasaCalc), 0, TasaCalc)",
+      "dax_truncated": false,
+      "format_string": "0.00",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "FctProductos",
+          "TASA_INTERES"
+        ],
+        [
+          "FctProductos",
+          "VALOR"
+        ],
+        [
+          "FctProductos",
+          "VALOR"
+        ]
+      ]
+    },
+    {
+      "name": "Valor Actual",
+      "table": "⚙ Medidas",
+      "dax": "VAR _UltimaFechaPorCore =\n\t\t\t    CALCULATE (\n\t\t\t        /* Entre todas las fechas posibles, quédate con la mayor\n\t\t\t           que produzca un valor no BLANK de [1_0] en el contexto\n\t\t\t           del TIPO_PRODUCTO_CORE actual                        */\n\t\t\t        MAXX (\n\t\t\t            FILTER (\n\t\t\t                ALL ( 'FctProductos'[FEC_CORTE] ),\n\t\t\t                NOT ISBLANK ( CALCULATE ( [Valor Métrica Seleccionada] ) )\n\t\t\t            ),\n\t\t\t            'FctProductos'[FEC_CORTE]\n\t\t\t        ),\n\t",
+      "dax_truncated": true,
+      "format_string": "\\$#,0;(\\$#,0);\\$#,0",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": true,
+      "dependencies_measures": [
+        "Valor Métrica Seleccionada"
+      ],
+      "dependencies_columns": [
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ],
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ],
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ],
+        [
+          "DimTipoProducto",
+          "TIPO_PRODUCTO_CORE"
+        ],
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ]
+      ]
+    },
+    {
+      "name": "Valor Actual (txt)",
+      "table": "⚙ Medidas",
+      "dax": "VAR v   = [Valor Actual]\n\t\t\tVAR sel = SELECTEDVALUE( Metricas[Metrica], \"\" )\n\t\t\tRETURN\n\t\t\tSWITCH(\n\t\t\t    TRUE(),\n\t\t\t    ISBLANK(v), BLANK(),\n\t\t\t    sel = \"Saldo\",          FORMAT( v/1000000, \"$#,##0 \"\"MM\"\"\" ),   -- sin escalar: ya está en MM\n\t\t\t    sel = \"Tasa Ponderada\", FORMAT( v/100, \"0.00%\" ),           -- porcentaje con 2 decimales\n\t\t\t                           FORMAT( v, \"#,0\" )               -- entero para el resto\n\t\t\t)",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [
+        "Valor Actual"
+      ],
+      "dependencies_columns": [
+        [
+          "Metricas",
+          "Metrica"
+        ]
+      ]
+    },
+    {
+      "name": "Valor Mes Anterior",
+      "table": "⚙ Medidas",
+      "dax": "CALCULATE(\n\t\t\t    [Valor Métrica Seleccionada], \n\t\t\t    FILTER(\n\t\t\t        'FctProductos', \n\t\t\t        'FctProductos'[FEC_CORTE] = EOMONTH(CALCULATE(MAX('FctProductos'[FEC_CORTE]), ALL('FctProductos')), -1)\n\t\t\t    )\n\t\t\t)",
+      "dax_truncated": false,
+      "format_string": "$#,##0,, \"MM\"",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": true,
+      "dependencies_measures": [
+        "Valor Métrica Seleccionada"
+      ],
+      "dependencies_columns": [
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ],
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ]
+      ]
+    },
+    {
+      "name": "Título Medida",
+      "table": "⚙ Medidas",
+      "dax": "VAR sel =\n\t\t\t    IF(\n\t\t\t        HASONEVALUE('DimTipoProducto'[TIPO_PRODUCTO]),\n\t\t\t        SELECTEDVALUE('DimTipoProducto'[TIPO_PRODUCTO]),\n\t\t\t        BLANK()\n\t\t\t    )\n\t\t\tRETURN\n\t\t\tSWITCH(\n\t\t\t    TRUE(),\n\t\t\t    ISBLANK(sel),                      \"Saldos Pasivos\",   -- nada o múltiple selección\n\t\t\t    sel = \"CUENTA DE EFECTIVO\",        \"Saldo Vista\",\n\t\t\t    sel = \"CERTIFICADO\",               \"Saldo Plazo\",\n\t\t\t                                       \"Saldos Pasivos\"    -- cualquier otro valor\n\t\t\t)",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [],
+      "dependencies_columns": [
+        [
+          "DimTipoProducto",
+          "TIPO_PRODUCTO"
+        ],
+        [
+          "DimTipoProducto",
+          "TIPO_PRODUCTO"
+        ]
+      ]
+    },
+    {
+      "name": "Valor Mes Anterior (txt)",
+      "table": "⚙ Medidas",
+      "dax": "VAR v   = [Valor Mes Anterior]\n\t\t\tVAR sel = SELECTEDVALUE( Metricas[Metrica], \"\" )\n\t\t\tRETURN\n\t\t\tSWITCH(\n\t\t\t    TRUE(),\n\t\t\t    ISBLANK(v), BLANK(),\n\t\t\t    sel = \"Saldo\",          FORMAT( v/1000000, \"$#,##0 \"\"MM\"\"\" ),  -- Saldo en MM\n\t\t\t    sel = \"Tasa Ponderada\", FORMAT( v/100, \"0.00%\" ),              -- Tasa como %\n\t\t\t                             FORMAT( v, \"#,0\" )                    -- Resto: entero\n\t\t\t)",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [
+        "Valor Mes Anterior"
+      ],
+      "dependencies_columns": [
+        [
+          "Metricas",
+          "Metrica"
+        ]
+      ]
+    },
+    {
+      "name": "Valor MoM",
+      "table": "⚙ Medidas",
+      "dax": "[Valor Actual]-[Valor Mes Anterior]",
+      "dax_truncated": false,
+      "format_string": "$#,##0 \"MM\"",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": true,
+      "dependencies_measures": [
+        "Valor Actual",
+        "Valor Mes Anterior"
+      ],
+      "dependencies_columns": []
+    },
+    {
+      "name": "Valor MoM (txt)",
+      "table": "⚙ Medidas",
+      "dax": "VAR v   = [Valor MoM]\n\t\t\tVAR sel = SELECTEDVALUE( Metricas[Metrica], \"\" )\n\t\t\tRETURN\n\t\t\tSWITCH(\n\t\t\t    TRUE(),\n\t\t\t    ISBLANK(v), BLANK(),\n\t\t\t    sel = \"Saldo\",          FORMAT( v/1000000, \"$#,##0 \"\"MM\"\"\" ),  -- Saldo en MM\n\t\t\t    sel = \"Tasa Ponderada\", FORMAT( v/100, \"0.00%\" ),              -- Tasa como %\n\t\t\t                             FORMAT( v, \"#,0\" )                    -- Resto: entero\n\t\t\t)",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [
+        "Valor MoM"
+      ],
+      "dependencies_columns": [
+        [
+          "Metricas",
+          "Metrica"
+        ]
+      ]
+    },
+    {
+      "name": "1_MoM_%",
+      "table": "⚙ Medidas",
+      "dax": "DIVIDE([Valor MoM], [Valor Mes Anterior], 1)",
+      "dax_truncated": false,
+      "format_string": "0\\ %;-0\\ %;0\\ %",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": true,
+      "dependencies_measures": [
+        "Valor Mes Anterior",
+        "Valor MoM"
+      ],
+      "dependencies_columns": []
+    },
+    {
+      "name": "Valor Interanual",
+      "table": "⚙ Medidas",
+      "dax": "CALCULATE(\n\t\t\t    [Valor Métrica Seleccionada], \n\t\t\t    FILTER(\n\t\t\t        'FctProductos', \n\t\t\t        'FctProductos'[FEC_CORTE] = EOMONTH(CALCULATE(MAX('FctProductos'[FEC_CORTE]), ALL('FctProductos')), -12)\n\t\t\t        )\n\t\t\t)",
+      "dax_truncated": false,
+      "format_string": "$#,##0,, \"MM\"",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": true,
+      "dependencies_measures": [
+        "Valor Métrica Seleccionada"
+      ],
+      "dependencies_columns": [
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ],
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ]
+      ]
+    },
+    {
+      "name": "Valor Interanual (txt)",
+      "table": "⚙ Medidas",
+      "dax": "VAR v   = [Valor Interanual]\n\t\t\tVAR sel = SELECTEDVALUE( Metricas[Metrica], \"\" )\n\t\t\tRETURN\n\t\t\tSWITCH(\n\t\t\t    TRUE(),\n\t\t\t    ISBLANK(v), BLANK(),\n\t\t\t    sel = \"Saldo\",          FORMAT( v/1000000, \"$#,##0 \"\"MM\"\"\" ),  -- Saldo en MM\n\t\t\t    sel = \"Tasa Ponderada\", FORMAT( v/100, \"0.00%\" ),              -- Tasa como %\n\t\t\t                             FORMAT( v, \"#,0\" )                    -- Resto: entero\n\t\t\t)",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [
+        "Valor Interanual"
+      ],
+      "dependencies_columns": [
+        [
+          "Metricas",
+          "Metrica"
+        ]
+      ]
+    },
+    {
+      "name": "Valor YoY",
+      "table": "⚙ Medidas",
+      "dax": "[Valor Actual]-[Valor Interanual]",
+      "dax_truncated": false,
+      "format_string": "$#,##0,, \"MM\"",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": true,
+      "dependencies_measures": [
+        "Valor Actual",
+        "Valor Interanual"
+      ],
+      "dependencies_columns": []
+    },
+    {
+      "name": "Valor Cierre Año Anterior",
+      "table": "⚙ Medidas",
+      "dax": "CALCULATE(\n\t\t\t    [Valor Métrica Seleccionada], \n\t\t\t    FILTER(\n\t\t\t        'FctProductos', \n\t\t\t        'FctProductos'[FEC_CORTE] = DATE(YEAR(CALCULATE(MAX('FctProductos'[FEC_CORTE]), ALL('FctProductos'))) - 1, 12, 31)\n\t\t\t        )\n\t\t\t)",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": true,
+      "dependencies_measures": [
+        "Valor Métrica Seleccionada"
+      ],
+      "dependencies_columns": [
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ],
+        [
+          "FctProductos",
+          "FEC_CORTE"
+        ]
+      ]
+    },
+    {
+      "name": "Valor YoY (txt)",
+      "table": "⚙ Medidas",
+      "dax": "VAR v   = [Valor YoY]\n\t\t\tVAR sel = SELECTEDVALUE( Metricas[Metrica], \"\" )\n\t\t\tRETURN\n\t\t\tSWITCH(\n\t\t\t    TRUE(),\n\t\t\t    ISBLANK(v), BLANK(),\n\t\t\t    sel = \"Saldo\",          FORMAT( v/1000000, \"$#,##0 \"\"MM\"\"\" ),  -- Saldo en MM\n\t\t\t    sel = \"Tasa Ponderada\", FORMAT( v/100, \"0.00%\" ),              -- Tasa como %\n\t\t\t                             FORMAT( v, \"#,0\" )                    -- Resto: entero\n\t\t\t)",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [
+        "Valor YoY"
+      ],
+      "dependencies_columns": [
+        [
+          "Metricas",
+          "Metrica"
+        ]
+      ]
+    },
+    {
+      "name": "Valor YTD",
+      "table": "⚙ Medidas",
+      "dax": "[Valor Actual]-[Valor Cierre Año Anterior]",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": true,
+      "dependencies_measures": [
+        "Valor Actual",
+        "Valor Cierre Año Anterior"
+      ],
+      "dependencies_columns": []
+    },
+    {
+      "name": "Valor Cierre Año Anterior (txt)",
+      "table": "⚙ Medidas",
+      "dax": "VAR v   = [Valor Cierre Año Anterior]\n\t\t\tVAR sel = SELECTEDVALUE( Metricas[Metrica], \"\" )\n\t\t\tRETURN\n\t\t\tSWITCH(\n\t\t\t    TRUE(),\n\t\t\t    ISBLANK(v), BLANK(),\n\t\t\t    sel = \"Saldo\",          FORMAT( v/1000000, \"$#,##0 \"\"MM\"\"\" ),  -- Saldo en MM\n\t\t\t    sel = \"Tasa Ponderada\", FORMAT( v/100, \"0.00%\" ),              -- Tasa como %\n\t\t\t                             FORMAT( v, \"#,0\" )                    -- Resto: entero\n\t\t\t)",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [
+        "Valor Cierre Año Anterior"
+      ],
+      "dependencies_columns": [
+        [
+          "Metricas",
+          "Metrica"
+        ]
+      ]
+    },
+    {
+      "name": "Valor YTD (txt)",
+      "table": "⚙ Medidas",
+      "dax": "VAR v   = [Valor YTD]   -- [Valor YTD] = [Valor Actual] - [Valor Cierre Año Anterior]\n\t\t\tVAR sel = SELECTEDVALUE( Metricas[Metrica], \"\" )\n\t\t\tRETURN\n\t\t\tSWITCH(\n\t\t\t    TRUE(),\n\t\t\t    ISBLANK(v), BLANK(),\n\t\t\t    sel = \"Saldo\",          FORMAT( v/1000000, \"$#,##0 \"\"MM\"\"\" ),  -- Saldo en millones\n\t\t\t    sel = \"Tasa Ponderada\", FORMAT( v/100, \"0.00%\" ),              -- Tasa como %\n\t\t\t                             FORMAT( v, \"#,0\" )                    -- Resto: entero\n\t\t\t)",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [
+        "Valor Actual",
+        "Valor Cierre Año Anterior",
+        "Valor YTD"
+      ],
+      "dependencies_columns": [
+        [
+          "Metricas",
+          "Metrica"
+        ]
+      ]
+    },
+    {
+      "name": "Valor Meta",
+      "table": "⚙ Medidas",
+      "dax": "[Valor Cierre Año Anterior]*(1+[Porcentaje Target (Ayer)])",
+      "dax_truncated": false,
+      "format_string": "$#,##0,, \"MM\"",
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [
+        "Valor Cierre Año Anterior",
+        "Porcentaje Target (Ayer)"
+      ],
+      "dependencies_columns": []
+    },
+    {
+      "name": "Valor Meta (txt)",
+      "table": "⚙ Medidas",
+      "dax": "VAR v   = [Valor Meta]   -- [Valor Meta] = [Valor Cierre Año Anterior] * (1 + [Porcentaje Target (Ayer)])\n\t\t\tVAR sel = SELECTEDVALUE( Metricas[Metrica], \"\" )\n\t\t\tRETURN\n\t\t\tSWITCH(\n\t\t\t    TRUE(),\n\t\t\t    ISBLANK(v), BLANK(),\n\t\t\t    sel = \"Saldo\",          FORMAT( v/1000000, \"$#,##0 \"\"MM\"\"\" ),\n\t\t\t    sel = \"Tasa Ponderada\", FORMAT( v/100, \"0.00%\" ),\n\t\t\t                             FORMAT( v, \"#,0\" )\n\t\t\t)",
+      "dax_truncated": false,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [
+        "Valor Cierre Año Anterior",
+        "Porcentaje Target (Ayer)",
+        "Valor Meta"
+      ],
+      "dependencies_columns": [
+        [
+          "Metricas",
+          "Metrica"
+        ]
+      ]
+    },
+    {
+      "name": "Valor Métrica Seleccionada (txt)",
+      "table": "⚙ Medidas",
+      "dax": "VAR v   = [Valor Métrica Seleccionada]\n\t\t\tVAR sel = SELECTEDVALUE( Metricas[Metrica], \"\" )\n\t\t\tRETURN\n\t\t\tSWITCH(\n\t\t\t    TRUE(),\n\t\t\t    ISBLANK(v), BLANK(),\n\t\t\t    sel = \"Saldo\",          FORMAT( v/1000000, \"$#,##0 \"\"MM\"\"\" ),  -- Saldo en millones\n\t\t\t    sel = \"Tasa Ponderada\", FORMAT( v/100, \"0.00%\" ),              -- Tasa en porcentaje\n\t\t\t    sel = \"Q Clientes\",     FORMAT( v, \"#,0\" ),                    -- Clientes: entero\n\t\t\t    sel = \"Q Cuentas\",      FORMAT( v, \"#,0\" ),                    --",
+      "dax_truncated": true,
+      "format_string": null,
+      "display_folder": null,
+      "description": null,
+      "has_description": false,
+      "is_hidden": false,
+      "dependencies_measures": [
+        "Valor Métrica Seleccionada"
+      ],
+      "dependencies_columns": [
+        [
+          "Metricas",
+          "Metrica"
+        ]
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "name": "6d060b73-0adc-4b0e-bb94-e4c0e907c197",
+      "is_auto_detected": false,
+      "from_column": "DimCalendario.Fecha",
+      "to_column": "LocalDateTable_c38c851c-baf1-425a-b46b-6fc5b8e62172.Date",
+      "cross_filtering": "single",
+      "join_on_date_only": true
+    },
+    {
+      "name": "5f308f4c-be2d-4fae-eab7-e82766f29792",
+      "is_auto_detected": false,
+      "from_column": "FctProductos.FEC_CORTE",
+      "to_column": "DimCalendario.Fecha",
+      "cross_filtering": "single",
+      "join_on_date_only": false
+    },
+    {
+      "name": "0c7e304e-25b0-4588-b1ac-87b17e079307",
+      "is_auto_detected": false,
+      "from_column": "DimProducto.FEC_APERTURA",
+      "to_column": "LocalDateTable_385a457a-20df-4be8-ac4f-190433881064.Date",
+      "cross_filtering": "single",
+      "join_on_date_only": true
+    },
+    {
+      "name": "AutoDetected_d7658848-738f-45c2-bfe2-e1c82f793ca2",
+      "is_auto_detected": true,
+      "from_column": "FctProductos.COD_CLIENTE",
+      "to_column": "DimCliente.COD_CLIENTE",
+      "cross_filtering": "single",
+      "join_on_date_only": false
+    },
+    {
+      "name": "AutoDetected_c09f7eab-2b35-4030-9b84-7e8bf472b3ad",
+      "is_auto_detected": true,
+      "from_column": "FctProductos.COD_PRODUCTO",
+      "to_column": "DimProducto.COD_PRODUCTO",
+      "cross_filtering": "single",
+      "join_on_date_only": false
+    },
+    {
+      "name": "AutoDetected_7a04b2dc-2bc3-4450-8195-bc794c47e079",
+      "is_auto_detected": true,
+      "from_column": "FctProductos.COD_TIPO_PRODUCTO",
+      "to_column": "DimTipoProducto.COD_TIPO_PRODUCTO",
+      "cross_filtering": "single",
+      "join_on_date_only": false
+    },
+    {
+      "name": "AutoDetected_413d658f-e310-4ff7-8ac1-7b0170077d1b",
+      "is_auto_detected": true,
+      "from_column": "FctProductos.COD_MONEDA",
+      "to_column": "DimMoneda.COD_MONEDA",
+      "cross_filtering": "single",
+      "join_on_date_only": false
+    },
+    {
+      "name": "AutoDetected_0e67b818-6396-4a6b-864e-40e0c09eb44c",
+      "is_auto_detected": true,
+      "from_column": "FctProductos.COD_PROMOTOR",
+      "to_column": "DimPromotor.COD_PROMOTOR",
+      "cross_filtering": "single",
+      "join_on_date_only": false
+    },
+    {
+      "name": "ff7355a4-3af1-0668-8f2a-1fe62f17ef77",
+      "is_auto_detected": false,
+      "from_column": "FctProductos.COD_ESTADO_PRODUCTO",
+      "to_column": "DimEstadoProducto.COD_ESTADO",
+      "cross_filtering": "single",
+      "join_on_date_only": false
+    },
+    {
+      "name": "528e9a33-7991-f837-b550-6b5a9e8844fa",
+      "is_auto_detected": false,
+      "from_column": "FctProductos.FEC_CORTE",
+      "to_column": "DimMetas.FEC_CORTE",
+      "cross_filtering": "single",
+      "join_on_date_only": false
+    },
+    {
+      "name": "08188dc6-80bd-4e53-8b36-3e7d69d4be9e",
+      "is_auto_detected": false,
+      "from_column": "DimMetas.FEC_CORTE",
+      "to_column": "LocalDateTable_a0176f28-d511-490b-aa1c-fc4edc033051.Date",
+      "cross_filtering": "single",
+      "join_on_date_only": true
+    },
+    {
+      "name": "bb684b22-c498-40f2-974b-ffac28185698",
+      "is_auto_detected": false,
+      "from_column": "DimProducto.FEC_VENCIMIENTO",
+      "to_column": "LocalDateTable_00444826-d1ae-48ed-9fe1-f6339b8a289a.Date",
+      "cross_filtering": "single",
+      "join_on_date_only": true
+    }
+  ],
+  "data_sources_summary": {
+    "by_type": {
+      "tabla_calculada": 8,
+      "m_dinamica": 1,
+      "azure_synapse": 7,
+      "desconocido": 2
+    },
+    "by_classification": {
+      "Calculada": 9,
+      "GOLD": 7,
+      "Desconocido": 2
+    }
+  },
+  "measure_dependency_graph": {
+    "1_Complete_%": [
+      "Valor Meta"
+    ],
+    "1_Estado": [
+      "Valor Meta"
+    ],
+    "1_Target_%": [
+      "Valor Meta"
+    ],
+    "1_Target_Delta": [
+      "Valor Actual",
+      "Valor Meta"
+    ],
+    "1_YoY_%": [
+      "Valor Interanual",
+      "Valor YoY"
+    ],
+    "1_YTD_%": [
+      "Valor Cierre Año Anterior",
+      "Valor YTD"
+    ],
+    "1_Last_Valor (Eje)": [
+      "Valor Actual"
+    ],
+    "1_Last_Valor (%)": [
+      "Valor Actual",
+      "Valor Métrica Seleccionada"
+    ],
+    "1_Target_Valor_FinMes": [
+      "Valor Cierre Año Anterior",
+      "Porcentaje Target (Fin Mes Actual)"
+    ],
+    "1_Target_Delta_FinMes": [
+      "Valor Actual"
+    ],
+    "1_Last_Valor_SinFormato": [
+      "Valor Métrica Seleccionada"
+    ],
+    "1_MoM_Delta_SinFormato": [
+      "Valor Actual",
+      "Valor Mes Anterior"
+    ],
+    "1_YoY_Delta_SinFormato": [
+      "Valor Actual",
+      "Valor Interanual"
+    ],
+    "1_YTD_Delta_SinFormato": [
+      "Valor Actual",
+      "Valor Cierre Año Anterior"
+    ],
+    "Valor Métrica Seleccionada": [
+      "Q Cuentas",
+      "Tasa Interes Ponderada",
+      "Q Clientes",
+      "Saldo"
+    ],
+    "Valor Actual": [
+      "Valor Métrica Seleccionada"
+    ],
+    "Valor Actual (txt)": [
+      "Valor Actual"
+    ],
+    "Valor Mes Anterior": [
+      "Valor Métrica Seleccionada"
+    ],
+    "Valor Mes Anterior (txt)": [
+      "Valor Mes Anterior"
+    ],
+    "Valor MoM": [
+      "Valor Actual",
+      "Valor Mes Anterior"
+    ],
+    "Valor MoM (txt)": [
+      "Valor MoM"
+    ],
+    "1_MoM_%": [
+      "Valor Mes Anterior",
+      "Valor MoM"
+    ],
+    "Valor Interanual": [
+      "Valor Métrica Seleccionada"
+    ],
+    "Valor Interanual (txt)": [
+      "Valor Interanual"
+    ],
+    "Valor YoY": [
+      "Valor Actual",
+      "Valor Interanual"
+    ],
+    "Valor Cierre Año Anterior": [
+      "Valor Métrica Seleccionada"
+    ],
+    "Valor YoY (txt)": [
+      "Valor YoY"
+    ],
+    "Valor YTD": [
+      "Valor Actual",
+      "Valor Cierre Año Anterior"
+    ],
+    "Valor Cierre Año Anterior (txt)": [
+      "Valor Cierre Año Anterior"
+    ],
+    "Valor YTD (txt)": [
+      "Valor Actual",
+      "Valor Cierre Año Anterior",
+      "Valor YTD"
+    ],
+    "Valor Meta": [
+      "Valor Cierre Año Anterior",
+      "Porcentaje Target (Ayer)"
+    ],
+    "Valor Meta (txt)": [
+      "Valor Cierre Año Anterior",
+      "Porcentaje Target (Ayer)",
+      "Valor Meta"
+    ],
+    "Valor Métrica Seleccionada (txt)": [
+      "Valor Métrica Seleccionada"
+    ]
+  },
+  "report": {
+    "pages_count": 7,
+    "visuals_count": 251,
+    "bookmarks_count": 13,
+    "has_custom_theme": true,
+    "pages": [
+      {
+        "name": "0311eb7774382d0a4328",
+        "display_name": "Tooltip",
+        "visuals_count": 1,
+        "name_is_guid": true
+      },
+      {
+        "name": "05d24585fb1022c55cf8",
+        "display_name": "Duplicado de Top Variaciones",
+        "visuals_count": 21,
+        "name_is_guid": true
+      },
+      {
+        "name": "766d499c578a32683ae5",
+        "display_name": "Tendencia",
+        "visuals_count": 41,
+        "name_is_guid": true
+      },
+      {
+        "name": "8d0bb82de0fc55fa23e5",
+        "display_name": "Panel",
+        "visuals_count": 103,
+        "name_is_guid": true
+      },
+      {
+        "name": "bb5e7470c45c5ce847ad",
+        "display_name": "Exploración",
+        "visuals_count": 45,
+        "name_is_guid": true
+      },
+      {
+        "name": "d320b6fe604941bebdfa",
+        "display_name": "Exploración Profunda",
+        "visuals_count": 19,
+        "name_is_guid": true
+      },
+      {
+        "name": "ef13b3823d6532e2eae8",
+        "display_name": "Top Variaciones",
+        "visuals_count": 21,
+        "name_is_guid": true
+      }
+    ]
+  },
+  "stats": {
+    "tables_total": 19,
+    "measures_total": 72,
+    "columns_total": 105,
+    "relationships_total": 12,
+    "external_sources_count": 7,
+    "has_local_date_tables": true,
+    "local_date_tables_count": 5
+  }
+}
