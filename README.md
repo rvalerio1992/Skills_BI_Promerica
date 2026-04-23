@@ -138,23 +138,25 @@ El Source Lineage Auditor clasifica cada tabla según su origen:
 
 ## 🗺️ Roadmap
 
-### ✅ Fase 1 — MVP (actual)
-- 3 agentes: semantic-model-auditor, source-lineage-auditor, dax-reviewer
-- 4 prompts operativos
-- 5 skills core
-- 3 archivos de instructions
-- Carpeta `powerbi-project/` como ubicación estándar
+📐 **Arquitectura completa:** ver [ARCHITECTURE.md](./ARCHITECTURE.md) — blueprint de los 12 agentes en 4 capas.
 
-### 🔜 Fase 2 — Expansión (próximos 3 meses)
-- Agente **PBIR Report Orchestrator** — batch edits sobre reportes
-- Skill **bpa-rules** — Best Practice Analyzer rules
-- Skill **sql-optimizer** — revisar queries extraídas por source-lineage-auditor
+### ✅ Fase 0 — MVP actual
+- `source-lineage-auditor` (Capa 2)
+- `semantic-model-auditor` con scoring dual (Capa 2)
+- `model-documenter` (Capa 3)
+- `dax-reviewer` (Capa 3)
 
-### 🔮 Fase 3 — Avanzado (2026)
-- Agente **Visual Recommender** — propone visualizaciones y genera Deneb/Vega-Lite specs
-- Integración MCP con Power BI Semantic Model
-- Hooks para auditoría automática pre-commit
-- Custom Visual scaffolding (.pbiviz)
+### 🚧 Fase 1 — Fundación
+- `model-explorer` (Capa 1 — prioridad #1)
+
+### 🔜 Fase 2 — Auditoría extendida
+- `m-code-auditor`, `sql-code-auditor`, `pbir-report-auditor`
+
+### 🎨 Fase 3 — Enriquecimiento
+- `m-code-formatter`, `sql-code-formatter`
+
+### 🚀 Fase 4 — Producción
+- `measure-generator`, `custom-visual-builder`, `multi-report-aggregator`
 
 ---
 
