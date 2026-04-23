@@ -1,0 +1,2093 @@
+{
+  "audit_date": "2026-04-23",
+  "project": "RPAUT084",
+  "context_source": "outputs/context/RPAUT084_context.json",
+  "score_estructural": 46,
+  "score_documentacion": 0,
+  "score_global": 32,
+  "scoring_method": {
+    "structural_weight": 0.7,
+    "documentation_weight": 0.3,
+    "severity_penalties": {
+      "crítico": 20,
+      "mejora": 5,
+      "observación": 1
+    }
+  },
+  "summary": {
+    "tables_analyzed": 19,
+    "measures_analyzed": 72,
+    "structural_findings": 15,
+    "documentation_findings": 190,
+    "total_findings": 205,
+    "by_severity": {
+      "mejora": 54,
+      "crítico": 1,
+      "observación": 150
+    },
+    "by_rule": {
+      "MODEL-AUTO-DATETIME": 1,
+      "DIM-FECHA-NOT-MARKED": 1,
+      "NAMING-TABLE-STYLE": 9,
+      "TABLE-DESCRIPTION": 14,
+      "NAMING-TABLE": 4,
+      "REL-LOCAL-DATETABLE": 4,
+      "REL-AUTO-DETECTED": 5,
+      "MEASURE-NO-FOLDER": 65,
+      "MEASURE-NO-DESCRIPTION": 67,
+      "MEASURE-NO-FORMAT": 35
+    }
+  },
+  "findings": [
+    {
+      "id": "SM-001",
+      "severity": "mejora",
+      "category": "estructural",
+      "rule": "MODEL-AUTO-DATETIME",
+      "location": "model.tmdl",
+      "description": "Auto Date/Time habilitado — genera LocalDateTable_* ocultas",
+      "recommendation": "Desactivar en Archivo → Opciones → Modelo actual → Inteligencia de tiempo",
+      "context_reference": "model.auto_datetime_enabled"
+    },
+    {
+      "id": "SM-002",
+      "severity": "crítico",
+      "category": "estructural",
+      "rule": "DIM-FECHA-NOT-MARKED",
+      "location": "tables/DimCalendario.tmdl",
+      "description": "Tabla DimCalendario (calendario) no marcada como tabla de fechas",
+      "recommendation": "Marcar con dataCategory: Time en Power BI Desktop",
+      "context_reference": "tables[1]"
+    },
+    {
+      "id": "SM-003",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "NAMING-TABLE-STYLE",
+      "location": "tables/DimCalendario.tmdl",
+      "description": "Tabla DimCalendario usa estilo Fct/Dim",
+      "recommendation": "Considerar migrar a FACT_/DIM_ (Promerica)",
+      "context_reference": "tables[1]"
+    },
+    {
+      "id": "SM-004",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "TABLE-DESCRIPTION",
+      "location": "tables/DimCalendario.tmdl",
+      "description": "Tabla DimCalendario sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "tables[1]"
+    },
+    {
+      "id": "SM-005",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "NAMING-TABLE-STYLE",
+      "location": "tables/DimCliente.tmdl",
+      "description": "Tabla DimCliente usa estilo Fct/Dim",
+      "recommendation": "Considerar migrar a FACT_/DIM_ (Promerica)",
+      "context_reference": "tables[2]"
+    },
+    {
+      "id": "SM-006",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "TABLE-DESCRIPTION",
+      "location": "tables/DimCliente.tmdl",
+      "description": "Tabla DimCliente sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "tables[2]"
+    },
+    {
+      "id": "SM-007",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "NAMING-TABLE-STYLE",
+      "location": "tables/DimEstadoProducto.tmdl",
+      "description": "Tabla DimEstadoProducto usa estilo Fct/Dim",
+      "recommendation": "Considerar migrar a FACT_/DIM_ (Promerica)",
+      "context_reference": "tables[3]"
+    },
+    {
+      "id": "SM-008",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "TABLE-DESCRIPTION",
+      "location": "tables/DimEstadoProducto.tmdl",
+      "description": "Tabla DimEstadoProducto sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "tables[3]"
+    },
+    {
+      "id": "SM-009",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "NAMING-TABLE-STYLE",
+      "location": "tables/DimMetas.tmdl",
+      "description": "Tabla DimMetas usa estilo Fct/Dim",
+      "recommendation": "Considerar migrar a FACT_/DIM_ (Promerica)",
+      "context_reference": "tables[4]"
+    },
+    {
+      "id": "SM-010",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "TABLE-DESCRIPTION",
+      "location": "tables/DimMetas.tmdl",
+      "description": "Tabla DimMetas sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "tables[4]"
+    },
+    {
+      "id": "SM-011",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "NAMING-TABLE-STYLE",
+      "location": "tables/DimMoneda.tmdl",
+      "description": "Tabla DimMoneda usa estilo Fct/Dim",
+      "recommendation": "Considerar migrar a FACT_/DIM_ (Promerica)",
+      "context_reference": "tables[5]"
+    },
+    {
+      "id": "SM-012",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "TABLE-DESCRIPTION",
+      "location": "tables/DimMoneda.tmdl",
+      "description": "Tabla DimMoneda sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "tables[5]"
+    },
+    {
+      "id": "SM-013",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "NAMING-TABLE-STYLE",
+      "location": "tables/DimProducto.tmdl",
+      "description": "Tabla DimProducto usa estilo Fct/Dim",
+      "recommendation": "Considerar migrar a FACT_/DIM_ (Promerica)",
+      "context_reference": "tables[6]"
+    },
+    {
+      "id": "SM-014",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "TABLE-DESCRIPTION",
+      "location": "tables/DimProducto.tmdl",
+      "description": "Tabla DimProducto sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "tables[6]"
+    },
+    {
+      "id": "SM-015",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "NAMING-TABLE-STYLE",
+      "location": "tables/DimPromotor.tmdl",
+      "description": "Tabla DimPromotor usa estilo Fct/Dim",
+      "recommendation": "Considerar migrar a FACT_/DIM_ (Promerica)",
+      "context_reference": "tables[7]"
+    },
+    {
+      "id": "SM-016",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "TABLE-DESCRIPTION",
+      "location": "tables/DimPromotor.tmdl",
+      "description": "Tabla DimPromotor sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "tables[7]"
+    },
+    {
+      "id": "SM-017",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "NAMING-TABLE-STYLE",
+      "location": "tables/DimTipoProducto.tmdl",
+      "description": "Tabla DimTipoProducto usa estilo Fct/Dim",
+      "recommendation": "Considerar migrar a FACT_/DIM_ (Promerica)",
+      "context_reference": "tables[8]"
+    },
+    {
+      "id": "SM-018",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "TABLE-DESCRIPTION",
+      "location": "tables/DimTipoProducto.tmdl",
+      "description": "Tabla DimTipoProducto sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "tables[8]"
+    },
+    {
+      "id": "SM-019",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "NAMING-TABLE-STYLE",
+      "location": "tables/FctProductos.tmdl",
+      "description": "Tabla FctProductos usa estilo Fct/Dim",
+      "recommendation": "Considerar migrar a FACT_/DIM_ (Promerica)",
+      "context_reference": "tables[9]"
+    },
+    {
+      "id": "SM-020",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "TABLE-DESCRIPTION",
+      "location": "tables/FctProductos.tmdl",
+      "description": "Tabla FctProductos sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "tables[9]"
+    },
+    {
+      "id": "SM-021",
+      "severity": "mejora",
+      "category": "estructural",
+      "rule": "NAMING-TABLE",
+      "location": "tables/Medidas.tmdl",
+      "description": "Tabla Medidas con nombre genérico",
+      "recommendation": "Renombrar con prefijo Promerica",
+      "context_reference": "tables[14]"
+    },
+    {
+      "id": "SM-022",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "TABLE-DESCRIPTION",
+      "location": "tables/Medidas.tmdl",
+      "description": "Tabla Medidas sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "tables[14]"
+    },
+    {
+      "id": "SM-023",
+      "severity": "mejora",
+      "category": "estructural",
+      "rule": "NAMING-TABLE",
+      "location": "tables/Metricas.tmdl",
+      "description": "Tabla Metricas con nombre genérico",
+      "recommendation": "Renombrar con prefijo Promerica",
+      "context_reference": "tables[15]"
+    },
+    {
+      "id": "SM-024",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "TABLE-DESCRIPTION",
+      "location": "tables/Metricas.tmdl",
+      "description": "Tabla Metricas sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "tables[15]"
+    },
+    {
+      "id": "SM-025",
+      "severity": "mejora",
+      "category": "estructural",
+      "rule": "NAMING-TABLE",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Tabla Parámetros con nombre genérico",
+      "recommendation": "Renombrar con prefijo Promerica",
+      "context_reference": "tables[16]"
+    },
+    {
+      "id": "SM-026",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "TABLE-DESCRIPTION",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Tabla Parámetros sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "tables[16]"
+    },
+    {
+      "id": "SM-027",
+      "severity": "mejora",
+      "category": "estructural",
+      "rule": "NAMING-TABLE",
+      "location": "tables/Tabla.tmdl",
+      "description": "Tabla Tabla con nombre genérico",
+      "recommendation": "Renombrar con prefijo Promerica",
+      "context_reference": "tables[17]"
+    },
+    {
+      "id": "SM-028",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "TABLE-DESCRIPTION",
+      "location": "tables/Tabla.tmdl",
+      "description": "Tabla Tabla sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "tables[17]"
+    },
+    {
+      "id": "SM-029",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "TABLE-DESCRIPTION",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Tabla ⚙ Medidas sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "tables[18]"
+    },
+    {
+      "id": "SM-030",
+      "severity": "observación",
+      "category": "estructural",
+      "rule": "REL-LOCAL-DATETABLE",
+      "location": "relationships.tmdl",
+      "description": "Relación a LocalDateTable_*",
+      "recommendation": "Se elimina al desactivar Auto Date/Time",
+      "context_reference": "relationships[0]"
+    },
+    {
+      "id": "SM-031",
+      "severity": "observación",
+      "category": "estructural",
+      "rule": "REL-LOCAL-DATETABLE",
+      "location": "relationships.tmdl",
+      "description": "Relación a LocalDateTable_*",
+      "recommendation": "Se elimina al desactivar Auto Date/Time",
+      "context_reference": "relationships[2]"
+    },
+    {
+      "id": "SM-032",
+      "severity": "observación",
+      "category": "estructural",
+      "rule": "REL-AUTO-DETECTED",
+      "location": "relationships.tmdl",
+      "description": "Relación AutoDetected_d7658848-738f-45c AutoDetected",
+      "recommendation": "Revisar manualmente",
+      "context_reference": "relationships[3]"
+    },
+    {
+      "id": "SM-033",
+      "severity": "observación",
+      "category": "estructural",
+      "rule": "REL-AUTO-DETECTED",
+      "location": "relationships.tmdl",
+      "description": "Relación AutoDetected_c09f7eab-2b35-403 AutoDetected",
+      "recommendation": "Revisar manualmente",
+      "context_reference": "relationships[4]"
+    },
+    {
+      "id": "SM-034",
+      "severity": "observación",
+      "category": "estructural",
+      "rule": "REL-AUTO-DETECTED",
+      "location": "relationships.tmdl",
+      "description": "Relación AutoDetected_7a04b2dc-2bc3-445 AutoDetected",
+      "recommendation": "Revisar manualmente",
+      "context_reference": "relationships[5]"
+    },
+    {
+      "id": "SM-035",
+      "severity": "observación",
+      "category": "estructural",
+      "rule": "REL-AUTO-DETECTED",
+      "location": "relationships.tmdl",
+      "description": "Relación AutoDetected_413d658f-e310-4ff AutoDetected",
+      "recommendation": "Revisar manualmente",
+      "context_reference": "relationships[6]"
+    },
+    {
+      "id": "SM-036",
+      "severity": "observación",
+      "category": "estructural",
+      "rule": "REL-AUTO-DETECTED",
+      "location": "relationships.tmdl",
+      "description": "Relación AutoDetected_0e67b818-6396-4a6 AutoDetected",
+      "recommendation": "Revisar manualmente",
+      "context_reference": "relationships[7]"
+    },
+    {
+      "id": "SM-037",
+      "severity": "observación",
+      "category": "estructural",
+      "rule": "REL-LOCAL-DATETABLE",
+      "location": "relationships.tmdl",
+      "description": "Relación a LocalDateTable_*",
+      "recommendation": "Se elimina al desactivar Auto Date/Time",
+      "context_reference": "relationships[10]"
+    },
+    {
+      "id": "SM-038",
+      "severity": "observación",
+      "category": "estructural",
+      "rule": "REL-LOCAL-DATETABLE",
+      "location": "relationships.tmdl",
+      "description": "Relación a LocalDateTable_*",
+      "recommendation": "Se elimina al desactivar Auto Date/Time",
+      "context_reference": "relationships[11]"
+    },
+    {
+      "id": "SM-039",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_Complete_%] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[0]"
+    },
+    {
+      "id": "SM-040",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_Complete_%] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[0]"
+    },
+    {
+      "id": "SM-041",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_Estado] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[1]"
+    },
+    {
+      "id": "SM-042",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_Estado] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[1]"
+    },
+    {
+      "id": "SM-043",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_Estado] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[1]"
+    },
+    {
+      "id": "SM-044",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_Target_%] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[6]"
+    },
+    {
+      "id": "SM-045",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_Target_%] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[6]"
+    },
+    {
+      "id": "SM-046",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_Target_Delta] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[7]"
+    },
+    {
+      "id": "SM-047",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_Target_Delta] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[7]"
+    },
+    {
+      "id": "SM-048",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_YoY_%] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[8]"
+    },
+    {
+      "id": "SM-049",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_YoY_%] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[8]"
+    },
+    {
+      "id": "SM-050",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_YTD_%] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[9]"
+    },
+    {
+      "id": "SM-051",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_YTD_%] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[9]"
+    },
+    {
+      "id": "SM-052",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [Fecha Actualización] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[10]"
+    },
+    {
+      "id": "SM-053",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [Fecha Actualización] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[10]"
+    },
+    {
+      "id": "SM-054",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [Fecha MoM] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[11]"
+    },
+    {
+      "id": "SM-055",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [Fecha MoM] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[11]"
+    },
+    {
+      "id": "SM-056",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [Fecha YoY] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[12]"
+    },
+    {
+      "id": "SM-057",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [Fecha YoY] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[12]"
+    },
+    {
+      "id": "SM-058",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [Fecha YTD] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[13]"
+    },
+    {
+      "id": "SM-059",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [Fecha YTD] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[13]"
+    },
+    {
+      "id": "SM-060",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_Last_Valor (Eje)] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[14]"
+    },
+    {
+      "id": "SM-061",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_Last_Valor (Eje)] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[14]"
+    },
+    {
+      "id": "SM-062",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_Last_Valor (Eje)] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[14]"
+    },
+    {
+      "id": "SM-063",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_Last_Valor (%)] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[15]"
+    },
+    {
+      "id": "SM-064",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_Last_Valor (%)] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[15]"
+    },
+    {
+      "id": "SM-065",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_Last_Valor (%)] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[15]"
+    },
+    {
+      "id": "SM-066",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [Porcentaje Target (Ayer)] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[16]"
+    },
+    {
+      "id": "SM-067",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [Porcentaje Target (Ayer)] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[16]"
+    },
+    {
+      "id": "SM-068",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [Porcentaje Target (Ayer)] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[16]"
+    },
+    {
+      "id": "SM-069",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_Target_Valor_FinMes] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[17]"
+    },
+    {
+      "id": "SM-070",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_Target_Valor_FinMes] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[17]"
+    },
+    {
+      "id": "SM-071",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [Porcentaje Target (Fin Mes Actual)] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[18]"
+    },
+    {
+      "id": "SM-072",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [Porcentaje Target (Fin Mes Actual)] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[18]"
+    },
+    {
+      "id": "SM-073",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [Porcentaje Target (Fin Mes Actual)] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[18]"
+    },
+    {
+      "id": "SM-074",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_Target_Delta_FinMes] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[19]"
+    },
+    {
+      "id": "SM-075",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_Target_Delta_FinMes] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[19]"
+    },
+    {
+      "id": "SM-076",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_Target_Delta_FinMes] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[19]"
+    },
+    {
+      "id": "SM-077",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_Complete_%_FinMes] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[20]"
+    },
+    {
+      "id": "SM-078",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_Complete_%_FinMes] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[20]"
+    },
+    {
+      "id": "SM-079",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [Etiqueta Meta] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[21]"
+    },
+    {
+      "id": "SM-080",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [Etiqueta Meta] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[21]"
+    },
+    {
+      "id": "SM-081",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [Etiqueta Meta] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[21]"
+    },
+    {
+      "id": "SM-082",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [AVG_Saldo_Last] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[22]"
+    },
+    {
+      "id": "SM-083",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [AVG_Saldo_Last] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[22]"
+    },
+    {
+      "id": "SM-084",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [Q_Clientes_Last] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[23]"
+    },
+    {
+      "id": "SM-085",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [Q_Clientes_Last] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[23]"
+    },
+    {
+      "id": "SM-086",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [Q_Cuentas_Last] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[24]"
+    },
+    {
+      "id": "SM-087",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [Q_Cuentas_Last] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[24]"
+    },
+    {
+      "id": "SM-088",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [Top25Pct] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[25]"
+    },
+    {
+      "id": "SM-089",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [Top25Pct] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[25]"
+    },
+    {
+      "id": "SM-090",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_Last_Valor_SinFormato] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[26]"
+    },
+    {
+      "id": "SM-091",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_Last_Valor_SinFormato] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[26]"
+    },
+    {
+      "id": "SM-092",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_MoM_Delta_SinFormato] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[27]"
+    },
+    {
+      "id": "SM-093",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_MoM_Delta_SinFormato] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[27]"
+    },
+    {
+      "id": "SM-094",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_YoY_Delta_SinFormato] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[28]"
+    },
+    {
+      "id": "SM-095",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_YoY_Delta_SinFormato] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[28]"
+    },
+    {
+      "id": "SM-096",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_YTD_Delta_SinFormato] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[29]"
+    },
+    {
+      "id": "SM-097",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [1_YTD_Delta_SinFormato] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[29]"
+    },
+    {
+      "id": "SM-098",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [TieneDatos] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[30]"
+    },
+    {
+      "id": "SM-099",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [TieneDatos] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[30]"
+    },
+    {
+      "id": "SM-100",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [Tasa Ponderada] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[32]"
+    },
+    {
+      "id": "SM-101",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [Tasa Ponderada] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[32]"
+    },
+    {
+      "id": "SM-102",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Medidas.tmdl",
+      "description": "Medida [Tasa Ponderada] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[32]"
+    },
+    {
+      "id": "SM-103",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Reporte (Panel)] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[33]"
+    },
+    {
+      "id": "SM-104",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Reporte (Panel)] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[33]"
+    },
+    {
+      "id": "SM-105",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Reporte (Panel)] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[33]"
+    },
+    {
+      "id": "SM-106",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Medida] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[34]"
+    },
+    {
+      "id": "SM-107",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Medida] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[34]"
+    },
+    {
+      "id": "SM-108",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Medida] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[34]"
+    },
+    {
+      "id": "SM-109",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Gráfico Top 25] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[35]"
+    },
+    {
+      "id": "SM-110",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Gráfico Top 25] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[35]"
+    },
+    {
+      "id": "SM-111",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Gráfico Top 25] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[35]"
+    },
+    {
+      "id": "SM-112",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Reporte (Exploración Profunda)] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[36]"
+    },
+    {
+      "id": "SM-113",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Reporte (Exploración Profunda)] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[36]"
+    },
+    {
+      "id": "SM-114",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Reporte (Exploración Profunda)] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[36]"
+    },
+    {
+      "id": "SM-115",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Reporte (Exploración)] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[37]"
+    },
+    {
+      "id": "SM-116",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Reporte (Exploración)] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[37]"
+    },
+    {
+      "id": "SM-117",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Reporte (Exploración)] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[37]"
+    },
+    {
+      "id": "SM-118",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Reporte (Top Variaciones)] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[38]"
+    },
+    {
+      "id": "SM-119",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Reporte (Top Variaciones)] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[38]"
+    },
+    {
+      "id": "SM-120",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Reporte (Top Variaciones)] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[38]"
+    },
+    {
+      "id": "SM-121",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Gráfico (Tooltip)] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[39]"
+    },
+    {
+      "id": "SM-122",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Gráfico (Tooltip)] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[39]"
+    },
+    {
+      "id": "SM-123",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Gráfico (Tooltip)] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[39]"
+    },
+    {
+      "id": "SM-124",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Gráfico (Segmentación Estrategica)] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[40]"
+    },
+    {
+      "id": "SM-125",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Gráfico (Segmentación Estrategica)] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[40]"
+    },
+    {
+      "id": "SM-126",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Gráfico (Segmentación Estrategica)] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[40]"
+    },
+    {
+      "id": "SM-127",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Gráfico (Segmentación Operativa)] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[41]"
+    },
+    {
+      "id": "SM-128",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Gráfico (Segmentación Operativa)] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[41]"
+    },
+    {
+      "id": "SM-129",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Gráfico (Segmentación Operativa)] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[41]"
+    },
+    {
+      "id": "SM-130",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Gráfico (Dirección)] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[42]"
+    },
+    {
+      "id": "SM-131",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Gráfico (Dirección)] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[42]"
+    },
+    {
+      "id": "SM-132",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Gráfico (Dirección)] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[42]"
+    },
+    {
+      "id": "SM-133",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Gráfico (Rango Tasa)] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[43]"
+    },
+    {
+      "id": "SM-134",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Gráfico (Rango Tasa)] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[43]"
+    },
+    {
+      "id": "SM-135",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Gráfico (Rango Tasa)] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[43]"
+    },
+    {
+      "id": "SM-136",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Gráfico (Moneda)] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[44]"
+    },
+    {
+      "id": "SM-137",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Gráfico (Moneda)] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[44]"
+    },
+    {
+      "id": "SM-138",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Gráfico (Moneda)] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[44]"
+    },
+    {
+      "id": "SM-139",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Gráfico (Tipo Cliente)] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[45]"
+    },
+    {
+      "id": "SM-140",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Gráfico (Tipo Cliente)] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[45]"
+    },
+    {
+      "id": "SM-141",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Gráfico (Tipo Cliente)] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[45]"
+    },
+    {
+      "id": "SM-142",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Gráfico (Producto)] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[46]"
+    },
+    {
+      "id": "SM-143",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Gráfico (Producto)] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[46]"
+    },
+    {
+      "id": "SM-144",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Gráfico (Producto)] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[46]"
+    },
+    {
+      "id": "SM-145",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Reporte (Tendencia)] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[47]"
+    },
+    {
+      "id": "SM-146",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Reporte (Tendencia)] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[47]"
+    },
+    {
+      "id": "SM-147",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/Parámetros.tmdl",
+      "description": "Medida [Titulo Reporte (Tendencia)] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[47]"
+    },
+    {
+      "id": "SM-148",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Saldo] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[48]"
+    },
+    {
+      "id": "SM-149",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Métrica Seleccionada] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[49]"
+    },
+    {
+      "id": "SM-150",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Métrica Seleccionada] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[49]"
+    },
+    {
+      "id": "SM-151",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Q Clientes] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[50]"
+    },
+    {
+      "id": "SM-152",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Q Cuentas] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[51]"
+    },
+    {
+      "id": "SM-153",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Q Cuentas] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[51]"
+    },
+    {
+      "id": "SM-154",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Tasa Interes Ponderada] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[52]"
+    },
+    {
+      "id": "SM-155",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Tasa Interes Ponderada] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[52]"
+    },
+    {
+      "id": "SM-156",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Actual] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[53]"
+    },
+    {
+      "id": "SM-157",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Actual] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[53]"
+    },
+    {
+      "id": "SM-158",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Actual (txt)] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[54]"
+    },
+    {
+      "id": "SM-159",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Actual (txt)] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[54]"
+    },
+    {
+      "id": "SM-160",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Actual (txt)] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[54]"
+    },
+    {
+      "id": "SM-161",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Mes Anterior] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[55]"
+    },
+    {
+      "id": "SM-162",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Mes Anterior] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[55]"
+    },
+    {
+      "id": "SM-163",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Título Medida] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[56]"
+    },
+    {
+      "id": "SM-164",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Título Medida] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[56]"
+    },
+    {
+      "id": "SM-165",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Título Medida] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[56]"
+    },
+    {
+      "id": "SM-166",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Mes Anterior (txt)] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[57]"
+    },
+    {
+      "id": "SM-167",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Mes Anterior (txt)] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[57]"
+    },
+    {
+      "id": "SM-168",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Mes Anterior (txt)] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[57]"
+    },
+    {
+      "id": "SM-169",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor MoM] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[58]"
+    },
+    {
+      "id": "SM-170",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor MoM] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[58]"
+    },
+    {
+      "id": "SM-171",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor MoM (txt)] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[59]"
+    },
+    {
+      "id": "SM-172",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor MoM (txt)] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[59]"
+    },
+    {
+      "id": "SM-173",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor MoM (txt)] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[59]"
+    },
+    {
+      "id": "SM-174",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [1_MoM_%] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[60]"
+    },
+    {
+      "id": "SM-175",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [1_MoM_%] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[60]"
+    },
+    {
+      "id": "SM-176",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Interanual] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[61]"
+    },
+    {
+      "id": "SM-177",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Interanual] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[61]"
+    },
+    {
+      "id": "SM-178",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Interanual (txt)] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[62]"
+    },
+    {
+      "id": "SM-179",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Interanual (txt)] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[62]"
+    },
+    {
+      "id": "SM-180",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Interanual (txt)] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[62]"
+    },
+    {
+      "id": "SM-181",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor YoY] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[63]"
+    },
+    {
+      "id": "SM-182",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor YoY] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[63]"
+    },
+    {
+      "id": "SM-183",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Cierre Año Anterior] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[64]"
+    },
+    {
+      "id": "SM-184",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Cierre Año Anterior] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[64]"
+    },
+    {
+      "id": "SM-185",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Cierre Año Anterior] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[64]"
+    },
+    {
+      "id": "SM-186",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor YoY (txt)] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[65]"
+    },
+    {
+      "id": "SM-187",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor YoY (txt)] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[65]"
+    },
+    {
+      "id": "SM-188",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor YoY (txt)] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[65]"
+    },
+    {
+      "id": "SM-189",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor YTD] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[66]"
+    },
+    {
+      "id": "SM-190",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor YTD] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[66]"
+    },
+    {
+      "id": "SM-191",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor YTD] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[66]"
+    },
+    {
+      "id": "SM-192",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Cierre Año Anterior (txt)] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[67]"
+    },
+    {
+      "id": "SM-193",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Cierre Año Anterior (txt)] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[67]"
+    },
+    {
+      "id": "SM-194",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Cierre Año Anterior (txt)] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[67]"
+    },
+    {
+      "id": "SM-195",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor YTD (txt)] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[68]"
+    },
+    {
+      "id": "SM-196",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor YTD (txt)] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[68]"
+    },
+    {
+      "id": "SM-197",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor YTD (txt)] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[68]"
+    },
+    {
+      "id": "SM-198",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Meta] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[69]"
+    },
+    {
+      "id": "SM-199",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Meta] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[69]"
+    },
+    {
+      "id": "SM-200",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Meta (txt)] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[70]"
+    },
+    {
+      "id": "SM-201",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Meta (txt)] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[70]"
+    },
+    {
+      "id": "SM-202",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Meta (txt)] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[70]"
+    },
+    {
+      "id": "SM-203",
+      "severity": "mejora",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FORMAT",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Métrica Seleccionada (txt)] sin formatString",
+      "recommendation": "Agregar formatString",
+      "context_reference": "measures[71]"
+    },
+    {
+      "id": "SM-204",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-FOLDER",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Métrica Seleccionada (txt)] sin displayFolder",
+      "recommendation": "Asignar displayFolder",
+      "context_reference": "measures[71]"
+    },
+    {
+      "id": "SM-205",
+      "severity": "observación",
+      "category": "documentacion",
+      "rule": "MEASURE-NO-DESCRIPTION",
+      "location": "tables/⚙ Medidas.tmdl",
+      "description": "Medida [Valor Métrica Seleccionada (txt)] sin descripción",
+      "recommendation": "Agregar /// descripción",
+      "context_reference": "measures[71]"
+    }
+  ]
+}

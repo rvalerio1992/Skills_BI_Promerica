@@ -1,4 +1,4 @@
-/// Tabla de dimensión para Metas. [TODO: validar con negocio] [confianza: media]
+/// Tabla de dimensión DimMetas. [TODO: validar] [confianza: media]
 table DimMetas
 	lineageTag: db701368-e06b-42fd-8689-2eb09641c670
 

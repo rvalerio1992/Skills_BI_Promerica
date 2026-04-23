@@ -1,4 +1,4 @@
---- original/DimPromotor.tmdl+++ documented/DimPromotor.tmdl@@ -1,3 +1,4 @@+/// Tabla de dimensión para Promotor. [TODO: validar con negocio] [confianza: media]
+--- original/DimPromotor.tmdl+++ documented/DimPromotor.tmdl@@ -1,3 +1,4 @@+/// Tabla de dimensión DimPromotor. [TODO: validar] [confianza: media]
  table DimPromotor
  	lineageTag: fa610a9f-4edb-4b7c-990f-38e0c7ad30c3
  

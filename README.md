@@ -140,19 +140,21 @@ El Source Lineage Auditor clasifica cada tabla según su origen:
 
 📐 **Arquitectura completa:** ver [ARCHITECTURE.md](./ARCHITECTURE.md) — blueprint de los 12 agentes en 4 capas.
 
-### ✅ Fase 0 — MVP actual
-- `source-lineage-auditor` (Capa 2)
-- `semantic-model-auditor` con scoring dual (Capa 2)
-- `model-documenter` (Capa 3)
-- `dax-reviewer` (Capa 3)
+### ✅ Fase 0 — MVP original
+- `source-lineage-auditor` · `semantic-model-auditor` · `model-documenter` · `dax-reviewer`
 
-### 🚧 Fase 1 — Fundación
-- `model-explorer` (Capa 1 — prioridad #1)
+### ✅ Fase 1 — Fundación (completa)
+- `model-explorer` (Capa 1)
+- Agentes Fase 0 refactorizados para consumir `model_context.json`
+- Scoring dual (estructural + documentación)
+- Skill `tmdl-parser` con patrones regex de referencia
 
-### 🔜 Fase 2 — Auditoría extendida
-- `m-code-auditor`, `sql-code-auditor`, `pbir-report-auditor`
+### 🚧 Fase 2 — Auditoría extendida (próximo)
+- `m-code-auditor` ⭐ (siguiente)
+- `sql-code-auditor`
+- `pbir-report-auditor`
 
-### 🎨 Fase 3 — Enriquecimiento
+### 🔜 Fase 3 — Enriquecimiento
 - `m-code-formatter`, `sql-code-formatter`
 
 ### 🚀 Fase 4 — Producción

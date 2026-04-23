@@ -348,18 +348,19 @@ outputs/
 
 ## 🗺️ Roadmap de implementación
 
-### ✅ Hecho
+### ✅ Fase 0 — MVP original
 - `source-lineage-auditor`
-- `semantic-model-auditor` (con scoring dual)
+- `semantic-model-auditor`
 - `model-documenter`
 - `dax-reviewer`
 
-### 🚧 Fase 1 — Fundación (próximo)
-1. **`model-explorer`** — la base del sistema
-2. Adaptar los auditores existentes para consumir `model_context.json`
+### ✅ Fase 1 — Fundación (completada)
+1. **`model-explorer`** — la base del sistema ✅
+2. Auditores existentes adaptados para consumir `model_context.json` ✅
+3. Scoring dual (estructural + documentación) ✅
 
 ### 🔜 Fase 2 — Auditoría extendida
-3. `m-code-auditor`
+3. `m-code-auditor` ⭐ (próximo)
 4. `sql-code-auditor`
 5. `pbir-report-auditor`
 

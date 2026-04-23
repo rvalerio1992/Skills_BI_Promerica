@@ -1,4 +1,4 @@
---- original/DimEstadoProducto.tmdl+++ documented/DimEstadoProducto.tmdl@@ -1,3 +1,4 @@+/// Tabla de dimensión para EstadoProducto. [TODO: validar con negocio] [confianza: media]
+--- original/DimEstadoProducto.tmdl+++ documented/DimEstadoProducto.tmdl@@ -1,3 +1,4 @@+/// Tabla de dimensión DimEstadoProducto. [TODO: validar] [confianza: media]
  table DimEstadoProducto
  	lineageTag: 8aa714f0-8602-4269-9506-3d760a889301
  

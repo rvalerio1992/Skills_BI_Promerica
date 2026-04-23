@@ -2,13 +2,13 @@
  table Medidas
  	lineageTag: 4e7324a5-5886-43b1-ac02-28cadeb89b39
  
-+	/// Porcentaje de cumplimiento calculado como 1 + ratio de delta. [confianza: media]
++	/// Porcentaje de cumplimiento (1 + ratio de delta). [confianza: media]
  	measure 1_Complete_% = 1 + DIVIDE([1_Target_Delta], [Valor Meta], 0)
 +		displayFolder: Metas y Targets
  		formatString: 0.0\ %;-0.0\ %;0.0\ %
  		lineageTag: 0ffac0bb-f7cb-4007-a8c6-a79cc1b32cf8
  
-+	/// Porcentaje de cumplimiento calculado como 1 + ratio de delta. [confianza: media]
++	/// Porcentaje de cumplimiento (1 + ratio de delta). [confianza: media]
  	measure 1_Estado = 1 + DIVIDE([1_Target_Delta], [Valor Meta], 0)
 +		formatString: "#,##0.00"
 +		displayFolder: Dinámicas Internas
@@ -18,7 +18,7 @@
 @@ -26,52 +32,72 @@ 		formatString: 0
  		lineageTag: c95f50f1-1bc9-44cc-8564-ee1040ec2662
  
-+	/// Ratio entre [1_Target_Delta] y [Valor Meta], con manejo seguro de divisor cero. [confianza: alta]
++	/// Ratio entre [1_Target_Delta] y [Valor Meta], seguro ante divisor cero. [confianza: alta]
  	measure 1_Target_% = DIVIDE([1_Target_Delta], [Valor Meta], 0)
 +		displayFolder: Metas y Targets
  		formatString: 0\ %;-0\ %;0\ %
@@ -32,7 +32,7 @@
  
  		annotation PBI_FormatHint = {"isCustom":true}
  
-+	/// Ratio entre [Valor YoY] y [Valor Interanual], con manejo seguro de divisor cero. [confianza: alta]
++	/// Ratio entre [Valor YoY] y [Valor Interanual], seguro ante divisor cero. [confianza: alta]
  	measure 1_YoY_% = DIVIDE([Valor YoY], [Valor Interanual], 0)
 +		displayFolder: Comparativos
  		formatString: 0\ %;-0\ %;0\ %
@@ -40,7 +40,7 @@
  
  		changedProperty = IsHidden
  
-+	/// Ratio entre [Valor YTD] y [Valor Cierre Año Anterior], con manejo seguro de divisor cero. [confianza: alta]
++	/// Ratio entre [Valor YTD] y [Valor Cierre Año Anterior], seguro ante divisor cero. [confianza: alta]
  	measure 1_YTD_% = DIVIDE([Valor YTD], [Valor Cierre Año Anterior], 0)
 +		displayFolder: Comparativos
  		formatString: 0\ %;-0\ %;0\ %
@@ -48,25 +48,25 @@
  
  		changedProperty = IsHidden
  
-+	/// Fecha máxima disponible en la tabla de hechos, ignorando filtros de contexto. [confianza: alta]
++	/// Fecha máxima disponible, ignorando filtros de contexto. [confianza: alta]
  	measure 'Fecha Actualización' = CALCULATE(MAX('FctProductos'[FEC_CORTE]), ALL('FctProductos'))
 +		displayFolder: Fechas
  		formatString: Short Date
  		lineageTag: 3a9185da-8e08-4ebd-bc68-119683bd5394
  
-+	/// Fecha máxima disponible en la tabla de hechos, ignorando filtros de contexto. [confianza: alta]
++	/// Fecha máxima disponible, ignorando filtros de contexto. [confianza: alta]
  	measure 'Fecha MoM' = EOMONTH(CALCULATE(MAX('FctProductos'[FEC_CORTE]), ALL('FctProductos')), -1)
 +		displayFolder: Comparativos
  		formatString: Short Date
  		lineageTag: 2499a566-6f0c-4fdf-b83f-7d1cb6c26692
  
-+	/// Fecha máxima disponible en la tabla de hechos, ignorando filtros de contexto. [confianza: alta]
++	/// Fecha máxima disponible, ignorando filtros de contexto. [confianza: alta]
  	measure 'Fecha YoY' = EOMONTH(CALCULATE(MAX('FctProductos'[FEC_CORTE]), ALL('FctProductos')), -12)
 +		displayFolder: Comparativos
  		formatString: Short Date
  		lineageTag: 89559dfd-6ecc-4a98-afe9-208fefd7aa5d
  
-+	/// Fecha máxima disponible en la tabla de hechos, ignorando filtros de contexto. [confianza: alta]
++	/// Fecha máxima disponible, ignorando filtros de contexto. [confianza: alta]
  	measure 'Fecha YTD' = DATE(YEAR(CALCULATE(MAX('FctProductos'[FEC_CORTE]), ALL('FctProductos'))) - 1, 12, 31)
 +		displayFolder: Comparativos
  		formatString: Short Date
@@ -83,7 +83,7 @@
  
  		annotation PBI_FormatHint = {"isGeneralNumber":true}
  
-+	/// Fecha máxima disponible en la tabla de hechos, ignorando filtros de contexto. [confianza: alta]
++	/// Fecha máxima disponible, ignorando filtros de contexto. [confianza: alta]
  	measure '1_Last_Valor (%)' = ```
  			
  			"(" & 
@@ -94,33 +94,33 @@
 +		displayFolder: Conteos
  		lineageTag: ccbb8048-5997-4280-be69-a58fc5867696
  
-+	/// Fecha máxima disponible en la tabla de hechos, ignorando filtros de contexto. [confianza: alta]
++	/// Fecha máxima disponible, ignorando filtros de contexto. [confianza: alta]
  	measure 'Porcentaje Target (Ayer)' = ```
  			
  			VAR FechaMaxima =
 @@ -107,14 +136,19 @@ 			)
  			
  			```
-+		formatString: 0.00%
++		formatString: "#,##0.00"
 +		displayFolder: Metas y Targets
  		lineageTag: c057a8df-0786-4deb-bfad-c0f6eb62f32f
  
  		annotation PBI_FormatHint = {"isGeneralNumber":true}
  
-+	/// [TODO: validar descripción con negocio] [confianza: baja]
++	/// [TODO: validar con negocio] [confianza: baja]
  	measure 1_Target_Valor_FinMes = [Valor Cierre Año Anterior]*(1+[Porcentaje Target (Fin Mes Actual)])
 +		displayFolder: Comparativos
  		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
  		lineageTag: 283f92cc-0ef7-401a-bdb8-8871fd734d6c
  
-+	/// Fecha máxima disponible en la tabla de hechos, ignorando filtros de contexto. [confianza: alta]
++	/// Fecha máxima disponible, ignorando filtros de contexto. [confianza: alta]
  	measure 'Porcentaje Target (Fin Mes Actual)' = ```
  			
  			VAR FechaMaxima =
 @@ -134,19 +168,27 @@ 			
  			
  			```
-+		formatString: 0.00%
++		formatString: "#,##0.00"
 +		displayFolder: Metas y Targets
  		lineageTag: 1fd7cafd-d983-44a4-91b5-3afdeee0fb09
  
@@ -134,13 +134,13 @@
  
  		annotation PBI_FormatHint = {"isGeneralNumber":true}
  
-+	/// Porcentaje de cumplimiento calculado como 1 + ratio de delta. [confianza: media]
++	/// Porcentaje de cumplimiento (1 + ratio de delta). [confianza: media]
  	measure 1_Complete_%_FinMes = 1 + DIVIDE([1_Target_Delta_FinMes], [1_Target_Valor_FinMes], 0)
 +		displayFolder: Metas y Targets
  		formatString: 0\ %;-0\ %;0\ %
  		lineageTag: 9a5c2568-a1ad-4513-8565-b4ecc9ede4e0
  
-+	/// Fecha máxima disponible en la tabla de hechos, ignorando filtros de contexto. [confianza: alta]
++	/// Fecha máxima disponible, ignorando filtros de contexto. [confianza: alta]
  	measure 'Etiqueta Meta' = ```
  			
  			"Meta cierre " & 
@@ -150,7 +150,7 @@
 +		displayFolder: Metas y Targets
  		lineageTag: c19023d0-e84e-4a4f-a9ba-5764113af1b8
  
-+	/// Fecha máxima disponible en la tabla de hechos, ignorando filtros de contexto. [confianza: alta]
++	/// Fecha máxima disponible, ignorando filtros de contexto. [confianza: alta]
  	measure AVG_Saldo_Last = ```
  			
  			CALCULATE(
@@ -161,7 +161,7 @@
  		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
  		lineageTag: 9e667b3d-d9e3-4ab7-afc9-f6c5116cb6a1
  
-+	/// Fecha máxima disponible en la tabla de hechos, ignorando filtros de contexto. [confianza: alta]
++	/// Fecha máxima disponible, ignorando filtros de contexto. [confianza: alta]
  	measure Q_Clientes_Last = ```
  			
  			CALCULATE(
@@ -172,7 +172,7 @@
  		formatString: #,0
  		lineageTag: adc2bc31-b95f-4117-9380-9aa1cdae0449
  
-+	/// Fecha máxima disponible en la tabla de hechos, ignorando filtros de contexto. [confianza: alta]
++	/// Fecha máxima disponible, ignorando filtros de contexto. [confianza: alta]
  	measure Q_Cuentas_Last = ```
  			
  			CALCULATE(
@@ -183,7 +183,7 @@
  		formatString: #,0
  		lineageTag: 4c475a20-f938-4462-92df-8d124ad92a0f
  
-+	/// Fecha máxima disponible en la tabla de hechos, ignorando filtros de contexto. [confianza: alta]
++	/// Fecha máxima disponible, ignorando filtros de contexto. [confianza: alta]
  	measure Top25Pct = ```
  			
  			VAR FechaMaxima =
@@ -194,7 +194,7 @@
  		formatString: 0.00\ %;-0.00\ %;0.00\ %
  		lineageTag: 0cef552b-f229-4426-a9fb-fcf2ffa0cad0
  
-+	/// Fecha máxima disponible en la tabla de hechos, ignorando filtros de contexto. [confianza: alta]
++	/// Fecha máxima disponible, ignorando filtros de contexto. [confianza: alta]
  	measure 1_Last_Valor_SinFormato = ```
  			
  			CALCULATE(
@@ -205,25 +205,25 @@
  		formatString: \$#,0;(\$#,0);\$#,0
  		lineageTag: 0d348908-178a-4af7-b5d7-a1b9a1936cd7
  
-+	/// [TODO: validar descripción con negocio] [confianza: baja]
++	/// [TODO: validar con negocio] [confianza: baja]
  	measure 1_MoM_Delta_SinFormato = ([Valor Actual]-[Valor Mes Anterior])*1000000
 +		displayFolder: Comparativos
  		formatString: \$#,0;(\$#,0);\$#,0
  		lineageTag: b1418b64-3898-4e16-b5de-1faedac83038
  
-+	/// [TODO: validar descripción con negocio] [confianza: baja]
++	/// [TODO: validar con negocio] [confianza: baja]
  	measure 1_YoY_Delta_SinFormato = ([Valor Actual]-[Valor Interanual])*1000000
 +		displayFolder: Comparativos
  		formatString: \$#,0;(\$#,0);\$#,0
  		lineageTag: 77ecd204-6e5f-42df-b8de-3f32210fab15
  
-+	/// [TODO: validar descripción con negocio] [confianza: baja]
++	/// [TODO: validar con negocio] [confianza: baja]
  	measure 1_YTD_Delta_SinFormato = ([Valor Actual]-[Valor Cierre Año Anterior])*1000000
 +		displayFolder: Comparativos
  		formatString: \$#,0;(\$#,0);\$#,0
  		lineageTag: 4407e633-07ac-4c72-ae0f-854ef82dbe65
  
-+	/// [TODO: validar descripción con negocio] [confianza: baja]
++	/// [TODO: validar con negocio] [confianza: baja]
  	measure TieneDatos = ```
  			
  			VAR _n =
@@ -237,7 +237,7 @@
 @@ -280,6 +341,7 @@ 
  		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
  
-+	/// Promedio ponderado calculado con SUMX sobre la tabla de hechos. [confianza: media]
++	/// Promedio ponderado con SUMX. [confianza: media]
  	measure 'Tasa Ponderada' = ```
  			
  			VAR TasaCalc =

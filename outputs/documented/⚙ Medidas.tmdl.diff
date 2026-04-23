@@ -9,7 +9,7 @@
 @@ -8,6 +10,7 @@ 
  		changedProperty = IsHidden
  
-+	/// [TODO: validar descripción con negocio] [confianza: baja]
++	/// [TODO: validar con negocio] [confianza: baja]
  	measure 'Valor Métrica Seleccionada' = ```
  			
  			VAR sel = SELECTEDVALUE( Metricas[Metrica], "Saldo" )  -- valor por defecto
@@ -37,7 +37,7 @@
  		formatString: 0
  		lineageTag: 745a56d4-4ed5-4385-b937-abead154e242
  
-+	/// Promedio ponderado calculado con SUMX sobre la tabla de hechos. [confianza: media]
++	/// Promedio ponderado con SUMX. [confianza: media]
  	measure 'Tasa Interes Ponderada' =
  			
  			VAR TasaCalc =
@@ -48,7 +48,7 @@
  		formatString: 0.00
  		lineageTag: a37da7e8-d81e-4a2c-a17d-484a12f953f2
  
-+	/// [TODO: validar descripción con negocio] [confianza: baja]
++	/// [TODO: validar con negocio] [confianza: baja]
  	measure 'Valor Actual' = ```
  			
  			VAR _UltimaFechaPorCore =
@@ -61,7 +61,7 @@
  
  		changedProperty = IsHidden
  
-+	/// Texto formateado para mostrar en visualizaciones. [confianza: media]
++	/// Texto formateado para visualizaciones. [confianza: media]
  	measure 'Valor Actual (txt)' = ```
  			
  			VAR v   = [Valor Actual]
@@ -72,21 +72,21 @@
 +		displayFolder: Medidas Primarias
  		lineageTag: 9adf2518-3629-4e15-8f39-db866ee1af35
  
-+	/// Fecha máxima disponible en la tabla de hechos, ignorando filtros de contexto. [confianza: alta]
++	/// Fecha máxima disponible, ignorando filtros de contexto. [confianza: alta]
  	measure 'Valor Mes Anterior' = ```
  			
  			CALCULATE(
 @@ -119,6 +134,7 @@ 			)
  			
  			```
-+		displayFolder: Comparativos
++		displayFolder: Sin categorizar
  		formatString: $#,##0,, "MM"
  		lineageTag: 64b5ab6f-f4c0-41ef-bcaa-c127a5393301
  
 @@ -126,6 +142,7 @@ 
  		annotation PBI_FormatHint = {"isCustom":true}
  
-+	/// [TODO: validar descripción con negocio] [confianza: baja]
++	/// [TODO: validar con negocio] [confianza: baja]
  	measure 'Título Medida' = ```
  			
  			VAR sel =
@@ -97,7 +97,7 @@
 +		displayFolder: Sin categorizar
  		lineageTag: 31cf2aa2-0ceb-40ca-b758-3bee0cc08cc6
  
-+	/// Texto formateado para mostrar en visualizaciones. [confianza: media]
++	/// Texto formateado para visualizaciones. [confianza: media]
  	measure 'Valor Mes Anterior (txt)' = ```
  			
  			VAR v   = [Valor Mes Anterior]
@@ -105,7 +105,7 @@
  			
  			```
 +		formatString: "\$#,0.00"
-+		displayFolder: Comparativos
++		displayFolder: Sin categorizar
  		lineageTag: 7b414862-46a5-4777-af40-974cf8332db7
  
 +	/// Diferencia entre [Valor Actual] y [Valor Mes Anterior]. [confianza: alta]
@@ -117,7 +117,7 @@
 @@ -170,6 +194,7 @@ 
  		annotation PBI_FormatHint = {"isCustom":true}
  
-+	/// Texto formateado para mostrar en visualizaciones. [confianza: media]
++	/// Texto formateado para visualizaciones. [confianza: media]
  	measure 'Valor MoM (txt)' = ```
  			
  			VAR v   = [Valor MoM]
@@ -128,7 +128,7 @@
 +		displayFolder: Comparativos
  		lineageTag: 3096831c-1b6f-4f90-ad5a-89f08671e0cf
  
-+	/// Ratio entre [Valor MoM] y [Valor Mes Anterior], con manejo seguro de divisor cero. [confianza: alta]
++	/// Ratio entre [Valor MoM] y [Valor Mes Anterior], seguro ante divisor cero. [confianza: alta]
  	measure 1_MoM_% = DIVIDE([Valor MoM], [Valor Mes Anterior], 1)
 +		displayFolder: Comparativos
  		formatString: 0\ %;-0\ %;0\ %
@@ -136,7 +136,7 @@
  
  		changedProperty = IsHidden
  
-+	/// Fecha máxima disponible en la tabla de hechos, ignorando filtros de contexto. [confianza: alta]
++	/// Fecha máxima disponible, ignorando filtros de contexto. [confianza: alta]
  	measure 'Valor Interanual' = ```
  			
  			CALCULATE(
@@ -150,14 +150,14 @@
 @@ -209,6 +240,7 @@ 
  		annotation PBI_FormatHint = {"isCustom":true}
  
-+	/// Texto formateado para mostrar en visualizaciones. [confianza: media]
++	/// Texto formateado para visualizaciones. [confianza: media]
  	measure 'Valor Interanual (txt)' = ```
  			
  			VAR v   = [Valor Interanual]
 @@ -223,9 +255,13 @@ 			)
  			
  			```
-+		formatString: "\$#,0.00"
++		formatString: "#,##0.00"
 +		displayFolder: Comparativos
  		lineageTag: ec94924b-03ca-48bb-b902-b13aaaa4626e
  
@@ -170,7 +170,7 @@
 @@ -233,6 +269,7 @@ 
  		annotation PBI_FormatHint = {"isCustom":true}
  
-+	/// Fecha máxima disponible en la tabla de hechos, ignorando filtros de contexto. [confianza: alta]
++	/// Fecha máxima disponible, ignorando filtros de contexto. [confianza: alta]
  	measure 'Valor Cierre Año Anterior' = ```
  			
  			CALCULATE(
@@ -185,7 +185,7 @@
  
  		annotation PBI_FormatHint = {"isGeneralNumber":true}
  
-+	/// Texto formateado para mostrar en visualizaciones. [confianza: media]
++	/// Texto formateado para visualizaciones. [confianza: media]
  	measure 'Valor YoY (txt)' = ```
  			
  			VAR v   = [Valor YoY]
@@ -206,7 +206,7 @@
  
  		annotation PBI_FormatHint = {"isGeneralNumber":true}
  
-+	/// Texto formateado para mostrar en visualizaciones. [confianza: media]
++	/// Texto formateado para visualizaciones. [confianza: media]
  	measure 'Valor Cierre Año Anterior (txt)' = ```
  			
  			VAR v   = [Valor Cierre Año Anterior]
@@ -217,7 +217,7 @@
 +		displayFolder: Comparativos
  		lineageTag: 5594988f-d2c2-4564-b144-5011f6fa4975
  
-+	/// Texto formateado para mostrar en visualizaciones. [confianza: media]
++	/// Texto formateado para visualizaciones. [confianza: media]
  	measure 'Valor YTD (txt)' = ```
  			
  			VAR v   = [Valor YTD]   -- [Valor YTD] = [Valor Actual] - [Valor Cierre Año Anterior]
@@ -228,7 +228,7 @@
 +		displayFolder: Comparativos
  		lineageTag: 40c80690-bdaf-4bca-a480-6da6ae1b8b04
  
-+	/// [TODO: validar descripción con negocio] [confianza: baja]
++	/// [TODO: validar con negocio] [confianza: baja]
  	measure 'Valor Meta' = ```
  			[Valor Cierre Año Anterior]*(1+[Porcentaje Target (Ayer)])
  			
@@ -240,7 +240,7 @@
  
  		annotation PBI_FormatHint = {"isCustom":true}
  
-+	/// Texto formateado para mostrar en visualizaciones. [confianza: media]
++	/// Texto formateado para visualizaciones. [confianza: media]
  	measure 'Valor Meta (txt)' = ```
  			
  			VAR v   = [Valor Meta]   -- [Valor Meta] = [Valor Cierre Año Anterior] * (1 + [Porcentaje Target (Ayer)])
@@ -251,7 +251,7 @@
 +		displayFolder: Medidas Primarias
  		lineageTag: 6099f958-e41c-4288-b617-1e6d52f91ccf
  
-+	/// Texto formateado para mostrar en visualizaciones. [confianza: media]
++	/// Texto formateado para visualizaciones. [confianza: media]
  	measure 'Valor Métrica Seleccionada (txt)' = ```
  			
  			VAR v   = [Valor Métrica Seleccionada]

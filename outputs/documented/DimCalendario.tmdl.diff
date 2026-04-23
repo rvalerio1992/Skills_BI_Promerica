@@ -1,4 +1,4 @@
---- original/DimCalendario.tmdl+++ documented/DimCalendario.tmdl@@ -1,3 +1,4 @@+/// Tabla de dimensión para Calendario. [TODO: validar con negocio] [confianza: media]
+--- original/DimCalendario.tmdl+++ documented/DimCalendario.tmdl@@ -1,3 +1,4 @@+/// Tabla de dimensión DimCalendario. [TODO: validar] [confianza: media]
  table DimCalendario
  	lineageTag: c22bd7ac-e75f-40c0-8834-85ed7e71297f
  

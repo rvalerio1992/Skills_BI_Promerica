@@ -1,6 +1,7 @@
 {
-  "audit_date": "2026-04-22",
+  "audit_date": "2026-04-23",
   "project": "RPAUT084",
+  "context_source": "outputs/context/RPAUT084_context.json",
   "summary": {
     "total_tables": 19,
     "by_classification": {
@@ -10,16 +11,16 @@
     },
     "by_source_type": {
       "tabla_calculada": 8,
-      "m_dinamica": 2,
+      "m_dinamica": 1,
       "azure_synapse": 7,
-      "desconocido": 2
+      "desconocido": 3
     }
   },
   "tables": [
     {
       "nombre_reporte": "RPAUT084",
       "nombre_tabla": "DateTableTemplate_5e88a427-25a5-4994-a4fe-ebf1ac5e88b3",
-      "tipo_tabla": "dimensión",
+      "tipo_tabla": "dimension_auto",
       "modo": "Import",
       "fuente": "tabla_calculada",
       "clasificacion": "Calculada",
@@ -32,7 +33,7 @@
     {
       "nombre_reporte": "RPAUT084",
       "nombre_tabla": "DimCalendario",
-      "tipo_tabla": "dimensión",
+      "tipo_tabla": "dimension",
       "modo": "Import",
       "fuente": "m_dinamica",
       "clasificacion": "Calculada",
@@ -45,7 +46,7 @@
     {
       "nombre_reporte": "RPAUT084",
       "nombre_tabla": "DimCliente",
-      "tipo_tabla": "dimensión",
+      "tipo_tabla": "dimension",
       "modo": "Import",
       "fuente": "azure_synapse",
       "clasificacion": "GOLD",
@@ -53,12 +54,12 @@
       "base_datos": "gold",
       "esquema": "dbo",
       "tabla_origen": "masteranalytics",
-      "query_sql": "SELECT COD_CLIENTE, NOMBRE, TIPO_CLIENTE, SEGMENTACION_ESTRATEGICA, SEGMENTACION_OPERATIVA, GERENCIA FROM dbo.masteranalytics WHERE FEC_CORTE = ( SELECT MAX(FEC_CORTE) FROM dbo.masteranalytics -- siem..."
+      "query_sql": "SELECT \n COD_CLIENTE, \n NOMBRE,\n TIPO_CLIENTE,\n SEGMENTACION_ESTRATEGICA,\n SEGMENTACION_OPERATIVA,\n GERENCIA\nFROM dbo.masteranalytics\nWHERE FEC_CORTE = (\n SELECT MAX(FEC_CORTE) \n FROM dbo.masteranalyt..."
     },
     {
       "nombre_reporte": "RPAUT084",
       "nombre_tabla": "DimEstadoProducto",
-      "tipo_tabla": "dimensión",
+      "tipo_tabla": "dimension",
       "modo": "Import",
       "fuente": "azure_synapse",
       "clasificacion": "GOLD",
@@ -66,14 +67,14 @@
       "base_datos": "gold",
       "esquema": "dbo",
       "tabla_origen": "dimestadoproducto",
-      "query_sql": "SELECT COD_ESTADO, ESTADO FROM dbo.dimestadoproducto"
+      "query_sql": "SELECT \n COD_ESTADO,\n ESTADO\nFROM \n dbo.dimestadoproducto"
     },
     {
       "nombre_reporte": "RPAUT084",
       "nombre_tabla": "DimMetas",
-      "tipo_tabla": "dimensión",
+      "tipo_tabla": "dimension",
       "modo": "Import",
-      "fuente": "m_dinamica",
+      "fuente": "tabla_calculada",
       "clasificacion": "Calculada",
       "servidor": "N/A",
       "base_datos": "N/A",
@@ -84,7 +85,7 @@
     {
       "nombre_reporte": "RPAUT084",
       "nombre_tabla": "DimMoneda",
-      "tipo_tabla": "dimensión",
+      "tipo_tabla": "dimension",
       "modo": "Import",
       "fuente": "azure_synapse",
       "clasificacion": "GOLD",
@@ -92,12 +93,12 @@
       "base_datos": "gold",
       "esquema": "dbo",
       "tabla_origen": "DimMoneda",
-      "query_sql": "SELECT COD_MONEDA, DESCRIPCION AS MONEDA FROM dbo.DimMoneda WHERE COD_MONEDA IN (1, 2)"
+      "query_sql": "SELECT \n COD_MONEDA,\n DESCRIPCION AS MONEDA\nFROM \n dbo.DimMoneda\nWHERE \n COD_MONEDA IN (1, 2)"
     },
     {
       "nombre_reporte": "RPAUT084",
       "nombre_tabla": "DimProducto",
-      "tipo_tabla": "dimensión",
+      "tipo_tabla": "dimension",
       "modo": "Import",
       "fuente": "azure_synapse",
       "clasificacion": "GOLD",
@@ -110,7 +111,7 @@
     {
       "nombre_reporte": "RPAUT084",
       "nombre_tabla": "DimPromotor",
-      "tipo_tabla": "dimensión",
+      "tipo_tabla": "dimension",
       "modo": "Import",
       "fuente": "azure_synapse",
       "clasificacion": "GOLD",
@@ -118,12 +119,12 @@
       "base_datos": "gold",
       "esquema": "dbo",
       "tabla_origen": "dimpromotor",
-      "query_sql": "SELECT * FROM dbo.dimpromotor"
+      "query_sql": "SELECT \n *\nFROM \n dbo.dimpromotor"
     },
     {
       "nombre_reporte": "RPAUT084",
       "nombre_tabla": "DimTipoProducto",
-      "tipo_tabla": "dimensión",
+      "tipo_tabla": "dimension",
       "modo": "Import",
       "fuente": "azure_synapse",
       "clasificacion": "GOLD",
@@ -131,7 +132,7 @@
       "base_datos": "gold",
       "esquema": "dbo",
       "tabla_origen": "dimtipoproducto",
-      "query_sql": "WITH base AS ( SELECT COD_TIPO_PRODUCTO, NOM_PRODUCTO, CASE WHEN COD_TIPO_PRODUCTO IN ('CE_056','CE_057') THEN 'CUENTA ALTO RENDIMIENTO' ELSE DESC_PRODUCTO END AS DESC_PRODUCTO, TIPO_PRODUCTO AS TIPO_..."
+      "query_sql": "WITH base AS ( \n\n SELECT \n\n COD_TIPO_PRODUCTO, \n\n NOM_PRODUCTO, \n\n CASE \n\n WHEN COD_TIPO_PRODUCTO IN ('CE_056','CE_057') THEN 'CUENTA ALTO RENDIMIENTO' \n\n ELSE DESC_PRODUCTO \n\n END AS DESC_PRODUCTO, \n..."
     },
     {
       "nombre_reporte": "RPAUT084",
@@ -144,12 +145,12 @@
       "base_datos": "gold",
       "esquema": "dbo",
       "tabla_origen": "fctproductos",
-      "query_sql": "SELECT FEC_CORTE, COD_CLIENTE, COD_PRODUCTO, COD_TIPO_PRODUCTO, COD_MONEDA, COD_PROMOTOR, COD_ESTADO_PRODUCTO, SALDO_PRODUCTO AS VALOR, TASA_INTERES_PRODUCTO AS TASA_INTERES FROM dbo.fctproductos WHER..."
+      "query_sql": "SELECT\n FEC_CORTE,\n COD_CLIENTE,\n COD_PRODUCTO,\n COD_TIPO_PRODUCTO,\n COD_MONEDA,\n COD_PROMOTOR,\n COD_ESTADO_PRODUCTO,\n SALDO_PRODUCTO AS VALOR,\n TASA_INTERES_PRODUCTO AS TASA_INTERES\nFROM \n dbo.fctpro..."
     },
     {
       "nombre_reporte": "RPAUT084",
       "nombre_tabla": "LocalDateTable_00444826-d1ae-48ed-9fe1-f6339b8a289a",
-      "tipo_tabla": "dimensión",
+      "tipo_tabla": "dimension_auto",
       "modo": "Import",
       "fuente": "tabla_calculada",
       "clasificacion": "Calculada",
@@ -162,7 +163,7 @@
     {
       "nombre_reporte": "RPAUT084",
       "nombre_tabla": "LocalDateTable_385a457a-20df-4be8-ac4f-190433881064",
-      "tipo_tabla": "dimensión",
+      "tipo_tabla": "dimension_auto",
       "modo": "Import",
       "fuente": "tabla_calculada",
       "clasificacion": "Calculada",
@@ -175,7 +176,7 @@
     {
       "nombre_reporte": "RPAUT084",
       "nombre_tabla": "LocalDateTable_a0176f28-d511-490b-aa1c-fc4edc033051",
-      "tipo_tabla": "dimensión",
+      "tipo_tabla": "dimension_auto",
       "modo": "Import",
       "fuente": "tabla_calculada",
       "clasificacion": "Calculada",
@@ -188,7 +189,7 @@
     {
       "nombre_reporte": "RPAUT084",
       "nombre_tabla": "LocalDateTable_c38c851c-baf1-425a-b46b-6fc5b8e62172",
-      "tipo_tabla": "dimensión",
+      "tipo_tabla": "dimension_auto",
       "modo": "Import",
       "fuente": "tabla_calculada",
       "clasificacion": "Calculada",
@@ -204,7 +205,7 @@
       "tipo_tabla": "medidas",
       "modo": "Import",
       "fuente": "desconocido",
-      "clasificacion": "Desconocido",
+      "clasificacion": "Calculada",
       "servidor": "N/A",
       "base_datos": "N/A",
       "esquema": "N/A",
@@ -227,7 +228,7 @@
     {
       "nombre_reporte": "RPAUT084",
       "nombre_tabla": "Parámetros",
-      "tipo_tabla": "parámetros",
+      "tipo_tabla": "parametros",
       "modo": "Import",
       "fuente": "desconocido",
       "clasificacion": "Desconocido",
@@ -252,11 +253,11 @@
     },
     {
       "nombre_reporte": "RPAUT084",
-      "nombre_tabla": "'⚙ Medidas'",
+      "nombre_tabla": "⚙ Medidas",
       "tipo_tabla": "medidas",
-      "modo": "Import",
-      "fuente": "tabla_calculada",
-      "clasificacion": "Calculada",
+      "modo": "Calculada",
+      "fuente": "desconocido",
+      "clasificacion": "Desconocido",
       "servidor": "N/A",
       "base_datos": "N/A",
       "esquema": "N/A",

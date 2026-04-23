@@ -5,35 +5,39 @@ mode: agent
 
 # Auditar fuentes de datos
 
-Ejecutá el agente **Source Lineage Auditor** sobre el proyecto que está en `powerbi-project/`.
+Ejecutá el agente **Source Lineage Auditor**. Este agente consume el
+`context.json` generado por el `Model Explorer`.
 
 ## Pasos
 
-1. Verificá que exista un `.pbip` en `powerbi-project/`. Si está vacío, detené y avisá al usuario.
-2. Escaneá todas las expresiones Power Query (M) de las particiones.
-3. Clasificá cada fuente según Medallion: `GOLD` / `NONGOLD` / `LOCAL` / `Calculada` / `Desconocido`.
-4. Extraé: servidor, base de datos, esquema, tabla origen, query SQL.
-5. Generá los 3 archivos de output:
-   - `outputs/ccu/source_inventory.csv`
-   - `outputs/ccu/source_inventory.json`
-   - `outputs/ccu/source_inventory.md`
+1. **Verificar prerrequisito:** que exista al menos un `outputs/context/*_context.json`.
+   - Si no existe: avisá al usuario que corra primero `/explore-model`.
+2. Cargar todos los `outputs/context/*_context.json` (soporta multi-proyecto).
+3. Para cada proyecto, clasificar cada tabla según Medallion: `GOLD` / `NONGOLD` / `LOCAL` / `Calculada` / `Desconocido`.
+4. Generar **un conjunto de outputs por proyecto**:
+   - `outputs/ccu/<proyecto>_source_inventory.csv`
+   - `outputs/ccu/<proyecto>_source_inventory.json`
+   - `outputs/ccu/<proyecto>_source_inventory.md`
 
 ## Output inmediato en el chat
 
-Al terminar, mostrá en el chat un resumen corto:
-
 ```
-✅ Auditoría completada
-   Total tablas: 47
-   🟡 GOLD:     3
-   🟠 NONGOLD: 28
-   🔵 LOCAL:   12
-   ⚪ Otros:    4
+✅ Auditoría de fuentes completada
+   Proyectos procesados: 1
 
-📁 Reportes generados en outputs/ccu/
-⚠️ 3 fuentes requieren clasificación manual (ver warnings en el MD)
+   RPAUT084: 19 tablas
+     🟡 GOLD:        7
+     🟠 NONGOLD:     0
+     🔵 LOCAL:       0
+     ⚪ Calculada:  10
+     ❓ Desconocido: 2
+
+📁 outputs/ccu/
+   • RPAUT084_source_inventory.csv
+   • RPAUT084_source_inventory.json
+   • RPAUT084_source_inventory.md
 ```
 
 ## Modo
 
-Read-only estricto. No modificar nada del proyecto.
+**Read-only estricto.** No se modifica nada del proyecto.

@@ -1,4 +1,4 @@
---- original/DimMoneda.tmdl+++ documented/DimMoneda.tmdl@@ -1,3 +1,4 @@+/// Tabla de dimensión para Moneda. [TODO: validar con negocio] [confianza: media]
+--- original/DimMoneda.tmdl+++ documented/DimMoneda.tmdl@@ -1,3 +1,4 @@+/// Tabla de dimensión DimMoneda. [TODO: validar] [confianza: media]
  table DimMoneda
  	lineageTag: 46cec6e7-57cf-456e-9ec5-87c2adc016c9
  

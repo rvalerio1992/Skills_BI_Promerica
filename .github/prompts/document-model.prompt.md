@@ -9,39 +9,44 @@ Ejecutá el agente **Model Documenter** en modo DRY-RUN (por defecto).
 
 ## Pasos
 
-1. Verificá que exista `outputs/audit/semantic_model_findings.json`. Si no existe, primero ejecutá `/audit-semantic-model`.
-2. Filtrá los hallazgos con `category: "documentacion"` y reglas permitidas:
+1. **Verificar prerrequisitos:**
+   - Debe existir `outputs/context/<proyecto>_context.json` (del Model Explorer).
+   - Debe existir `outputs/audit/<proyecto>_semantic_model_findings.json` (del Auditor).
+   - Si faltan: avisá al usuario que corra `/explore-model` y `/audit-semantic-model` primero.
+2. Para cada findings.json, filtrar hallazgos con `category: "documentacion"` y reglas permitidas:
    - `MEASURE-NO-FORMAT`
    - `MEASURE-NO-FOLDER`
    - `MEASURE-NO-DESCRIPTION`
    - `TABLE-DESCRIPTION`
-3. Para cada archivo `.tmdl` con hallazgos:
-   - Copiá el archivo a `outputs/documented/<archivo>.tmdl`
-   - Aplicá los cambios a la copia
-   - Generá `outputs/documented/<archivo>.diff`
-4. Generá `outputs/documented/_summary.md` con el resumen.
-
-## NO hacer
-
-- NO modificar archivos originales en `powerbi-project/`
-- NO tocar nombres, DAX, relaciones
-- NO hacer commits git
+3. Para cada medida afectada, obtener su DAX del `context.measures[]`.
+4. Generar propuestas de cambio con niveles de confianza (alta/media/baja).
+5. Crear copias modificadas en `outputs/documented/<archivo>.tmdl` + diffs.
+6. Generar `outputs/documented/_summary.md` con el resumen.
 
 ## Output en chat
 
 ```
 ✅ Documentación propuesta (DRY-RUN)
-   Archivos modificados: 10
-   Total cambios: 150
-   🟢 Alta confianza:  100
-   🟡 Media confianza:  30
-   🟠 Baja confianza:   20
 
-📁 Revisá: outputs/documented/
+RPAUT084:
+  Archivos modificados: 14
+  Total cambios:       181
+    🟢 Alta confianza:  108
+    🟡 Media confianza:  54
+    🟠 Baja confianza:   19
+
+📁 outputs/documented/
    • _summary.md
-   • Medidas.tmdl (35 cambios)
-   • FctProductos.tmdl (8 cambios)
+   • Medidas.tmdl.diff (65 cambios)
+   • ⚙ Medidas.tmdl.diff (59 cambios)
    • ...
 
-Para aplicar cambios al modelo real, pedime "aplicá los cambios".
+🛡️ Los archivos originales siguen INTACTOS.
+
+Para aplicar al modelo real: pedime "aplicá los cambios".
 ```
+
+## Modo
+
+**DRY-RUN por defecto.** Solo modifica originales si el usuario
+solicita explícitamente la aplicación.

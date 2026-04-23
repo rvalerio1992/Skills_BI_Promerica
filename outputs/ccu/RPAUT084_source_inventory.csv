@@ -1,0 +1,69 @@
+nombre_reporte,nombre_tabla,tipo_tabla,modo,fuente,clasificacion,servidor,base_datos,esquema,tabla_origen,query_sql
+RPAUT084,DateTableTemplate_5e88a427-25a5-4994-a4fe-ebf1ac5e88b3,dimension_auto,Import,tabla_calculada,Calculada,N/A,N/A,N/A,N/A,
+RPAUT084,DimCalendario,dimension,Import,m_dinamica,Calculada,N/A,N/A,N/A,N/A,
+RPAUT084,DimCliente,dimension,Import,azure_synapse,GOLD,synw-modeling-prod-westus2-001-ondemand.sql.azuresynapse.net,gold,dbo,masteranalytics,"SELECT 
+ COD_CLIENTE, 
+ NOMBRE,
+ TIPO_CLIENTE,
+ SEGMENTACION_ESTRATEGICA,
+ SEGMENTACION_OPERATIVA,
+ GERENCIA
+FROM dbo.masteranalytics
+WHERE FEC_CORTE = (
+ SELECT MAX(FEC_CORTE) 
+ FROM dbo.masteranalyt..."
+RPAUT084,DimEstadoProducto,dimension,Import,azure_synapse,GOLD,synw-modeling-prod-westus2-001-ondemand.sql.azuresynapse.net,gold,dbo,dimestadoproducto,"SELECT 
+ COD_ESTADO,
+ ESTADO
+FROM 
+ dbo.dimestadoproducto"
+RPAUT084,DimMetas,dimension,Import,tabla_calculada,Calculada,N/A,N/A,N/A,N/A,
+RPAUT084,DimMoneda,dimension,Import,azure_synapse,GOLD,synw-modeling-prod-westus2-001-ondemand.sql.azuresynapse.net,gold,dbo,DimMoneda,"SELECT 
+ COD_MONEDA,
+ DESCRIPCION AS MONEDA
+FROM 
+ dbo.DimMoneda
+WHERE 
+ COD_MONEDA IN (1, 2)"
+RPAUT084,DimProducto,dimension,Import,azure_synapse,GOLD,synw-modeling-prod-westus2-001-ondemand.sql.azuresynapse.net,gold,dbo,dimproducto,SELECT * FROM dbo.dimproducto
+RPAUT084,DimPromotor,dimension,Import,azure_synapse,GOLD,synw-modeling-prod-westus2-001-ondemand.sql.azuresynapse.net,gold,dbo,dimpromotor,"SELECT 
+ *
+FROM 
+ dbo.dimpromotor"
+RPAUT084,DimTipoProducto,dimension,Import,azure_synapse,GOLD,synw-modeling-prod-westus2-001-ondemand.sql.azuresynapse.net,gold,dbo,dimtipoproducto,"WITH base AS ( 
+
+ SELECT 
+
+ COD_TIPO_PRODUCTO, 
+
+ NOM_PRODUCTO, 
+
+ CASE 
+
+ WHEN COD_TIPO_PRODUCTO IN ('CE_056','CE_057') THEN 'CUENTA ALTO RENDIMIENTO' 
+
+ ELSE DESC_PRODUCTO 
+
+ END AS DESC_PRODUCTO, 
+..."
+RPAUT084,FctProductos,hechos,Import,azure_synapse,GOLD,synw-modeling-prod-westus2-001-ondemand.sql.azuresynapse.net,gold,dbo,fctproductos,"SELECT
+ FEC_CORTE,
+ COD_CLIENTE,
+ COD_PRODUCTO,
+ COD_TIPO_PRODUCTO,
+ COD_MONEDA,
+ COD_PROMOTOR,
+ COD_ESTADO_PRODUCTO,
+ SALDO_PRODUCTO AS VALOR,
+ TASA_INTERES_PRODUCTO AS TASA_INTERES
+FROM 
+ dbo.fctpro..."
+RPAUT084,LocalDateTable_00444826-d1ae-48ed-9fe1-f6339b8a289a,dimension_auto,Import,tabla_calculada,Calculada,N/A,N/A,N/A,N/A,
+RPAUT084,LocalDateTable_385a457a-20df-4be8-ac4f-190433881064,dimension_auto,Import,tabla_calculada,Calculada,N/A,N/A,N/A,N/A,
+RPAUT084,LocalDateTable_a0176f28-d511-490b-aa1c-fc4edc033051,dimension_auto,Import,tabla_calculada,Calculada,N/A,N/A,N/A,N/A,
+RPAUT084,LocalDateTable_c38c851c-baf1-425a-b46b-6fc5b8e62172,dimension_auto,Import,tabla_calculada,Calculada,N/A,N/A,N/A,N/A,
+RPAUT084,Medidas,medidas,Import,desconocido,Calculada,N/A,N/A,N/A,N/A,
+RPAUT084,Metricas,medidas,Import,tabla_calculada,Calculada,N/A,N/A,N/A,N/A,
+RPAUT084,Parámetros,parametros,Import,desconocido,Desconocido,N/A,N/A,N/A,N/A,
+RPAUT084,Tabla,desconocido,Import,tabla_calculada,Calculada,N/A,N/A,N/A,N/A,
+RPAUT084,⚙ Medidas,medidas,Calculada,desconocido,Desconocido,N/A,N/A,N/A,N/A,

@@ -1,4 +1,4 @@
-/// Tabla de dimensión para Cliente. [TODO: validar con negocio] [confianza: media]
+/// Tabla de dimensión DimCliente. [TODO: validar] [confianza: media]
 table DimCliente
 	lineageTag: 977da1a6-854b-45f1-a289-eff5a5ca7cf0
 

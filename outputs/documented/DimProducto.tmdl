@@ -1,4 +1,4 @@
-/// Tabla de dimensión para Producto. [TODO: validar con negocio] [confianza: media]
+/// Tabla de dimensión DimProducto. [TODO: validar] [confianza: media]
 table DimProducto
 	lineageTag: e5b36224-05f6-424f-a6f3-158758dfc3dd
 

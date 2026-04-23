@@ -1,56 +1,44 @@
 ---
-description: "Auditar el modelo semántico TMDL completo y generar reporte priorizado"
+description: "Auditar el modelo semántico y generar scoring dual (estructural + documentación)"
 mode: agent
 ---
 
 # Auditar modelo semántico
 
-Realizá una auditoría completa del modelo semántico del proyecto PBIP actual.
+Ejecutá el agente **Semantic Model Auditor**. Consume el `context.json` del
+`Model Explorer` y produce scoring dual.
 
 ## Pasos
 
-1. Verificá que haya un proyecto en `powerbi-project/`. Si está vacío, detené y avisá al usuario.
-2. Identificá todos los archivos `.tmdl` en `powerbi-project/**/SemanticModel/definition/tables/`
-2. Para cada tabla, revisá:
-   - Naming conventions (`FACT_`, `DIM_`, etc.)
-   - `description` presente y útil
-   - Columnas con `displayFolder`
-   - Medidas con `formatString` correcto
-   - Medidas con `description` explicando lógica de negocio
-3. Revisá el archivo `model.tmdl` para:
-   - Relaciones bidireccionales (señalar como riesgo)
-   - `DIM_Fecha` marcada como tabla de fechas
-4. Revisá cada medida DAX según `.github/instructions/dax.instructions.md`
+1. **Verificar prerrequisito:** que exista `outputs/context/*_context.json`.
+   - Si no: avisá al usuario que corra primero `/explore-model`.
+2. Para cada `*_context.json`:
+   - Aplicar reglas estructurales y de documentación
+   - Calcular scoring dual (estructural + documentación + global)
+   - Generar `outputs/audit/<proyecto>_semantic_model_findings.json`
+   - Generar `outputs/audit/<proyecto>_semantic_model_audit.md`
 
-## Output esperado
+## Output en chat
 
-Generá `outputs/audit/semantic_model_audit.md` con:
+```
+✅ Auditoría completada
 
-```markdown
-# Auditoría del Modelo Semántico
-Fecha: YYYY-MM-DD
+RPAUT084:
+  📐 Score Estructural:     47/100 (🟠 Necesita trabajo)
+  📝 Score Documentación:    0/100 (🔴 Refactor masivo)
+  🎯 Score Global:          33/100 (ponderado 70/30)
 
-## Resumen
-- Total tablas: X
-- Total medidas: Y
-- Hallazgos críticos: Z
-- Hallazgos de mejora: W
-- Observaciones: V
+  Hallazgos: 200 total
+    🔴 Crítico: 1
+    ⚠️  Mejora: 55
+    ℹ️  Obs:    144
 
-## Hallazgos críticos 🔴
-| # | Ubicación | Hallazgo | Recomendación |
-|---|-----------|----------|---------------|
-| 1 | DIM_Cliente | Sin lineageTag | ... |
+📁 outputs/audit/RPAUT084_semantic_model_{audit.md,findings.json}
 
-## Mejoras sugeridas ⚠️
-...
-
-## Observaciones ℹ️
-...
+🤖 Sugerencia: correr /document-model para automatizar
+   los 190 hallazgos de documentación.
 ```
 
-También generá `outputs/audit/semantic_model_findings.json` con el mismo contenido en formato estructurado.
+## Modo
 
-## Modo por defecto
-
-**Read-only.** No modificar ningún archivo. Solo reportar.
+**Read-only.** No se modifica nada del proyecto.

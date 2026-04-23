@@ -1,4 +1,4 @@
-/// Tabla de dimensión para Calendario. [TODO: validar con negocio] [confianza: media]
+/// Tabla de dimensión DimCalendario. [TODO: validar] [confianza: media]
 table DimCalendario
 	lineageTag: c22bd7ac-e75f-40c0-8834-85ed7e71297f
 
