@@ -1,0 +1,61 @@
+{
+  "audit_date": "2026-04-24",
+  "project": "RPAUT084",
+  "context_source": "outputs/context/RPAUT084_context.json",
+  "score": 92,
+  "summary": {
+    "tables_with_sql": 7,
+    "total_findings": 4,
+    "by_severity": {
+      "mejora": 2,
+      "observación": 2
+    },
+    "by_rule": {
+      "SQL-SELECT-STAR": 2,
+      "SQL-CTE-NO-DOC": 1,
+      "SQL-HARDCODED-VALUES": 1
+    }
+  },
+  "findings": [
+    {
+      "id": "SQL-001",
+      "severity": "mejora",
+      "location": "tables/DimProducto.tmdl",
+      "rule": "SQL-SELECT-STAR",
+      "table": "DimProducto",
+      "description": "Query usa SELECT * sin especificar columnas explícitas",
+      "recommendation": "Listar columnas explícitamente. El schema está disponible en el context para referencia.",
+      "code_snippet": "SELECT * FROM dbo.dimproducto"
+    },
+    {
+      "id": "SQL-001",
+      "severity": "mejora",
+      "location": "tables/DimPromotor.tmdl",
+      "rule": "SQL-SELECT-STAR",
+      "table": "DimPromotor",
+      "description": "Query usa SELECT * sin especificar columnas explícitas",
+      "recommendation": "Listar columnas explícitamente. El schema está disponible en el context para referencia.",
+      "code_snippet": "SELECT \n *\nFROM \n dbo.dimpromotor"
+    },
+    {
+      "id": "SQL-001",
+      "severity": "observación",
+      "location": "tables/DimTipoProducto.tmdl",
+      "rule": "SQL-CTE-NO-DOC",
+      "table": "DimTipoProducto",
+      "description": "CTE(s) sin comentarios: ['base']",
+      "recommendation": "Agregar `--` antes de cada CTE explicando su propósito",
+      "code_snippet": ""
+    },
+    {
+      "id": "SQL-001",
+      "severity": "observación",
+      "location": "tables/FctProductos.tmdl",
+      "rule": "SQL-HARDCODED-VALUES",
+      "table": "FctProductos",
+      "description": "Lista `IN (...)` con 5 valores hardcodeados",
+      "recommendation": "Considerar mover a tabla paramétrica o vista para facilitar mantenimiento",
+      "code_snippet": "IN ('CE_', 'CDI', 'PR_', 'TC_', 'XF_'...)"
+    }
+  ]
+}

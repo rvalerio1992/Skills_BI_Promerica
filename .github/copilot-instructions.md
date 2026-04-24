@@ -57,9 +57,11 @@ Si la carpeta está vacía, pedile al usuario que copie el proyecto ahí antes d
 
 ```
 outputs/
-├── audit/            ← Reportes de auditoría semántica (.md + .json)
+├── context/          ← Context base generado por model-explorer (Capa 1)
+├── audit/            ← Findings de auditoría (semántica, M, SQL, PBIR)
 ├── ccu/              ← Catálogo de fuentes / lineage (CSV + JSON + MD)
-└── recommendations/  ← Propuestas de visualizaciones
+├── documented/      ← Propuestas de documentación DRY-RUN (Capa 3)
+└── recommendations/ ← Propuestas de visualizaciones (Capa 4, futuro)
 ```
 
 ## Guardrails

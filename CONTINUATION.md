@@ -20,7 +20,7 @@ Este documento resume el **estado actual** del sistema de agentes BI de Banco Pr
 
 ### 🚧 Fase 2 — Auditoría extendida
 - ✅ `m-code-auditor` — implementado y probado (score 60/100 en RPAUT084)
-- ⏳ `sql-code-auditor` — pendiente
+- ✅ `sql-code-auditor` — implementado y probado (score 92/100 en RPAUT084)
 - ⏳ `pbir-report-auditor` — pendiente
 
 ### 🔮 Fases 3 y 4 — Pendientes
@@ -37,8 +37,8 @@ Este documento resume el **estado actual** del sistema de agentes BI de Banco Pr
 3. Esto te da **datos reales** para justificar el roadmap ante gerencia
 
 ### Corto plazo — completar Fase 2
-4. Implementar `sql-code-auditor` (más valioso: detectar `SELECT *`, queries sin comentarios, CTEs complejos sin documentar)
-5. Implementar `pbir-report-auditor` (páginas con name GUID, visuales "Chart 1", filtros huérfanos)
+4. ✅ ~~Implementar `sql-code-auditor`~~ — completado
+5. Implementar `pbir-report-auditor` (páginas con name GUID, visuales "Chart 1", filtros huérfanos, bookmarks rotos)
 
 ### Medio plazo — Fase 3 (formatters)
 6. `m-code-formatter` — renombrar steps de forma masiva con mapeo asistido

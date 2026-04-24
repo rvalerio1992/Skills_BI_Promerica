@@ -83,10 +83,12 @@ Las skills y agents quedan disponibles automáticamente en el chat de Copilot.
 powerbi-project/                             ← ⭐ Acá va el PBIP a analizar
 └── README.md
 
-outputs/                                     ← Reportes generados
-├── audit/
-├── ccu/
-└── recommendations/
+outputs/                                     ← Artefactos generados por agentes
+├── context/        ← Context base (model-explorer)        ⭐ Fase 1
+├── audit/          ← Findings de auditoría
+├── ccu/            ← Inventario de fuentes (lineage)
+├── documented/    ← Propuestas de documentación (DRY-RUN)
+└── recommendations/ ← Propuestas de visualizaciones (Fase 4)
 
 .vscode/
 ├── settings.json
@@ -170,10 +172,10 @@ El Source Lineage Auditor clasifica cada tabla según su origen:
 - Scoring dual (estructural + documentación)
 - Skill `tmdl-parser` con patrones regex de referencia
 
-### 🚧 Fase 2 — Auditoría extendida (próximo)
-- `m-code-auditor` ⭐ (siguiente)
-- `sql-code-auditor`
-- `pbir-report-auditor`
+### 🚧 Fase 2 — Auditoría extendida (en curso)
+- ✅ `m-code-auditor` — completado
+- 🔜 `sql-code-auditor` (siguiente)
+- ⏳ `pbir-report-auditor`
 
 ### 🔜 Fase 3 — Enriquecimiento
 - `m-code-formatter`, `sql-code-formatter`

@@ -114,18 +114,23 @@ Revisa calidad del modelo: naming, descriptions, relaciones, DAX.
 - **Input:** `powerbi-project/` + `model_context.json`
 - **Output:** `outputs/audit/semantic_model_{audit.md, findings.json}` con **scoring dual** (estructural + documentación)
 
-#### 4. `m-code-auditor` ⭐ NUEVO
+#### 4. `m-code-auditor` ✅ IMPLEMENTADO
 
 > Revisa calidad de Power Query (M). **No optimiza** — solo detecta.
 
-- **Input:** `model_context.json` (expresiones M extraídas)
-- **Output:** `outputs/audit/m_review.md` + findings
+- **Input:** `model_context.json` + lectura de expresiones M desde `.tmdl`
+- **Output:** `outputs/audit/<proyecto>_m_review.{md,json}`
 - **Qué detecta:**
-  - Steps con nombres default (`#"Changed Type"`, `#"Changed Type1"`)
-  - Uso de `Table.Buffer` innecesario
-  - Hardcoded values (deberían ser parámetros)
-  - Anidación excesiva (>15 steps sin `let` intermedios)
-  - Patrones que rompen query folding (`Table.SelectRows` con funciones custom)
+  - Steps con nombres default ES/EN (`#"Tipo cambiado"`, `#"Changed Type"`)
+  - Múltiples steps numerados con mismo prefijo
+  - Uso de `Table.Buffer` (advertencia, no error)
+  - Fechas hardcodeadas (candidatos a parámetros)
+  - Anidación excesiva (>15 steps sin sub-lets)
+  - Falta de comentarios `//` en M complejo
+  - Ausencia de anotación `// Data Steward:` (convención Promerica)
+  - Conversión de tipos post-`Sql.Database` (afecta query folding)
+- **Excepciones:** no reporta `Source`/`Origen`/`Navigation` (nombres estándar de PQ)
+- **Validado en RPAUT084:** score 60/100, 18 hallazgos accionables
 
 #### 5. `sql-code-auditor` ⭐ NUEVO
 
@@ -359,10 +364,10 @@ outputs/
 2. Auditores existentes adaptados para consumir `model_context.json` ✅
 3. Scoring dual (estructural + documentación) ✅
 
-### 🔜 Fase 2 — Auditoría extendida
-3. `m-code-auditor` ⭐ (próximo)
-4. `sql-code-auditor`
-5. `pbir-report-auditor`
+### 🚧 Fase 2 — Auditoría extendida (en curso)
+3. ✅ `m-code-auditor` — implementado
+4. 🔜 `sql-code-auditor` (siguiente)
+5. ⏳ `pbir-report-auditor`
 
 ### 🔮 Fase 3 — Enriquecimiento
 6. `m-code-formatter`
