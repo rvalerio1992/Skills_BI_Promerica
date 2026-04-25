@@ -177,8 +177,9 @@ El Source Lineage Auditor clasifica cada tabla según su origen:
 - ✅ `sql-code-auditor` — auditor de SQL embebido
 - ✅ `pbir-report-auditor` — auditor del reporte (páginas, visuales, bookmarks)
 
-### 🔜 Fase 3 — Enriquecimiento
-- `m-code-formatter`, `sql-code-formatter`
+### 🚧 Fase 3 — Enriquecimiento (en curso)
+- ✅ `m-code-formatter` — agente diseñado, listo para probar
+- ⏳ `sql-code-formatter` — pendiente
 
 ### 🚀 Fase 4 — Producción
 - `measure-generator`, `custom-visual-builder`, `multi-report-aggregator`

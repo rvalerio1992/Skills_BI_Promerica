@@ -169,21 +169,40 @@ Documenta modelo semántico: description, displayFolder, formatString.
 - **NUNCA toca:** nombres, DAX, relaciones, particiones
 - **Confianza etiquetada:** alta / media / baja / TODO
 
-#### 8. `m-code-formatter` ⭐ NUEVO
+#### 8. `m-code-formatter` ✅ DISEÑADO (pendiente validación)
 
-> Mejora **legibilidad** del Power Query sin cambiar lógica.
+> **Refactorizador SAFE** del Power Query. Pule estilo, naming y documentación
+> SIN cambiar comportamiento, granularidad ni tipos.
 
-- **Input:** `model_context.json` + findings de `m-code-auditor`
-- **Output:** `outputs/formatted-m/<tabla>.tmdl` + diffs
-- **Lo que SÍ hace:**
-  - Renombrar steps: `#"Changed Type"` → `#"TipoCambiado_Fechas"`
-  - Indentación consistente
-  - Agregar comentarios `//` por step clave
-  - Alinear `let ... in`
-- **Lo que NUNCA hace:**
-  - Cambiar orden de steps (altera resultado)
-  - Eliminar steps redundantes (pueden tener efecto sutil)
-  - Reemplazar funciones por "equivalentes"
+- **Input:** archivos `.tmdl` con expresiones M (consume `model_context.json` para validar)
+- **Output:** `outputs/m-formatted/<archivo>/` con `.m`, `.diff`, `.md`
+- **Modo:** DRY-RUN por defecto, APLICAR solo con confirmación explícita
+
+**Reglas no negociables (8):**
+1. NO renombrar columnas finales
+2. NO eliminar columnas existentes
+3. NO cambiar tipos de datos
+4. NO cambiar granularidad (joins, group by, distinct)
+5. NO cambiar lógica de filtros
+6. NO hardcodear credenciales
+7. NO introducir optimizaciones riesgosas
+8. NO reordenar steps que afecten **query folding** (clave para performance)
+
+**Lo que SÍ hace (con niveles de confianza 🟢🟡🟠):**
+- 🟢 Renombrar steps default (`#"Tipo cambiado"` → `NormalizarTipos`) en PascalCase
+- 🟢 Estandarizar keywords SQL embebido (`select` → `SELECT`)
+- 🟢 Agregar `// [DATA-STEWARD]` (convención Promerica) al inicio
+- 🟡 Consolidar múltiples `#"Tipo cambiado1/2/3"`
+- 🟡 Agregar comentarios `[WHY]` `[HOW]` `[PERF]` `[RISK]` `[TODO]` `[HACK]`
+- 🟠 Solo sugerir (NO aplicar): cambios cerca de `Value.NativeQuery`, parámetros M dinámicos
+
+**Excepciones de naming (NO renombrar):**
+- `Source` / `Origen` (step inicial estándar)
+- `Navigation` / `Navegación` (segundo step estándar)
+
+**Renombrado atómico:** si renombrás un step, renombrás TODAS sus referencias.
+
+**Anti-patterns bancarios reconocidos:** múltiples `#"Tipo cambiado"`, fechas hardcodeadas, schemas Bronze/Silver consumidos directo, falta de `[DATA-STEWARD]`.
 
 #### 9. `sql-code-formatter` ⭐ NUEVO
 
@@ -369,9 +388,9 @@ outputs/
 4. ✅ `sql-code-auditor` — implementado
 5. ✅ `pbir-report-auditor` — implementado
 
-### 🔮 Fase 3 — Enriquecimiento
-6. `m-code-formatter`
-7. `sql-code-formatter`
+### 🚧 Fase 3 — Enriquecimiento (en curso)
+6. ✅ `m-code-formatter` — diseñado, listo para validar en Project/VS Code
+7. ⏳ `sql-code-formatter` — pendiente
 
 ### 🎨 Fase 4 — Producción
 8. `measure-generator` (fusionar con `dax-reviewer`)

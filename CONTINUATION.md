@@ -23,6 +23,16 @@ Este documento resume el **estado actual** del sistema de agentes BI de Banco Pr
 - ✅ `sql-code-auditor` — implementado y probado (score 92/100 en RPAUT084)
 - ✅ `pbir-report-auditor` — implementado y probado (score 94/100 en RPAUT084)
 
+### 🚧 Fase 3 — Enriquecimiento (en curso)
+- ✅ `m-code-formatter` — agente diseñado, listo para probar en Project/VS Code
+  - DRY-RUN por defecto
+  - 8 reglas no negociables (incluye query folding awareness)
+  - Niveles de confianza 🟢🟡🟠 por cambio
+  - Naming PascalCase, excepción para `Source`/`Origen`
+  - Renombrado atómico de referencias
+  - 8 tags de comentario incluyendo `[DATA-STEWARD]` (convención Promerica)
+- ⏳ `sql-code-formatter` — pendiente de diseño
+
 ### 🎨 Agentes de Producción (Capa 4)
 - ✅ `html-measure-generator` — generador de medidas DAX con HTML para visual "HTML Content" (Daniel Marsh-Patrick). 8 templates parametrizados con paleta Promerica.
 
