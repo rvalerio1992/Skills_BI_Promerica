@@ -18,10 +18,10 @@ Este documento resume el **estado actual** del sistema de agentes BI de Banco Pr
 - Bug fix: `location` en findings siempre con extensión `.tmdl`
 - Multi-proyecto por diseño
 
-### 🚧 Fase 2 — Auditoría extendida
+### ✅ Fase 2 — Auditoría extendida (COMPLETA)
 - ✅ `m-code-auditor` — implementado y probado (score 60/100 en RPAUT084)
 - ✅ `sql-code-auditor` — implementado y probado (score 92/100 en RPAUT084)
-- ⏳ `pbir-report-auditor` — pendiente
+- ✅ `pbir-report-auditor` — implementado y probado (score 94/100 en RPAUT084)
 
 ### 🎨 Agentes de Producción (Capa 4)
 - ✅ `html-measure-generator` — generador de medidas DAX con HTML para visual "HTML Content" (Daniel Marsh-Patrick). 8 templates parametrizados con paleta Promerica.

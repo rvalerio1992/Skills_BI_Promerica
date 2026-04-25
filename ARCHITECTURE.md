@@ -364,10 +364,10 @@ outputs/
 2. Auditores existentes adaptados para consumir `model_context.json` ✅
 3. Scoring dual (estructural + documentación) ✅
 
-### 🚧 Fase 2 — Auditoría extendida (en curso)
+### ✅ Fase 2 — Auditoría extendida (completa)
 3. ✅ `m-code-auditor` — implementado
-4. 🔜 `sql-code-auditor` (siguiente)
-5. ⏳ `pbir-report-auditor`
+4. ✅ `sql-code-auditor` — implementado
+5. ✅ `pbir-report-auditor` — implementado
 
 ### 🔮 Fase 3 — Enriquecimiento
 6. `m-code-formatter`

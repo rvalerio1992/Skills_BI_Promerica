@@ -1,0 +1,46 @@
+{
+  "audit_date": "2026-04-25",
+  "project": "RPAUT084",
+  "context_cross_validation": true,
+  "score": 94,
+  "summary": {
+    "pages_total": 7,
+    "pages_visible": 4,
+    "pages_hidden": 3,
+    "visuals_total": 251,
+    "visuals_data": 144,
+    "visuals_decorative": 81,
+    "visuals_groups": 26,
+    "bookmarks_total": 13,
+    "total_findings": 2,
+    "by_severity": {
+      "mejora": 2
+    },
+    "by_rule": {
+      "PBIR-PAGE-DUPLICATE-NAME": 1,
+      "PBIR-HIDDEN-DUPLICATE-PAGE": 1
+    }
+  },
+  "findings": [
+    {
+      "id": "PBIR-001",
+      "severity": "mejora",
+      "rule": "PBIR-PAGE-DUPLICATE-NAME",
+      "location": "pages/05d24585fb1022c55cf8/page.json",
+      "description": "Página 'Duplicado de Top Variaciones' parece ser duplicado o borrador olvidado",
+      "recommendation": "Eliminar si es borrador, renombrar si es válida",
+      "page_displayname": "Duplicado de Top Variaciones",
+      "visibility": "HiddenInViewMode"
+    },
+    {
+      "id": "PBIR-002",
+      "severity": "mejora",
+      "rule": "PBIR-HIDDEN-DUPLICATE-PAGE",
+      "location": "pages/05d24585fb1022c55cf8/page.json",
+      "description": "Página oculta 'Duplicado de Top Variaciones' con 14 visuales, sin bookmarks activos — probable borrador olvidado",
+      "recommendation": "Revisar si debe eliminarse, publicarse o agregar bookmark que la use",
+      "page_displayname": "Duplicado de Top Variaciones",
+      "visuals_count": 14
+    }
+  ]
+}

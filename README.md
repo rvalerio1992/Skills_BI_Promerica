@@ -172,10 +172,10 @@ El Source Lineage Auditor clasifica cada tabla según su origen:
 - Scoring dual (estructural + documentación)
 - Skill `tmdl-parser` con patrones regex de referencia
 
-### 🚧 Fase 2 — Auditoría extendida (en curso)
-- ✅ `m-code-auditor` — completado
-- 🔜 `sql-code-auditor` (siguiente)
-- ⏳ `pbir-report-auditor`
+### ✅ Fase 2 — Auditoría extendida (completa)
+- ✅ `m-code-auditor` — auditor de Power Query
+- ✅ `sql-code-auditor` — auditor de SQL embebido
+- ✅ `pbir-report-auditor` — auditor del reporte (páginas, visuales, bookmarks)
 
 ### 🔜 Fase 3 — Enriquecimiento
 - `m-code-formatter`, `sql-code-formatter`
