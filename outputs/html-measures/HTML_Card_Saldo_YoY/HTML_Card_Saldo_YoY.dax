@@ -1,0 +1,33 @@
+// ═══════════════════════════════════════════════════════════
+// HTML_Card_Saldo_YoY
+// Template: kpi-card (html-dax-patterns)
+// Generado por: html-measure-generator
+// Fecha: 2026-04-25
+// ═══════════════════════════════════════════════════════════
+// Muestra el Saldo actual con comparativo YoY con color según signo.
+// Para usar con visual "HTML Content" (Daniel Marsh-Patrick).
+
+HTML_Card_Saldo_YoY = 
+VAR _Saldo = [Saldo]
+VAR _YoY = [1_YoY_%]
+
+// Colores Promerica según signo
+VAR _VerdeOK = "#006338"
+VAR _RojoKO = "#A20000"
+VAR _GrisLabel = "#A6A6A6"
+VAR _ColorYoY = IF(_YoY >= 0, _VerdeOK, _RojoKO)
+VAR _Flecha = IF(_YoY >= 0, "▲", "▼")
+
+RETURN
+  "<div style='font-family:Segoe UI; padding:12px; border-radius:8px; " &
+    "background:#FFFFFF; border-left:4px solid " & _VerdeOK & "; " &
+    "box-shadow:0 2px 4px rgba(0,0,0,0.08); max-width:280px;'>" &
+  "<div style='font-size:11px; color:" & _GrisLabel & "; " &
+    "text-transform:uppercase; letter-spacing:0.5px;'>Saldo Actual</div>" &
+  "<div style='font-size:24px; font-weight:700; color:#000000; " &
+    "margin-top:4px;'>" & FORMAT(_Saldo, "$#,0") & "</div>" &
+  "<div style='font-size:12px; color:" & _ColorYoY & "; " &
+    "margin-top:6px; font-weight:600;'>" &
+    _Flecha & " " & FORMAT(_YoY, "0.0%") & " vs año anterior" &
+  "</div>" &
+  "</div>"

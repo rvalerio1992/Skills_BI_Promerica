@@ -23,6 +23,9 @@ Este documento resume el **estado actual** del sistema de agentes BI de Banco Pr
 - ✅ `sql-code-auditor` — implementado y probado (score 92/100 en RPAUT084)
 - ⏳ `pbir-report-auditor` — pendiente
 
+### 🎨 Agentes de Producción (Capa 4)
+- ✅ `html-measure-generator` — generador de medidas DAX con HTML para visual "HTML Content" (Daniel Marsh-Patrick). 8 templates parametrizados con paleta Promerica.
+
 ### 🔮 Fases 3 y 4 — Pendientes
 - `m-code-formatter`, `sql-code-formatter`
 - `measure-generator`, `custom-visual-builder`, `multi-report-aggregator`
